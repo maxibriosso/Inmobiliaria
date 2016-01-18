@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Usuario;
-use app\models\UsuarioSearch;
+use app\models\Ciudad;
+use app\models\CiudadSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * UsuarioController implements the CRUD actions for Usuario model.
+ * CiudadController implements the CRUD actions for Ciudad model.
  */
-class UsuarioController extends Controller
+class CiudadController extends Controller
 {
     public function behaviors()
     {
@@ -23,28 +23,16 @@ class UsuarioController extends Controller
                     'delete' => ['post'],
                 ],
             ],
-            'access' => [
-                        'class' => \yii\filters\AccessControl::className(),
-                        'only' => ['index','create','update','view','delete'],
-                        'rules' => [
-                            // allow authenticated users
-                            [
-                                'allow' => true,
-                                'roles' => ['@'],
-                            ],
-                            // everything else is denied
-                        ],
-                    ],
         ];
     }
 
     /**
-     * Lists all Usuario models.
+     * Lists all Ciudad models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new UsuarioSearch();
+        $searchModel = new CiudadSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -54,7 +42,7 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Displays a single Usuario model.
+     * Displays a single Ciudad model.
      * @param integer $id
      * @return mixed
      */
@@ -66,13 +54,13 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Creates a new Usuario model.
+     * Creates a new Ciudad model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Usuario();
+        $model = new Ciudad();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -84,7 +72,7 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Updates an existing Usuario model.
+     * Updates an existing Ciudad model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -103,7 +91,7 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Deletes an existing Usuario model.
+     * Deletes an existing Ciudad model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -116,15 +104,15 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Finds the Usuario model based on its primary key value.
+     * Finds the Ciudad model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Usuario the loaded model
+     * @return Ciudad the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Usuario::findOne($id)) !== null) {
+        if (($model = Ciudad::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

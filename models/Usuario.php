@@ -3,22 +3,37 @@
 namespace app\models;
 
 use Yii;
+use yii\base\NotSupportedException;
+use yii\db\ActiveRecord;
+use yii\helpers\Security;
+use yii\web\IdentityInterface;
+
 
 /**
- * This is the model class for table "{{%usuario}}".
+ * This is the model class for table "usuario".
  *
- * @property integer $idusuario
- * @property string $nombre_usuario
- * @property string $clave
+ * @property integer $id
+ * @property string $nombre
+ * @property string $apellido
+ * @property integer $ci
+ * @property integer $telefono
+ * @property string $email
+ * @property string $nick
+ * @property string $password
+ * @property string $fecha_nacimiento
+ * @property integer $estado
+ * @property string $fecha_creacion
+ *
+ * @property Inmueble[] $inmuebles
  */
-class Usuario extends \yii\db\ActiveRecord
+class Usuario extends \yii\db\ActiveRecord 
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%usuario}}';
+        return 'usuario';
     }
 
     /**
@@ -27,8 +42,13 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre_usuario', 'clave'], 'required'],
-            [['nombre_usuario', 'clave'], 'string', 'max' => 45]
+            [['ci', 'telefono', 'estado'], 'integer'],
+            [['nick', 'password', 'estado'], 'required'],
+            [['fecha_nacimiento', 'fecha_creacion'], 'safe'],
+            [['nombre', 'apellido'], 'string', 'max' => 20],
+            [['email'], 'string', 'max' => 50],
+            [['nick'], 'string', 'max' => 15],
+            [['password'], 'string', 'max' => 255]
         ];
     }
 
@@ -38,9 +58,29 @@ class Usuario extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idusuario' => 'Idusuario',
-            'nombre_usuario' => 'Nombre Usuario',
-            'clave' => 'Clave',
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'apellido' => 'Apellido',
+            'ci' => 'Ci',
+            'telefono' => 'Telefono',
+            'email' => 'Email',
+            'nick' => 'Nick',
+            'password' => 'Password',
+            'fecha_nacimiento' => 'Fecha Nacimiento',
+            'estado' => 'Estado',
+            'fecha_creacion' => 'Fecha Creacion',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getInmuebles()
+    {
+        return $this->hasMany(Inmueble::className(), ['id_usuario' => 'id']);
+    }
+
+
+
+    
 }

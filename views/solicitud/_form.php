@@ -4,29 +4,23 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Usuario */
+/* @var $model app\models\Solicitud */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="usuario-form">
+<div class="solicitud-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'apellido')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'ci')->textInput() ?>
-
-    <?= $form->field($model, 'telefono')->textInput() ?>
+    <?= $form->field($model, 'telefono')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'nick')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'descripcion')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'fecha_nacimiento')->textInput() ?>
+    <?= $form->field($model, 'tipo')->dropDownList([ 'Solicitud Informacion' => 'Solicitud Informacion', 'Solicitud Publicacion' => 'Solicitud Publicacion', 'Admin' => 'Admin', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'estado')->textInput() ?>
 

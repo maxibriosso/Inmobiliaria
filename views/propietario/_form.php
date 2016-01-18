@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Usuario */
+/* @var $model app\models\Propietario */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="usuario-form">
+<div class="propietario-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -16,21 +16,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'apellido')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ci')->textInput() ?>
-
     <?= $form->field($model, 'telefono')->textInput() ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'nick')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'fecha_nacimiento')->textInput() ?>
+    <?= $form->field($model, 'ci')->textInput() ?>
 
     <?= $form->field($model, 'estado')->textInput() ?>
 
-    <?= $form->field($model, 'fecha_creacion')->textInput() ?>
+    <!--<?= $form->field($model, 'fecha_creacion')->textInput() ?>-->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
