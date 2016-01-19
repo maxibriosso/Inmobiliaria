@@ -58,10 +58,10 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     {
 
         $users = Usuario::find()
-                ->Where("nombre=:nombre", [":nombre" => $username])
+                ->Where("nick=:nick", [":nick" => $username])
                 ->all();
         foreach ($users as $user) {
-            if (strcasecmp($user->nombre, $username) === 0) {
+            if (strcasecmp($user->nick, $username) === 0) {
                 return new static($user);
             }
         }
