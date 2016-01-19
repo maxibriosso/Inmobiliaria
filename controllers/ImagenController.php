@@ -67,19 +67,19 @@ class ImagenController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             
-           
-            if(!empty($_FILES['Imagen']['tmp_name']['imagen'])){
+            $model->imagen = UploadedFile::getInstance($model, 'imagen');
+            /*if(!empty($_FILES['Imagen']['tmp_name']['imagen'])){
 
             $file = UploadedFile::getInstance($model, 'imagen');
             $fp   = fopen($file->tempName, 'r');
             $content = fread($fp, filesize($file->tempName));
             fclose($fp); 
             $model->imagen= $content;  
-            }
+            }*/
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
             // $model->ruta= $model->imagen->baseName . '.' . $model->imagen->extension; 
-            
+                
             
         } else {
             return $this->render('create', [
