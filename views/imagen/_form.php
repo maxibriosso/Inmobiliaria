@@ -19,7 +19,10 @@ use app\models\Inmueble;
     <!--<?= $form->field($model, 'id_inmueble')->textInput() ?>-->
     <?= $form->field($model, 'id_inmueble')->dropDownList(ArrayHelper::map(Inmueble::find()->all(), 'id', 'nombre'))?>
 
-    <?= $form->field($model, "imagen")->fileInput() ?>
+  
+    <?= $form->field($model, 'imagen')->fileInput() ?>
+
+
 
     <?= $form->field($model, 'destacada')->textInput() ?>
 

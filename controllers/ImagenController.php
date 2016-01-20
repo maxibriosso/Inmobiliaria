@@ -18,13 +18,25 @@ class ImagenController extends Controller
 {
     public function behaviors()
     {
-        return [
+         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
             ],
+            'access' => [
+                        'class' => \yii\filters\AccessControl::className(),
+                        'only' => ['index','create','update','view','delete'],
+                        'rules' => [
+                            // allow authenticated users
+                            [
+                                'allow' => true,
+                                'roles' => ['@'],
+                            ],
+                            // everything else is denied
+                        ],
+                    ],
         ];
     }
 

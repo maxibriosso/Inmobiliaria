@@ -16,13 +16,25 @@ class InmuebleController extends Controller
 {
     public function behaviors()
     {
-        return [
+         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
             ],
+            'access' => [
+                        'class' => \yii\filters\AccessControl::className(),
+                        'only' => ['index','create','update','view','delete'],
+                        'rules' => [
+                            // allow authenticated users
+                            [
+                                'allow' => true,
+                                'roles' => ['@'],
+                            ],
+                            // everything else is denied
+                        ],
+                    ],
         ];
     }
 
@@ -61,6 +73,7 @@ class InmuebleController extends Controller
     public function actionCreate()
     {
         $model = new Inmueble();
+        $model->id_usuario = \Yii::$app->user->identity->id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

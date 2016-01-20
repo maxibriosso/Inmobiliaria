@@ -20,7 +20,7 @@ use app\models\Usuario;
     <?= $form->field($model, 'id_barrio')->dropDownList(ArrayHelper::map(Barrio::find()->all(), 'id', 'nombre'))?>
 
     <!--<?= $form->field($model, 'id_usuario')->textInput() ?>-->
-    <?= $form->field($model, 'id_usuario')->dropDownList(ArrayHelper::map(Usuario::find()->all(), 'id', 'nombre'))?>
+    <!--<?= $form->field($model, 'id_usuario')->dropDownList(ArrayHelper::map(Usuario::find()->all(), 'id', 'nombre'))?>-->
 
     <!--<?= $form->field($model, 'id_propietario')->textInput() ?>-->
     <?= $form->field($model, 'id_propietario')->dropDownList(ArrayHelper::map(Propietario::find()->all(), 'id', 'nombre'))?>
@@ -37,19 +37,25 @@ use app\models\Usuario;
 
     <?= $form->field($model, 'descripcion')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'amueblado')->textInput() ?>
+    <!--<?= $form->field($model, 'amueblado')->textInput() ?>-->
+    <?= $form->field($model, 'amueblado')->checkbox(); ?>
 
-    <?= $form->field($model, 'garage')->textInput() ?>
 
-    <?= $form->field($model, 'jardin')->textInput() ?>
+    <!--<?= $form->field($model, 'garage')->textInput() ?>-->
+    <?= $form->field($model, 'garage')->checkbox(); ?>
 
-    <?= $form->field($model, 'parrillero')->textInput() ?>
+    <!--<?= $form->field($model, 'jardin')->textInput() ?>-->
+    <?= $form->field($model, 'jardin')->checkbox(); ?>
+
+    <!--<?= $form->field($model, 'parrillero')->textInput() ?>-->
+     <?= $form->field($model, 'parrillero')->checkbox(); ?>
 
     <?= $form->field($model, 'piso')->textInput() ?>
 
     <?= $form->field($model, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'prestamo_bancario')->textInput() ?>
+    <!-- <?= $form->field($model, 'prestamo_bancario')->textInput() ?>-->
+    <?= $form->field($model, 'prestamo_bancario')->checkbox(); ?>
 
     <?= $form->field($model, 'cantidad_banios')->textInput() ?>
 
@@ -61,11 +67,14 @@ use app\models\Usuario;
 
     <?= $form->field($model, 'operacion')->dropDownList([ 'Compra' => 'Compra', 'Alquiler' => 'Alquiler', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'destacado')->textInput() ?>
+    <!--<?= $form->field($model, 'destacado')->textInput() ?>-->
+    <?= $form->field($model, 'destacado')->checkbox(); ?>
 
-    <?= $form->field($model, 'favorito')->textInput() ?>
+    <!--<?= $form->field($model, 'favorito')->textInput() ?>-->
+    <?= $form->field($model, 'favorito')->checkbox(); ?>
 
-    <?= $form->field($model, 'activo')->textInput() ?>
+    <!--<?= $form->field($model, 'activo')->textInput() ?>-->
+    <?= $form->field($model, 'activo')->checkbox(); ?>
 
     <!--<?= $form->field($model, 'fecha_creacion')->textInput() ?>-->
 

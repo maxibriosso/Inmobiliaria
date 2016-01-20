@@ -40,7 +40,7 @@ class Imagen extends \yii\db\ActiveRecord
         return [
             [['id_inmueble', 'estado'], 'required'],
             [['id_inmueble', 'destacada', 'estado'], 'integer'],
-            [['imagen'], 'image', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['imagen'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
             [['imagen'], 'safe'],
             [['fecha_creacion'], 'safe'],
             [['ruta', 'descripcion'], 'string', 'max' => 255],
@@ -80,12 +80,12 @@ class Imagen extends \yii\db\ActiveRecord
         {
             $this->ruta=$file->name;
           
-           // $this->imagen=fopen($file->tempName, 'r+');
+           /*$this->imagen=fopen($file->tempName, 'r+');*/
             $this->imagen = file_get_contents( $file->tempName );
-            /*$fp   = fopen($file->tempName, 'r');
+           /* $fp   = fopen($file->tempName, 'r');
             $content = fread($fp, filesize($file->tempName));
             fclose($fp); 
-            $this->imagen= $content;*/ 
+            $this->imagen= $content; */
         }
  
     return parent::beforeSave($insert);
