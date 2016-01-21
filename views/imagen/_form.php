@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+use kartik\file\FileInput;
 use app\models\Inmueble;
 
 /* @var $this yii\web\View */
@@ -20,7 +21,10 @@ use app\models\Inmueble;
     <?= $form->field($model, 'id_inmueble')->dropDownList(ArrayHelper::map(Inmueble::find()->all(), 'id', 'nombre'))?>
 
   
-    <?= $form->field($model, 'imagen')->fileInput() ?>
+    <!--<?= $form->field($model, 'imagen')->fileInput() ?>-->
+   <?php echo $form->field($model, 'imagen[]')->widget(FileInput::classname(), [
+    'options' => ['accept' => 'image/*' , 'multiple'=>true],
+    ]); ?>
 
 
 

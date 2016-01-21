@@ -40,7 +40,7 @@ class Imagen extends \yii\db\ActiveRecord
         return [
             [['id_inmueble', 'estado'], 'required'],
             [['id_inmueble', 'destacada', 'estado'], 'integer'],
-            [['imagen'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['imagen'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxFiles' => 4],
             [['imagen'], 'safe'],
             [['fecha_creacion'], 'safe'],
             [['ruta', 'descripcion'], 'string', 'max' => 255],
@@ -74,21 +74,45 @@ class Imagen extends \yii\db\ActiveRecord
         return $this->hasOne(Inmueble::className(), ['id' => 'id_inmueble']);
     }
 
-    public function beforeSave($insert)
+/*    public function upload()
+    {
+        if ($this->validate()) { 
+            foreach ($this->imagen as $file) {
+                
+                $ext = end((explode(".", $file->name)));
+
+                // generate a unique file name
+                $file->ruta = Yii::$app->security->generateRandomString().".{$ext}";
+           
+                $file->saveAs('uploads/' . $file->ruta);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }*/
+
+    /*public function beforeSave($insert)
     {
         if($file=UploadedFile::getInstance($this,'imagen'))
         {
-            $this->ruta=$file->name;
+            
+            $ext = end((explode(".", $file->name)));
+
+            // generate a unique file name
+            $this->ruta = Yii::$app->security->generateRandomString().".{$ext}";
+           
+            $this->imagen->saveAs('uploads/' . $this->ruta);
           
            /*$this->imagen=fopen($file->tempName, 'r+');*/
-            $this->imagen = file_get_contents( $file->tempName );
+            //$this->imagen = file_get_contents( $file->tempName );
            /* $fp   = fopen($file->tempName, 'r');
             $content = fread($fp, filesize($file->tempName));
             fclose($fp); 
-            $this->imagen= $content; */
+            $this->imagen= $content; 
         }
  
     return parent::beforeSave($insert);
-    }
+    }*/
     
 }

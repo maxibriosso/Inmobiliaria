@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use app\models\Inmueble;
+
 
 
 /**
@@ -79,20 +81,37 @@ class ImagenController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             
-            $model->imagen = UploadedFile::getInstance($model, 'imagen');
-            /*if(!empty($_FILES['Imagen']['tmp_name']['imagen'])){
+            $model->imagen = UploadedFile::getInstances($model, 'imagen');
+            $inmueble = Inmueble::findOne($model->id_inmueble);
+            if($model->validate()){
+                $a=0;
+                foreach ($model->imagen as $file) {
+                   
+                    $nuevaImagen  = new Imagen();
 
-            $file = UploadedFile::getInstance($model, 'imagen');
-            $fp   = fopen($file->tempName, 'r');
-            $content = fread($fp, filesize($file->tempName));
-            fclose($fp); 
-            $model->imagen= $content;  
-            }*/
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
-            // $model->ruta= $model->imagen->baseName . '.' . $model->imagen->extension; 
+                    $ext = end((explode(".", $file->name)));
+
+                    // generate a unique file name
+                    $path =  Yii::$app->security->generateRandomString().".{$ext}";
+                    
+                    $nuevaImagen->id_inmueble = $model->id_inmueble;
+                    $nuevaImagen->ruta = $path;
+                    $nuevaImagen->titulo = $model->titulo;
+                    $nuevaImagen->descripcion = $model->descripcion;
+                    $nuevaImagen->destacada = $model->destacada;
+                    $nuevaImagen->estado = $model->estado;
+
+                    if($nuevaImagen->save(false)){
+                        $file->saveAs('uploads/' . $path);
+                    }
                 
-            
+                }
+                 return $this->redirect(['view', 'id' => $nuevaImagen->id]);
+            }
+
+
+            //$model->save();
+            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
