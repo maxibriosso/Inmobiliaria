@@ -9,7 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
-use app\models\Inmueble;
+
 
 
 
@@ -78,35 +78,43 @@ class ImagenController extends Controller
     {
 
         $model = new Imagen();
+        $model->estado = 1;
 
         if ($model->load(Yii::$app->request->post())) {
             
             $model->imagen = UploadedFile::getInstances($model, 'imagen');
-            $inmueble = Inmueble::findOne($model->id_inmueble);
+            
             if($model->validate()){
                 $a=0;
                 foreach ($model->imagen as $file) {
-                   
-                    $nuevaImagen  = new Imagen();
 
                     $ext = end((explode(".", $file->name)));
 
                     // generate a unique file name
                     $path =  Yii::$app->security->generateRandomString().".{$ext}";
                     
-                    $nuevaImagen->id_inmueble = $model->id_inmueble;
-                    $nuevaImagen->ruta = $path;
-                    $nuevaImagen->titulo = $model->titulo;
-                    $nuevaImagen->descripcion = $model->descripcion;
-                    $nuevaImagen->destacada = $model->destacada;
-                    $nuevaImagen->estado = $model->estado;
+                    $connection = new \yii\db\Connection([
+                    'dsn' => 'mysql:host=localhost;dbname=inmobiliaria',
+                    'username' => 'root',
+                    'password' =>  '',
+                            ]);
+                    $connection->open();
+                    $connection->createCommand()->insert('imagen', [
+                    'id_inmueble' => (int)$model->id_inmueble,
+                    'imagen' => file_get_contents( $file->tempName ),
+                    'destacada' => (int)$model->destacada,
+                    'ruta' => $path,
+                    'titulo' => $model->titulo,
+                    'descripcion' => $model->descripcion,
+                    'estado' => 1,])
+                    ->execute();
 
-                    if($nuevaImagen->save(false)){
-                        $file->saveAs('uploads/' . $path);
-                    }
+
                 
                 }
-                 return $this->redirect(['view', 'id' => $nuevaImagen->id]);
+
+                $insert_id =  $connection->getLastInsertID();
+                 return $this->redirect(['view', 'id' => $insert_id]);
             }
 
 

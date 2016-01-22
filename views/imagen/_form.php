@@ -24,11 +24,17 @@ use app\models\Inmueble;
     <!--<?= $form->field($model, 'imagen')->fileInput() ?>-->
    <?php echo $form->field($model, 'imagen[]')->widget(FileInput::classname(), [
     'options' => ['accept' => 'image/*' , 'multiple'=>true],
+    'pluginOptions' => [
+        'showUpload' => false,
+        'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
+        'browseLabel' =>  'Imagen'
+    ]
     ]); ?>
 
 
 
-    <?= $form->field($model, 'destacada')->textInput() ?>
+    <!--<?= $form->field($model, 'destacada')->textInput() ?>-->
+    <?= $form->field($model, 'destacada')->checkbox(); ?>
 
     <!--<?= $form->field($model, 'ruta')->textInput(['maxlength' => true]) ?>-->
 
@@ -36,7 +42,7 @@ use app\models\Inmueble;
 
     <?= $form->field($model, 'descripcion')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'estado')->textInput() ?>
+    <!--<?= $form->field($model, 'estado')->textInput() ?>-->
 
     <!--<?= $form->field($model, 'fecha_creacion')->textInput() ?>-->
 
