@@ -123,7 +123,7 @@ AppAsset::register($this);
           <div id="sidebar" class="nav-collapse ">
               <ul class="sidebar-menu-fixed" id="nav-accordion2">
                     <li class="mt">
-                        <a class="" href="index.html">
+                        <a class="" href="<?= Url::to(['site/index']) ?>">
                             <i class="fa fa-dashboard"></i>
                             <span>Dashboard</span>
                         </a>
@@ -132,12 +132,11 @@ AppAsset::register($this);
                     <li class="sub-menu">
                         <a href="javascript:;" >
                             <i class="fa fa-desktop"></i>
-                            <span>UI Elements</span>
+                            <span>Usuarios</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="tablas.html"><i class="fa fa-dot-circle-o"></i>Tablas</a></li>
-                            <li><a href="#"><i class="fa fa-dot-circle-o"></i>Buttons</a></li>
-                            <li><a href="#"><i class="fa fa-dot-circle-o"></i>Panels</a></li>
+                            <li><a href="<?= Url::to(['usuario/create']) ?>"><i class="fa fa-dot-circle-o"></i>Admin</a></li>
+                            <li><a href="<?= Url::to(['usuario/create']) ?>"><i class="fa fa-dot-circle-o"></i>Crear</a></li>
                         </ul>
                     </li>
 
@@ -145,11 +144,11 @@ AppAsset::register($this);
                     <li class="sub-menu">
                         <a href="javascript:;" >
                             <i class=" fa fa-bar-chart-o"></i>
-                            <span>Charts</span>
+                            <span>Inmuebles</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="#"><i class="fa fa-dot-circle-o"></i>Morris</a></li>
-                            <li><a href="#"><i class="fa fa-dot-circle-o"></i>Chartjs</a></li>
+                            <li><a href="<?= Url::to(['inmueble/index']) ?>"><i class="fa fa-dot-circle-o"></i>Admin</a></li>
+                            <li><a href="<?= Url::to(['inmueble/create']) ?>"><i class="fa fa-dot-circle-o"></i>Crear</a></li>
                         </ul>
                     </li>
 
