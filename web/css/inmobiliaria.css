@@ -1,0 +1,245 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,900,700);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+/*
+font-family: 'Roboto', sans-serif;
+font-family: 'Pacifico', cursive;
+*/
+
+body{
+  
+}
+
+#frontend{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  /*background: url(../img/fondo.jpg) no-repeat fixed;*/
+}
+
+.borde{
+  border: 1px solid red;
+}
+.borde1{
+  border: 1px solid blue;
+}
+
+#frontend .nav .open > a, #frontend .nav .open > a:hover, #frontend .nav .open > a:focus {
+  background-color: transparent !important;
+}
+
+/*----------------- HEADER ---------------------*/
+/*----------------------------------------------*/
+
+
+#frontend .navbar-header-index{
+    background-color: transparent !important;
+   
+}
+#frontend .menu-index{
+  margin-top: 20px !important;
+  -webkit-transition: all 0.5s !important;
+  -moz-transition: all 0.5s !important;
+  transition: all 0.5s !important;
+}
+
+#frontend .menu-index li a{
+  letter-spacing: 2px !important;
+  color: white !important;
+}
+#frontend .menu-index li a:hover{
+  color: #E22929 !important;
+}
+#frontend .logo-index{
+  padding: 0 !important;
+}
+#frontend .logo-index h1{
+    font-family: 'Pacifico', cursive !important;
+    color: white !important;
+    -webkit-transition: all 0.5s !important;
+    -moz-transition: all 0.5s !important;
+    transition: all 0.5s !important;
+    font-size: 50px !important;
+}
+#frontend .logo-index img{
+  width: 250px !important;
+  -webkit-transition: all 0.5s !important;
+  -moz-transition: all 0.5s !important;
+  transition: all 0.5s !important;
+}
+
+#frontend .navbar-inmo{
+  border-color:transparent !important;
+ /* background-color: transparent !important;*/
+  background-color: rgba(0,0,0,.3);
+  height: 90px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#frontend .navbar-inmo.activo{
+  height: 60px;
+  background-color: black !important;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#frontend .activo.logo-index h1{
+    font-family: 'Pacifico', cursive;
+    font-size: 20px !important;
+    color: white;
+    
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#frontend .activo.logo-index img{
+  width: 150px !important;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#frontend .activo.menu-index{
+  margin-top: 0px !important;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/*----------------- FIN - HEADER ---------------------*/
+/*----------------------------------------------------*/
+
+/*----------------- INDEX ---------------------*/
+/*----------------------------------------------------------*/
+
+
+#frontend .contenido-principal-index{
+/*  min-height: 700px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)),url(../img/fondo-index.jpg); 
+  background-repeat:no-repeat,no-repeat;
+  background-size: cover;*/
+}
+
+#frontend .carousel-caption{
+    text-align: inherit;
+    margin-bottom: 13%;
+}
+#frontend .carousel-caption h1{
+    display: inline;
+    font-size: 59px;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300;
+    background: rgba(225, 225, 225, 0.8);
+    padding: 5px 10px 0px 10px;
+    line-height: 80px; 
+}
+#frontend .sliderTextBox {
+    background: rgba(225, 225, 225, 0.8);
+    padding: 10px 15px 15px 15px;
+    font-size: 19px;
+    display: inline;
+}
+
+/*----------------- FIN - INDEX ---------------------*/
+/*----------------------------------------------------------*/
+
+
+
+/*----------------- BUSCADOR ---------------------*/
+/*----------------------------------------------------------*/
+#frontend .contenedor-buscador{ 
+    margin-top: -68px;
+    position: relative;
+    z-index: 1;
+}
+
+#frontend .buscador{
+    background: black;
+}
+#frontend .form-buscador{
+    display: inline-block;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#frontend .btn-form-buscar{
+    font-family: 'Montserrat', sans-serif;
+    background: transparent !important;
+    border: 1px solid white;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all 0.3s;
+}
+#frontend .btn-form-buscar:focus{
+    outline: none;
+}
+
+#frontend .btn-form-buscar:hover{
+    background: white !important;
+    border: 1px solid white !important;
+    color: black !important;
+    
+    transition: all 0.3s;
+}
+
+
+#frontend .bootstrap-select>.btn {
+	background: #fff;
+	padding: 9px;
+	margin: 0;
+	border: 1px solid #dddddd;
+	display: inline-block;
+	width: 100%;
+	height: 39px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+	color: #9c9c9c;
+	font-weight: normal;
+}
+
+/*----------------- FIN - BUSCADOR ---------------------*/
+/*----------------------------------------------------------*/
+
+/*----------------- MENSAJE ---------------------*/
+/*----------------------------------------------------------*/
+
+#frontend .bigMessage {
+    background: white;
+    padding: 70px 0px 70px 0px;
+}
+#frontend .bigMessage h1 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    margin: 0px;
+}
+#frontend .bigMessage p {
+    font-size: 19px;
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+/*----------------- FIN - MENSAJE ---------------------*/
+/*----------------------------------------------------------*/
+
+/*----------------- FOOTER ---------------------*/
+/*----------------------------------------------------------*/
+#frontend footer{
+    padding-top: 40px;
+}
+
+#frontend #footerwrap{ 
+    color: white;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background: rgba(39,39,39,1);
+}
+#frontend #footerwrap h4 {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
+}
+
+/*----------------- FIN - FOOTER ---------------------*/
+/*----------------------------------------------------------*/
