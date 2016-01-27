@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
         'css/responsive.css',
     ];
     public $js = [
-        //'js/jquery-2.1.4.min.js',
+        'js/jquery-2.1.4.min.js',
         'js/bootstrap.js',
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',
