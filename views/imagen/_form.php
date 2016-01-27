@@ -12,7 +12,7 @@ use app\models\Inmueble;
 /*<?= $form->field($model, 'imagen')->textInput() ?>*/
 ?>
 
-<div class="imagen-form col-md-6">
+<div class="imagen-form">
 
     <?php $form = ActiveForm::begin([
     'options' => ['enctype' => 'multipart/form-data']]) ?>

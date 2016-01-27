@@ -22,18 +22,20 @@ class AppAsset extends AssetBundle
         'css/animate.css',
         'css/font-awesome.css',
         'css/nifty.min.css',
+        'css/fileinput.css',
         'lineicons/style.css',
         'css/estilo.css',
         'css/inmobiliaria.css',
         'css/responsive.css',
     ];
     public $js = [
-        'js/jquery-2.1.4.min.js',
+        //'js/jquery-2.1.4.min.js',
         'js/bootstrap.js',
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',
         'js/wow.min.js',
         'js/bootstrap-select.js',
+        'js/file/fileinput.js',
         'js/inmobiliaria.js',
         'js/admin.js',
     ];
