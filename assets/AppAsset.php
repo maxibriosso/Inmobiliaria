@@ -27,6 +27,8 @@ class AppAsset extends AssetBundle
         'css/estilo.css',
         'css/inmobiliaria.css',
         'css/responsive.css',
+        'css/jquery.steps.css',
+        
     ];
     public $js = [
         'js/jquery-2.1.4.min.js',
@@ -38,9 +40,11 @@ class AppAsset extends AssetBundle
         'js/file/fileinput.js',
         'js/inmobiliaria.js',
         'js/admin.js',
+        'js/jquery.steps.min.js',
+        'js/wizard.js',
     ];
     public $depends = [
-        //'yii\web\YiiAsset',
+        'yii\web\YiiAsset',
         //'yii\bootstrap\BootstrapAsset',
     ];
 }

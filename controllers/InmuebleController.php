@@ -4,10 +4,13 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Inmueble;
+use app\models\Imagen;
 use app\models\InmuebleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+// Para guardar imagenes
+use yii\web\UploadedFile;
 
 /**
  * InmuebleController implements the CRUD actions for Inmueble model.
@@ -73,13 +76,42 @@ class InmuebleController extends Controller
     public function actionCreate()
     {
         $model = new Inmueble();
+        $imagen = new Imagen();
+
         $model->id_usuario = \Yii::$app->user->identity->id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $imagen->load(Yii::$app->request->post())) {
+            
+            if($model->save() && !empty($imagen->imagen)){
+                $imagen->imagen = UploadedFile::getInstances($imagen, 'imagen');
+                $imagen->estado = 1;
+                $imagen->id_inmueble= $model->id;
+        
+                foreach ($imagen->imagen as $file) {
+                    $connection = new \yii\db\Connection([
+                    'dsn' => 'mysql:host=localhost;dbname=inmobiliaria',
+                    'username' => 'root',
+                    'password' =>  '',
+                            ]);
+                    $connection->open();
+                    $connection->createCommand()->insert('imagen', [
+                    'id_inmueble' => (int)$imagen->id_inmueble,
+                    'imagen' => file_get_contents( $file->tempName ),
+                    'destacada' => (int)$model->destacado,
+                    'ruta' => $file->name,
+                    'titulo' => $model->titulo,
+                    'descripcion' => $model->descripcion,
+                    'estado' => $imagen->estado,])
+                    ->execute();
+                }
+                
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'imagen'=> $imagen,
             ]);
         }
     }

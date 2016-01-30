@@ -24,6 +24,7 @@ class BackendAsset extends AssetBundle
         'css/nifty.min.css',
         'lineicons/style.css',
         'css/estilo.css',
+       
     ];
     public $js = [
         'js/bootstrap.js',
@@ -31,6 +32,7 @@ class BackendAsset extends AssetBundle
         'js/jquery.dcjqaccordion.js',
         'js/wow.min.js',
         'js/admin.js',
+        
     ];
     public $depends = [
         'yii\web\YiiAsset',

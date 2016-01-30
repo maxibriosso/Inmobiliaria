@@ -72,9 +72,9 @@ class Inmueble extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_barrio' => 'Id Barrio',
-            'id_usuario' => 'Id Usuario',
-            'id_propietario' => 'Id Propietario',
+            'id_barrio' => 'Barrio',
+            'id_usuario' => 'Usuario',
+            'id_propietario' => 'Propietario',
             'nombre' => 'Nombre',
             'valor' => 'Valor',
             'estado' => 'Estado',

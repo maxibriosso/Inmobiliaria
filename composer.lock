@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1f99c8fc159b6671891141aec9160c14",
+    "hash": "dd6dd1d12f844606450e783c334f571b",
     "content-hash": "97638552f16aac40b062c8dcd634bafd",
     "packages": [
         {
@@ -319,16 +319,16 @@
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
-            "version": "v4.2.9",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "728f6a94cc2a6ea5350b8733835cf444516e40e1"
+                "reference": "cde72929649da55470e0a81a5e85921f80f28f29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/728f6a94cc2a6ea5350b8733835cf444516e40e1",
-                "reference": "728f6a94cc2a6ea5350b8733835cf444516e40e1",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/cde72929649da55470e0a81a5e85921f80f28f29",
+                "reference": "cde72929649da55470e0a81a5e85921f80f28f29",
                 "shasum": ""
             },
             "type": "library",
@@ -368,7 +368,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2016-01-21 19:35:12"
+            "time": "2016-01-25 16:55:20"
         },
         {
             "name": "kartik-v/yii2-krajee-base",

@@ -47,7 +47,6 @@ AppAsset::register($this);
                           <li><a href="#inicio">Inicio</a></li>
                           <li><a href="#aplicacion">Aplicacion</a></li>
                           <li><a href="#equipo">Nosotros</a></li>
-                          <li><a href="#equipo">Nosotros</a></li>
                           <li><a href="<?= Url::to(['site/login']) ?>">Login</a></li>
                       </ul>
                   </div><!--/.nav-collapse -->

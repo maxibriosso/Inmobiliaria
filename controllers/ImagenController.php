@@ -85,7 +85,7 @@ class ImagenController extends Controller
             $model->imagen = UploadedFile::getInstances($model, 'imagen');
             
             if($model->validate()){
-                $a=0;
+                
                 foreach ($model->imagen as $file) {
 
                     $ext = end((explode(".", $file->name)));
