@@ -35,13 +35,14 @@ class AppAsset extends AssetBundle
         'js/bootstrap.js',
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',
+        'js/jquery.steps.min.js',
+        'js/wizard.js',
         'js/wow.min.js',
         'js/bootstrap-select.js',
         'js/file/fileinput.js',
         'js/inmobiliaria.js',
         'js/admin.js',
-        'js/jquery.steps.min.js',
-        'js/wizard.js',
+        
     ];
     public $depends = [
         'yii\web\YiiAsset',
