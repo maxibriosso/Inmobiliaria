@@ -14,6 +14,7 @@ use kartik\file\FileInput;
 /* @var $this yii\web\View */
 /* @var $model app\models\Inmueble */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
     <?php $form = ActiveForm::begin([
@@ -21,7 +22,7 @@ use kartik\file\FileInput;
     'options' => ['enctype' => 'multipart/form-data']]) ?>
 
         <div class="form-group">
-            <h3>Primer Paso</h3>
+            <h3>1</h3>
             <section>
                 <div class="col-md-6">
                     <?= $form->field($model, 'id_barrio')->dropDownList(ArrayHelper::map(Barrio::find()->all(), 'id', 'nombre'))?>
@@ -42,7 +43,7 @@ use kartik\file\FileInput;
 
               
             </section>
-            <h3>Segundo Paso</h3>
+            <h3>2</h3>
             <section>
                 <div class="col-md-6">
                     <?= $form->field($model, 'amueblado')->checkbox(); ?>
@@ -63,7 +64,7 @@ use kartik\file\FileInput;
                     <?= $form->field($model, 'prestamo_bancario')->checkbox(); ?>
                 </div>
             </section>
-            <h3>Ultimo Paso</h3>
+            <h3>3</h3>
             <section>
                 <div class="col-md-6">
                     <?= $form->field($model, 'descripcion')->textarea(['rows' => 6]) ?>
@@ -75,7 +76,7 @@ use kartik\file\FileInput;
                     <?= $form->field($model, 'cantidad_banios')->textInput() ?>                    
                 </div>
                 <div class="col-md-6">
-                    <?= $form->field($model, 'coord')->textarea(['rows' => 6]) ?>
+                    <!--<?= $form->field($model, 'coord')->textarea(['rows' => 6]) ?>-->
 
                     <?= $form->field($model, 'cantidad_habitaciones')->textInput() ?>
 
@@ -95,10 +96,24 @@ use kartik\file\FileInput;
                         ]
                     ]); ?>
 
-                    <div class="form-group">
-                        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-                    </div>
+                    
                 </div>
+            </section>
+             <h3>4</h3>
+            <section>
+              
+                <div class="col-md-6" >
+                    <!--<?= $form->field($model, 'coord')->textarea(['rows' => 6]) ?>-->
+
+                     <article>
+                    </article>
+
+                   <!-- <div class="form-group">
+                        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                   </div> -->
+                </div>
+
+               
             </section>
             
         </div>

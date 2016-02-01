@@ -17,6 +17,6 @@ form.children("div").steps({
     },
     onFinished: function (event, currentIndex)
     {
-        alert("Submitted!");
+       $('#formid').submit();
     }
 });
