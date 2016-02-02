@@ -101,12 +101,10 @@ use kartik\file\FileInput;
             </section>
              <h3>4</h3>
             <section>
-              
-                <div class="col-md-6" >
+                <input type="hidden" name="markets" id="markets" value="coordenadas">
                     <!--<?= $form->field($model, 'coord')->textarea(['rows' => 6]) ?>-->
+                <div id="map_canvas" class="col-md-6"  style="width:300px;height:300px;border:1px solid black;">
 
-                     <article>
-                    </article>
 
                    <!-- <div class="form-group">
                         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

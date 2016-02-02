@@ -82,6 +82,7 @@ class InmuebleController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $imagen->load(Yii::$app->request->post())) {
             
+            $model->coord = Yii::$app->request->bodyParams['markets'];
             if($model->save() && !empty($imagen->imagen)){
                 $imagen->imagen = UploadedFile::getInstances($imagen, 'imagen');
                 $imagen->estado = 1;
