@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="col-sm-offset-3 col-md-6 block-center contenedor-login">
+<div class="col-sm-offset-3 col-md-6 block-center contenedor-login wow bounceIn" data-wow-duration="1s" data-wow-delay="0.3s">
     <h1 class="text-center"><?= Html::encode($this->title) ?></h1>
 
     <p class="text-center">Please fill out the following fields to login:</p>
