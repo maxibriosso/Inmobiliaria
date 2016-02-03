@@ -23,7 +23,7 @@ class BackendAsset extends AssetBundle
         'css/font-awesome.css',
         'css/nifty.min.css',
         'lineicons/style.css',
-        'css/estilo.css',
+        'css/login.css',
        
     ];
     public $js = [
@@ -31,7 +31,7 @@ class BackendAsset extends AssetBundle
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',
         'js/wow.min.js',
-        'js/admin.js',
+        'js/login.js',
         
     ];
     public $depends = [

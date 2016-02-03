@@ -1,0 +1,32 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
+#login{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background: url(../img/fondo-inmobiliaria-backend.jpg) no-repeat fixed;
+}
+.borde{
+  border: 1px solid red;
+}
+.borde1{
+  border: 1px solid blue;
+}
+
+.btn-login{
+    font-size: 20px;
+    padding: 10px 60px;
+    background: transparent !important;
+    border:2px solid white !important;
+}
+
+.btn-login:hover{
+    background: white !important;
+    color: black;
+    transition: all 0.5s;
+}
+
+.contenedor-login{
+    margin-top: 80px;
+    color: white;
+    background: rgba(0,0,0,.5);
+}
