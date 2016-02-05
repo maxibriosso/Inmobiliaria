@@ -78,6 +78,8 @@ class UsuarioController extends Controller
 
             $model->estado=1;
 
+             $model->password = password_hash($model->password, PASSWORD_DEFAULT);
+            
             if($model->save())
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

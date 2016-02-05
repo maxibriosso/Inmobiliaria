@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
 		"kartik-v/yii2-widget-fileinput": "@dev",
-        "2amigos/yii2-google-maps-library" : "*"
+        "2amigos/yii2-google-maps-library" : "*",
+        "drsdre/yii2-wizardwidget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

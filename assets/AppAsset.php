@@ -36,7 +36,6 @@ class AppAsset extends AssetBundle
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',
         'js/jquery.steps.min.js',
-        'js/wizard.js',
         'js/wow.min.js',
         'js/bootstrap-select.js',
         'js/file/fileinput.js',
@@ -44,6 +43,7 @@ class AppAsset extends AssetBundle
         'js/admin.js',
         'http://maps.google.com/maps/api/js?sensor=false',
         'js/localizacionMapa.js',
+        
         
         
     ];

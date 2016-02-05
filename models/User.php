@@ -100,6 +100,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
+         //password_verify($password, $this->password);
         return $this->password === $password;
     }
 }
