@@ -51,9 +51,7 @@ $wizard_config = [
             'buttons' => [
                 'next' => [
                     'title' => 'Siguiente', 
-                    'options' => [
-                        'class' => 'btn btn-success'
-                    ],
+                    'options' => ['class' => 'btn btn-success'],
                  ],
              ],
         ],
@@ -86,16 +84,12 @@ $wizard_config = [
             'buttons' => [
                 'next' => [
                     'title' => 'Siguiente', 
-                    'options' => [
-                        'class' => 'btn btn-success'
-                    ],
+                    'options' => ['class' => 'btn btn-success'],
                  ],
-                'previous' => [
+                'prev' => [
                     'title' => 'Anterior', 
-                    'options' => [
-                        'class' => 'btn btn-success'
-                    ],
-                 ]
+                    'options' => ['class' => 'btn btn-success'],
+                 ],
              ],
             
         ],
@@ -135,20 +129,16 @@ $wizard_config = [
                     ]).
 
                    '</div>',
-                   
+
             'buttons' => [
                 'next' => [
                     'title' => 'Siguiente', 
-                    'options' => [
-                        'class' => 'btn btn-success'
-                    ],
+                    'options' => ['class' => 'btn btn-success'],
                  ],
-                'previous' => [
+                'prev' => [
                     'title' => 'Anterior', 
-                    'options' => [
-                        'class' => 'btn btn-success'
-                    ],
-                 ]
+                    'options' => ['class' => 'btn btn-success' ],
+                 ],
              ],
         ],
         4 => [
@@ -158,6 +148,16 @@ $wizard_config = [
                 '<input type="hidden" name="markets" id="markets" value="coordenadas">    
                 <div id="map_canvas" class="col-md-12"  style="width:300px;height:300px;border:1px solid black;">
                 </div>',
+            'buttons' => [
+                'prev' => [
+                    'title' => 'Anterior', 
+                    'options' => ['class' => 'btn btn-success'],
+                 ],
+                'save' => [
+                    'title' => 'Guardar', 
+                    'options' => ['class' => 'btn btn-success', 'type' => 'submit'],
+                 ],
+             ],
         ],
       
     ],
