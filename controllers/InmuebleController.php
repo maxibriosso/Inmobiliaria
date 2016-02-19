@@ -87,23 +87,30 @@ class InmuebleController extends Controller
                 $imagen->imagen = UploadedFile::getInstances($imagen, 'imagen');
                 $imagen->estado = 1;
                 $imagen->id_inmueble= $model->id;
-        
+                $a = 0;
                 foreach ($imagen->imagen as $file) {
-                    $connection = new \yii\db\Connection([
-                    'dsn' => 'mysql:host=localhost;dbname=inmobiliaria',
-                    'username' => 'root',
-                    'password' =>  '',
-                            ]);
-                    $connection->open();
-                    $connection->createCommand()->insert('imagen', [
-                    'id_inmueble' => (int)$imagen->id_inmueble,
-                    'imagen' => file_get_contents( $file->tempName ),
-                    'destacada' => (int)$model->destacado,
-                    'ruta' => $file->name,
-                    'titulo' => $model->titulo,
-                    'descripcion' => $model->descripcion,
-                    'estado' => $imagen->estado,])
-                    ->execute();
+                     $a++;
+                    $model2[$a] = new Imagen();
+
+                    $ext = end((explode(".", $file->name)));
+
+                    // generate a unique file name
+                    $path =  Yii::$app->security->generateRandomString().".{$ext}";
+           
+                    $file->saveAs('uploads/' . $path);
+                    
+                    $model2[$a]->id_inmueble   =  (int)$imagen->id_inmueble;
+                    $model2[$a]->destacada     =  (int)$imagen->destacada;
+                    $model2[$a]->ruta = $path;
+                    $model2[$a]->titulo        =  $imagen->titulo;
+                    $model2[$a]->descripcion   =  $imagen->descripcion;
+                    $model2[$a]->estado        =  (int)$imagen->estado;
+                    
+                
+
+                    $model2[$a]->save(false);
+
+               
                 }
                 
                 return $this->redirect(['view', 'id' => $model->id]);
