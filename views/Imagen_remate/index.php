@@ -4,20 +4,20 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\SolicitudSearch */
+/* @var $searchModel app\models\Imagen_remateSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Solicitudes';
+$this->title = 'Imagen Remates';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="solicitud-index">
+<div class="imagen-remate-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <!--<p>
-        <= Html::a('Create Solicitud', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>-->
+    <p>
+        <?= Html::a('Create Imagen Remate', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -26,15 +26,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
+            'id_imagen',
             'nombre',
-            'telefono',
-            'email:email',
-            'descripcion:ntext',
-            // 'tipo',
+            'ruta:ntext',
+            'destacada',
             // 'estado',
-            // 'fecha_creacion',
+            // 'fecha_creacioin',
 
-            ['class' => 'yii\grid\ActionColumnb'],
+            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

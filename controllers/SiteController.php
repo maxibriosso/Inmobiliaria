@@ -7,7 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\Solicitud;
 
 
 class SiteController extends Controller
@@ -76,21 +76,48 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionContact()
+    public function actionContacto()
     {
-        $model = new ContactForm();
+        /*$model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();
+        }*/
+        $model = new Solicitud();
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->estado = 1;
+            if($model->save()){
+                Yii::$app->session->setFlash('contactoFormSubmitted');
+                return $this->refresh();
+            }  
         }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
+
+        return $this->render('contacto', [
+                    'model' => $model,
+                ]);
     }
 
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionAlquileres()
+    {
+        return $this->render('alquileres');
+    }
+    public function actionEmpresa()
+    {
+        return $this->render('empresa');
+    }
+    public function actionVentas()
+    {
+        return $this->render('ventas');
+    }
+    public function actionServicios()
+    {
+        return $this->render('servicios');
     }
 }

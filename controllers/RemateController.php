@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Solicitud;
-use app\models\SolicitudSearch;
+use app\models\Remate;
+use app\models\RemateSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SolicitudController implements the CRUD actions for Solicitud model.
+ * RemateController implements the CRUD actions for Remate model.
  */
-class SolicitudController extends Controller
+class RemateController extends Controller
 {
     public function behaviors()
     {
@@ -23,28 +23,16 @@ class SolicitudController extends Controller
                     'delete' => ['post'],
                 ],
             ],
-            'access' => [
-                'class' => \yii\filters\AccessControl::className(),
-                'only' => ['index','view','delete'],
-                'rules' => [
-                    // allow authenticated users
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    // everything else is denied
-                ],
-            ],
         ];
     }
 
     /**
-     * Lists all Solicitud models.
+     * Lists all Remate models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SolicitudSearch();
+        $searchModel = new RemateSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -54,7 +42,7 @@ class SolicitudController extends Controller
     }
 
     /**
-     * Displays a single Solicitud model.
+     * Displays a single Remate model.
      * @param integer $id
      * @return mixed
      */
@@ -66,13 +54,13 @@ class SolicitudController extends Controller
     }
 
     /**
-     * Creates a new Solicitud model.
+     * Creates a new Remate model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-/*    public function actionCreate()
+    public function actionCreate()
     {
-        $model = new Solicitud();
+        $model = new Remate();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -81,15 +69,15 @@ class SolicitudController extends Controller
                 'model' => $model,
             ]);
         }
-    }*/
+    }
 
     /**
-     * Updates an existing Solicitud model.
+     * Updates an existing Remate model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      */
-/*    public function actionUpdate($id)
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
@@ -100,10 +88,10 @@ class SolicitudController extends Controller
                 'model' => $model,
             ]);
         }
-    }*/
+    }
 
     /**
-     * Deletes an existing Solicitud model.
+     * Deletes an existing Remate model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -116,15 +104,15 @@ class SolicitudController extends Controller
     }
 
     /**
-     * Finds the Solicitud model based on its primary key value.
+     * Finds the Remate model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Solicitud the loaded model
+     * @return Remate the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Solicitud::findOne($id)) !== null) {
+        if (($model = Remate::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

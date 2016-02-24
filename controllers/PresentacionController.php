@@ -3,16 +3,17 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Solicitud;
-use app\models\SolicitudSearch;
+use app\models\Presentacion;
+use app\models\PresentacionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+// Para guardar imagenes
+use yii\web\UploadedFile;
 /**
- * SolicitudController implements the CRUD actions for Solicitud model.
+ * PresentacionController implements the CRUD actions for Presentacion model.
  */
-class SolicitudController extends Controller
+class PresentacionController extends Controller
 {
     public function behaviors()
     {
@@ -24,27 +25,27 @@ class SolicitudController extends Controller
                 ],
             ],
             'access' => [
-                'class' => \yii\filters\AccessControl::className(),
-                'only' => ['index','view','delete'],
-                'rules' => [
-                    // allow authenticated users
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
+                        'class' => \yii\filters\AccessControl::className(),
+                        'only' => ['index','create','update','view','delete'],
+                        'rules' => [
+                            // allow authenticated users
+                            [
+                                'allow' => true,
+                                'roles' => ['@'],
+                            ],
+                            // everything else is denied
+                        ],
                     ],
-                    // everything else is denied
-                ],
-            ],
         ];
     }
 
     /**
-     * Lists all Solicitud models.
+     * Lists all Presentacion models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SolicitudSearch();
+        $searchModel = new PresentacionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -54,7 +55,7 @@ class SolicitudController extends Controller
     }
 
     /**
-     * Displays a single Solicitud model.
+     * Displays a single Presentacion model.
      * @param integer $id
      * @return mixed
      */
@@ -66,30 +67,43 @@ class SolicitudController extends Controller
     }
 
     /**
-     * Creates a new Solicitud model.
+     * Creates a new Presentacion model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-/*    public function actionCreate()
+    public function actionCreate()
     {
-        $model = new Solicitud();
+        $model = new Presentacion();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            
+            $file = UploadedFile::getInstance($model, 'ruta');
+            $ext = end((explode(".", $file->name)));
+            // generate a unique file name
+            $path = 'slide_index'.Yii::$app->security->generateRandomString().".{$ext}";
+   
+            $file->saveAs('uploads/' . $path);
+
+            $model->ruta = $path;
+
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            
         } else {
             return $this->render('create', [
                 'model' => $model,
             ]);
         }
-    }*/
+    }
 
     /**
-     * Updates an existing Solicitud model.
+     * Updates an existing Presentacion model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      */
-/*    public function actionUpdate($id)
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
@@ -100,10 +114,10 @@ class SolicitudController extends Controller
                 'model' => $model,
             ]);
         }
-    }*/
+    }
 
     /**
-     * Deletes an existing Solicitud model.
+     * Deletes an existing Presentacion model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -116,15 +130,15 @@ class SolicitudController extends Controller
     }
 
     /**
-     * Finds the Solicitud model based on its primary key value.
+     * Finds the Presentacion model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Solicitud the loaded model
+     * @return Presentacion the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Solicitud::findOne($id)) !== null) {
+        if (($model = Presentacion::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

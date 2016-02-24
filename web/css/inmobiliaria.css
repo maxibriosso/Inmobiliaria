@@ -47,7 +47,7 @@ body{
   color: white !important;
 }
 #frontend .menu-index li a:hover{
-  color: #E22929 !important;
+  color: #27da93 !important;
 }
 #frontend .logo-index{
   padding: 0 !important;
@@ -79,7 +79,7 @@ body{
 
 #frontend .navbar-inmo.activo{
   height: 60px;
-  background-color: black !important;
+  background-color: #27da93 !important;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
@@ -106,7 +106,9 @@ body{
   -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
-
+#frontend .activo.menu-index li a:hover{
+  color: black !important;
+}
 /*----------------- FIN - HEADER ---------------------*/
 /*----------------------------------------------------*/
 
@@ -121,26 +123,289 @@ body{
   background-size: cover;*/
 }
 
-#frontend .carousel-caption{
-    text-align: inherit;
-    margin-bottom: 13%;
-}
-#frontend .carousel-caption h1{
-    display: inline;
-    font-size: 59px;
-    font-family: 'Roboto', sans-serif !important;
-    font-weight: 300;
-    background: rgba(225, 225, 225, 0.8);
-    padding: 5px 10px 0px 10px;
-    line-height: 80px; 
-}
-#frontend .sliderTextBox {
-    background: rgba(225, 225, 225, 0.8);
-    padding: 10px 15px 15px 15px;
-    font-size: 19px;
-    display: inline;
+
+#frontend #content_top {
+  position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
+#frontend #content_top #sequence {
+  overflow: hidden;
+  width: 100%;
+  color: white;
+  font-size: 15px;
+  margin: 0 auto;
+  position: relative;
+  height: 550px;
+}
+#frontend #content_top #sequence > .sequence-canvas {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#frontend #content_top #sequence > .sequence-canvas > li {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  height: 100%;
+  z-index: 1;
+  clear: both;
+  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+}
+#frontend #content_top #sequence > .sequence-canvas li > * {
+  position: absolute;
+  /* only cause the left and opacity properties to transition */
+
+}
+#frontend #content_top #sequence .sequence-next,
+#frontend #content_top #sequence .sequence-prev {
+  text-decoration: none;
+  line-height: 0;
+  font-size: 0;
+  text-indent: -9999px;
+  color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  z-index: 200;
+  display: block;
+  width: 46px;
+  height: 46px;
+}
+/*#content_top #sequence .sequence-next {
+  right: 20px;
+  background: url(../images/slider/slider-button-right.png);
+}
+#content_top #sequence .sequence-prev {
+  left: 20px;
+  background: url(../images/slider/slider-button-left.png);
+}*/
+#frontend #content_top #sequence .sequence-prev:hover,
+#frontend #content_top #sequence .sequence-next:hover {
+  background-position: 0 -46px;
+}
+#frontend #content_top #sequence .start_anime {
+  position: relative;
+  opacity: 0;
+  width: 100%;
+/*  height: 100%;*/
+  margin-top: -25px;
+  padding: 0px;
+  transition-property: opacity;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -ms-transition-duration: 0.4s;
+}
+#frontend #content_top #sequence .title {
+  top: -100%;
+  z-index: 5;
+  position: absolute;
+  font-size: 50px;
+  line-height: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  margin: 0;
+  padding: 10px;
+  max-width: 500px;
+  display: inline;
+  vertical-align: middle;
+  transition-property: top;
+  -webkit-transition-property: top;
+  -moz-transition-property: top;
+  -o-transition-property: top;
+  -ms-transition-property: top;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+}
+#frontend #content_top #sequence .title small {
+  display: block;
+  color: white;
+  font-size: 29px;
+}
+#frontend #content_top #sequence .description {
+  position: absolute;
+  left: 20px;
+  bottom: -100%;
+  max-width: 500px;
+  z-index: 5;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  transition-property: bottom;
+  -webkit-transition-property: bottom;
+  -moz-transition-property: bottom;
+  -o-transition-property: bottom;
+  -ms-transition-property: bottom;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+}
+#frontend #content_top #sequence .img_sllider {
+  position: absolute;
+  right: -100%;
+  bottom: 15%;
+  transition-property: right;
+  -webkit-transition-property: right;
+  -moz-transition-property: right;
+  -o-transition-property: right;
+  -ms-transition-property: right;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+}
+#frontend #content_top #sequence .animate-in .start_anime {
+  opacity: 1;
+  transition-delay: 0.2s;
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  -ms-transition-delay: 0.2s;
+}
+#frontend #content_top #sequence .animate-in .title {
+  top: 17%;
+  opacity: 1;
+  transition-delay: 0.3s;
+  -webkit-transition-delay: 0.3s;
+  -moz-transition-delay: 0.3s;
+  -o-transition-delay: 0.3s;
+  -ms-transition-delay: 0.3s;
+}
+#frontend #content_top #sequence .animate-in .description {
+  bottom: 30%;
+  transition-delay: 0.5s;
+  -webkit-transition-delay: 0.5s;
+  -moz-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  -ms-transition-delay: 0.5s;
+}
+#frontend #content_top #sequence .animate-in .img_sllider {
+  right: 20px;
+  transition-delay: 0.1s;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+  -ms-transition-delay: 0.1s;
+}
+#frontend #content_top #sequence .animate-out .start_anime {
+  opacity: 0;
+  transition-delay: 1s;
+  -webkit-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  -o-transition-delay: 1s;
+  -ms-transition-delay: 1s;
+}
+#frontend #content_top #sequence .animate-out .title {
+  top: -100%;
+  transition-delay: 0.1s;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+  -ms-transition-delay: 0.1s;
+}
+#frontend #content_top #sequence .animate-out .description {
+  bottom: -100%;
+  transition-delay: 0.1s;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+  -ms-transition-delay: 0.1s;
+}
+#frontend #content_top #sequence .animate-out .img_sllider {
+  right: -100%;
+  transition-delay: 0.3s;
+  -webkit-transition-delay: 0.3s;
+  -moz-transition-delay: 0.3s;
+  -o-transition-delay: 0.3s;
+  -ms-transition-delay: 0.3s;
+}
+#frontend #content_top #sequence .box_area_slider {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+#frontend #content_top #sequence .box_area_slider .panel {
+  position: relative;
+  max-width: 1000px;
+  padding: 0 20px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 80px;
+  background: transparent !important;
+}
+#frontend #content_top #sequence .bg_slider {
+  width: 100%;
+  height: 100%;
+}
+
+
+#frontend .titulo-index h3 {
+    font-size: 3em;
+    color: #000;
+    margin: 0 0 1em;
+    padding-top:1em !important;
+    font-family: 'Montserrat';
+    text-align: center;
+}
+
+#frontend .titulo-index h3:after, .titulo-index h3:before {
+    width: 200px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background: #000;
+    margin: 0 1%;
+}
+#frontend .contenedor-inm-favoritos{
+  background:#b2b2b2;
+}
+
+#frontend .contenedor-inm-ui{
+  background:#27da93;
+}
+#frontend .item .thumbnail .mask{
+  overflow: hidden;
+  display: block;
+}
+#frontend .item .thumbnail img.zoom-img:hover {
+  -webkit-transform: scale(1.15);
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 750ms;
+  -moz-transform: scale(1.15);
+  -moz-transition-timing-function: ease-out;
+  -moz-transition-duration: 750ms;
+  overflow: hidden;
+}
+#frontend .item .thumbnail img.zoom-img {
+  -webkit-transform: scale(1, 1);
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 250ms;
+  -moz-transform: scale(1, 1);
+  -moz-transition-timing-function: ease-out;
+  -moz-transition-duration: 250ms;
+}
 /*----------------- FIN - INDEX ---------------------*/
 /*----------------------------------------------------------*/
 
@@ -151,7 +416,7 @@ body{
 #frontend .contenedor-buscador{ 
     margin-top: -68px;
     position: relative;
-    z-index: 1;
+    z-index: 10;
 }
 
 #frontend .buscador{
@@ -227,6 +492,7 @@ body{
 /*----------------- FOOTER ---------------------*/
 /*----------------------------------------------------------*/
 #frontend footer{
+    background:#141414;
     padding-top: 40px;
 }
 
@@ -234,12 +500,110 @@ body{
     color: white;
     padding-top: 6px;
     padding-bottom: 6px;
-    background: rgba(39,39,39,1);
+    background: rgba(0,0,0,1);
 }
 #frontend #footerwrap h4 {
     font-family: 'Roboto', sans-serif !important;
     font-weight: 300 !important;
 }
 
+#frontend .amet-sed h4{
+  font-size: 1.5em;
+    color: #fff;
+  margin: 0 0 0.7em;
+  font-family: 'Montserrat';
+}
+#frontend .footer-top-at {
+    padding: 5em 0;
+}
+#frontend  ul.nav-bottom{
+  padding-left: 0px;
+}
+#frontend  ul.nav-bottom li{
+  list-style:none;
+}
+#frontend ul.nav-bottom li a{
+  text-decoration:none;
+  color:#989696;
+  font-size:0.8em;
+  display: inline-block;
+  margin: 0.5em 0;
+}
+#frontend ul.nav-bottom li a:hover{
+  color:#27da93;
+}
+#frontend .amet-sed p{
+  color:#989696;
+  font-size: 0.9em;
+  margin: 0.5em 0 0;
+}
+
+#frontend ul.social{
+  padding: 1em 0 0;
+}
+#frontend ul.social li{
+  display:inline-block;
+}
+#frontend ul.social  li a{
+  text-decoration:none;
+  color:white;
+}
+#frontend ul.social  li a:hover{  
+  color:#27da93;
+}
+#frontend ul.social  li i{
+  font-size:20px;
+  display: block;
+  margin: 0 5px;
+}
+
+
 /*----------------- FIN - FOOTER ---------------------*/
+/*----------------------------------------------------------*/
+
+/* -- FADE CAROUSEL --*/
+
+#frontend .carousel-fade .carousel-inner .item {
+  opacity: 0 ;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+#frontend .carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+#frontend .carousel-fade .carousel-inner .active.left,
+#frontend .carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+#frontend .carousel-fade .carousel-inner .next.left,
+#frontend .carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+#frontend .carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+
+
+/*----------------- CONTACTO ---------------------*/
+/*----------------------------------------------------------*/
+.contenedor-img-contacto{ 
+    position:relative;
+    background: url(../img/bl1.jpg) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: 350px;
+
+}
+
+
+/*----------------- FIN - CONTACTO ---------------------*/
 /*----------------------------------------------------------*/

@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Solicitud;
-use app\models\SolicitudSearch;
+use app\models\Imagen_remate;
+use app\models\Imagen_remateSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SolicitudController implements the CRUD actions for Solicitud model.
+ * Imagen_remateController implements the CRUD actions for Imagen_remate model.
  */
-class SolicitudController extends Controller
+class Imagen_remateController extends Controller
 {
     public function behaviors()
     {
@@ -23,28 +23,16 @@ class SolicitudController extends Controller
                     'delete' => ['post'],
                 ],
             ],
-            'access' => [
-                'class' => \yii\filters\AccessControl::className(),
-                'only' => ['index','view','delete'],
-                'rules' => [
-                    // allow authenticated users
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    // everything else is denied
-                ],
-            ],
         ];
     }
 
     /**
-     * Lists all Solicitud models.
+     * Lists all Imagen_remate models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SolicitudSearch();
+        $searchModel = new Imagen_remateSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -54,7 +42,7 @@ class SolicitudController extends Controller
     }
 
     /**
-     * Displays a single Solicitud model.
+     * Displays a single Imagen_remate model.
      * @param integer $id
      * @return mixed
      */
@@ -66,13 +54,13 @@ class SolicitudController extends Controller
     }
 
     /**
-     * Creates a new Solicitud model.
+     * Creates a new Imagen_remate model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-/*    public function actionCreate()
+    public function actionCreate()
     {
-        $model = new Solicitud();
+        $model = new Imagen_remate();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -81,15 +69,15 @@ class SolicitudController extends Controller
                 'model' => $model,
             ]);
         }
-    }*/
+    }
 
     /**
-     * Updates an existing Solicitud model.
+     * Updates an existing Imagen_remate model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      */
-/*    public function actionUpdate($id)
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
@@ -100,10 +88,10 @@ class SolicitudController extends Controller
                 'model' => $model,
             ]);
         }
-    }*/
+    }
 
     /**
-     * Deletes an existing Solicitud model.
+     * Deletes an existing Imagen_remate model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -116,15 +104,15 @@ class SolicitudController extends Controller
     }
 
     /**
-     * Finds the Solicitud model based on its primary key value.
+     * Finds the Imagen_remate model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Solicitud the loaded model
+     * @return Imagen_remate the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Solicitud::findOne($id)) !== null) {
+        if (($model = Imagen_remate::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
