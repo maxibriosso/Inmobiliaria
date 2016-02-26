@@ -12,26 +12,23 @@ if(Yii::$app->user->isGuest){
           <a href="#" class="sequence-prev">Prev</a>
           <a href="#" class="sequence-next">Next</a>
           <ul class="sequence-canvas unstyled">
+            <?php foreach ($pre as $p): ?>
             <li class="animate-in ">
               <div class="start_anime">
-                <img src="<?= Yii::$app->request->baseUrl . '/img/1.jpg'?>" class="bg_slider" alt="preview"/>
+                <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$p->ruta?>" class="bg_slider" alt="preview"/>
                 <div class="box_area_slider">
                   <div class="panel" >
-                    <h2 class="title">Bienvenido<small><strong>Inmobiliaria</strong> Peraza-Gonzalez</small></h2>
+                    <h2 class="title"><small><?php echo $p->titulo ?></small></h2>
                     <div class="description">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                      <p><?php echo $p->descripcion ?></p>
                     </div>
                    <img src="<?= Yii::$app->request->baseUrl . '/img/casa.png'?>" class="img_sllider" alt="preview">
                   </div>
                 </div>
               </div>
             </li>
-            <li>
+            <?php endforeach; ?>
+            <!--<li>
               <div class="start_anime">
                 <img src="<?= Yii::$app->request->baseUrl . '/img/2.jpg'?>" class="bg_slider" alt="preview"/>
                 <div class="box_area_slider">
@@ -49,7 +46,7 @@ if(Yii::$app->user->isGuest){
                   </div>
                 </div>
               </div>
-            </li>
+            </li>-->
           </ul>
         </div><!-- End sequence Slider  -->
       </section><!-- End section content page -->

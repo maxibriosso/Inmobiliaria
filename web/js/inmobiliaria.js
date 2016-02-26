@@ -6,12 +6,16 @@ $(function() {
            $('#frontend .logo-index').addClass('activo');
            $('#frontend .menu-index').addClass('activo');
            $('#frontend .navbar-inmo').addClass('activo');
+           $('#frontend .mn-menu-social-header').addClass('activo');
+           $('#frontend .menu-social-header').addClass('activo');
 
         }
         else {
             $('#frontend .logo-index').removeClass('activo');
             $('#frontend .menu-index').removeClass('activo');
             $('#frontend .navbar-inmo').removeClass('activo');
+            $('#frontend .mn-menu-social-header').removeClass('activo');
+            $('#frontend .menu-social-header').removeClass('activo');
 
         }
   });

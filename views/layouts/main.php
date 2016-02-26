@@ -27,7 +27,18 @@ AppAsset::register($this);
     <div id="frontend">
       <!-- HEADER -->
       <header>
-          <div id="inicio"></div>
+          <div id="inicio">
+          </div>
+          <div class="menu-social-header navbar-fixed-top navbar-collapse2 collapse">
+            <div class="container contenedor-menu-social-header">
+                <ul class="nav navbar-nav mn-menu-social-header navbar-right text-center">                    
+                    <!-- <li class="active"><a href="#">ES</a></li> -->
+                    <li><a href="#">info@inmobiliaria.com</a></li>
+                    <li><a href="#">|</a></li>
+                    <li><a href="<?= Url::to(['site/login']) ?>">Login</a></li>
+                </ul>
+            </div>
+        </div>
           <div class="navbar navbar-inverse navbar-fixed-top navbar-inmo" role="navigation">
               <div class="container">
                   <div class="navbar-header navbar-header-index">
@@ -50,7 +61,7 @@ AppAsset::register($this);
                           <li><a href="<?= Url::to(['site/ventas']) ?>">Ventas</a></li>
                           <li><a href="<?= Url::to(['site/alquileres']) ?>">Alquileres</a></li>
                           <li><a href="<?= Url::to(['site/contacto']) ?>">Contacto</a></li>
-                          <li><a href="<?= Url::to(['site/login']) ?>">Login</a></li>
+                         
                       </ul>
                   </div><!--/.nav-collapse -->
               </div>

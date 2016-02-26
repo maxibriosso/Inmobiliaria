@@ -29,17 +29,98 @@ body{
 
 /*----------------- HEADER ---------------------*/
 /*----------------------------------------------*/
+#frontend .menu-social-header{
+    background: black !important;
+    display: block;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#frontend .contenedor-menu-social-header{
+    
+}
+#frontend .mn-menu-social-header>li{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 2px;
+}
+#frontend .mn-menu-social-header>li>a{
+    font-family: 'Open Sans Condensed', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
 
+    font-size: 14px;
+   
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color:white;
+    background: transparent !important;
+    border: 1px solid transparent;
+    
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+#frontend .mn-menu-social-header>li>a:hover{
+    color:#27da93;
+    background-color: transparent!important;
+    border: 1px solid transparent;
+}
+
+#frontend .mn-menu-social-header>li.active a{
+    color:#27da93;
+    background-color: transparent !important;
+    border: 1px solid transparent;
+}
+
+
+#frontend .menu-social-header.activo{
+  margin-top: -32px !important;
+  background-color: white !important;
+
+}
+
+#frontend .mn-menu-social-header.activo{
+  background-color: white !important;
+  margin-top: -32px !important;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#frontend .mn-menu-social-header>li>a.activo{
+
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 14px;
+   
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color:white;
+    background: black !important;
+    border: 1px solid black;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
 
 #frontend .navbar-header-index{
     background-color: transparent !important;
    
 }
+
+#frontend .activo.navbar-inmo{
+  margin-top: 0px !important;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
 #frontend .menu-index{
   margin-top: 20px !important;
-  -webkit-transition: all 0.5s !important;
-  -moz-transition: all 0.5s !important;
-  transition: all 0.5s !important;
+  -webkit-transition: all 0.2s !important;
+  -moz-transition: all 0.2s !important;
+  transition: all 0.2s !important;
 }
 
 #frontend .menu-index li a{
@@ -71,6 +152,7 @@ body{
   border-color:transparent !important;
  /* background-color: transparent !important;*/
   background-color: rgba(0,0,0,.3);
+  margin-top: 32px;
   height: 90px;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -80,31 +162,31 @@ body{
 #frontend .navbar-inmo.activo{
   height: 60px;
   background-color: #27da93 !important;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
 }
 #frontend .activo.logo-index h1{
     font-family: 'Pacifico', cursive;
     font-size: 20px !important;
     color: white;
     
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 #frontend .activo.logo-index img{
   width: 150px !important;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
 }
 #frontend .activo.menu-index{
   margin-top: 0px !important;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
 }
 #frontend .activo.menu-index li a:hover{
   color: black !important;
@@ -176,20 +258,24 @@ body{
   top: 50%;
   z-index: 200;
   display: block;
-  width: 46px;
-  height: 46px;
+  width: 56px;
+  height: 56px;
+  filter: contrast(0);
+  -webkit-filter: contrast(0);
 }
-/*#content_top #sequence .sequence-next {
+#content_top #sequence .sequence-next {
   right: 20px;
-  background: url(../images/slider/slider-button-right.png);
+  background: url(../img/slider-next.png);
 }
 #content_top #sequence .sequence-prev {
   left: 20px;
-  background: url(../images/slider/slider-button-left.png);
-}*/
+  background: url(../img/slider-prev.png);
+}
 #frontend #content_top #sequence .sequence-prev:hover,
 #frontend #content_top #sequence .sequence-next:hover {
-  background-position: 0 -46px;
+  filter: contrast(100%);
+  -webkit-filter: contrast(100%);
+  background-position: 0 -56px;
 }
 #frontend #content_top #sequence .start_anime {
   position: relative;
@@ -281,7 +367,7 @@ body{
   -ms-transition-delay: 0.2s;
 }
 #frontend #content_top #sequence .animate-in .title {
-  top: 17%;
+  top: 23%;
   opacity: 1;
   transition-delay: 0.3s;
   -webkit-transition-delay: 0.3s;
@@ -290,7 +376,7 @@ body{
   -ms-transition-delay: 0.3s;
 }
 #frontend #content_top #sequence .animate-in .description {
-  bottom: 30%;
+  bottom: 28%;
   transition-delay: 0.5s;
   -webkit-transition-delay: 0.5s;
   -moz-transition-delay: 0.5s;

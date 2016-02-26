@@ -8,6 +8,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\Solicitud;
+use app\models\Presentacion;
+use app\models\PresentacionSearch;
 
 
 class SiteController extends Controller
@@ -50,7 +52,13 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new Presentacion();
+        $dataProvider = Presentacion::find()->all();
+        /*return $this->render('index');*/
+
+        return $this->render('index', [
+            'pre' => $dataProvider,
+        ]);
     }
 
     public function actionLogin()
