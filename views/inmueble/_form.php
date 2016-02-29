@@ -8,9 +8,6 @@ use app\models\Barrio;
 use app\models\Usuario;
 
 
-//Modulo para subir imagenes
-use kartik\file\FileInput;
-
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Inmueble */
@@ -117,18 +114,7 @@ $wizard_config = [
 
                     $form->field($model, 'operacion')->dropDownList([ 'Compra' => 'Compra', 'Alquiler' => 'Alquiler', ], ['prompt' => '']).
                 
-                    '</div><div class="col-md-12">'.
-
-                    $form->field($imagen, 'imagen[]')->widget(FileInput::classname(), [
-                        'options' => ['accept' => 'image/*' , 'multiple'=>true],
-                        'pluginOptions' => [
-                            'showUpload' => false,
-                            'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
-                            'browseLabel' =>  'Imagen'
-                        ]
-                    ]).
-
-                   '</div>',
+                    '</div>',
 
             'buttons' => [
                 'next' => [

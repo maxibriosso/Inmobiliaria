@@ -187,6 +187,7 @@ AppAsset::register($this);
                         <ul class="sub">
                             <li><a href="<?= Url::to(['inmueble/index']) ?>"><i class="fa fa-dot-circle-o"></i>Admin</a></li>
                             <li><a href="<?= Url::to(['inmueble/create']) ?>"><i class="fa fa-dot-circle-o"></i>Crear</a></li>
+                            <li><a href="<?= Url::to(['inmueble/imagen']) ?>"><i class="fa fa-dot-circle-o"></i>Alta Imagenes</a></li>
                         </ul>
                     </li>
 

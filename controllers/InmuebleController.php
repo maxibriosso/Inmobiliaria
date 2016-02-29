@@ -76,42 +76,13 @@ class InmuebleController extends Controller
     public function actionCreate()
     {
         $model = new Inmueble();
-        $imagen = new Imagen();
-
+  
         $model->id_usuario = \Yii::$app->user->identity->id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $imagen->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             
             $model->coord = Yii::$app->request->bodyParams['markets'];
-            if($model->save() && !empty($imagen->imagen)){
-                $imagen->imagen = UploadedFile::getInstances($imagen, 'imagen');
-                $imagen->estado = 1;
-                $imagen->id_inmueble= $model->id;
-                $a = 0;
-                foreach ($imagen->imagen as $file) {
-                     $a++;
-                    $model2[$a] = new Imagen();
-
-                    $ext = end((explode(".", $file->name)));
-
-                    // generate a unique file name
-                    $path =  Yii::$app->security->generateRandomString().".{$ext}";
-           
-                    $file->saveAs('uploads/' . $path);
-                    
-                    $model2[$a]->id_inmueble   =  (int)$imagen->id_inmueble;
-                    $model2[$a]->destacada     =  (int)$imagen->destacada;
-                    $model2[$a]->ruta = $path;
-                    $model2[$a]->titulo        =  $imagen->titulo;
-                    $model2[$a]->descripcion   =  $imagen->descripcion;
-                    $model2[$a]->estado        =  (int)$imagen->estado;
-                    
-                
-
-                    $model2[$a]->save(false);
-
-               
-                }
+            if($model->save() ){
                 
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -119,9 +90,71 @@ class InmuebleController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'imagen'=> $imagen,
             ]);
         }
+    }
+
+    public function actionImagen(){
+      
+        
+        $model = new Imagen();
+        
+        if (Yii::$app->request->isAjax) {
+            $model->estado = 1;
+
+            $data = Yii::$app->request->post();
+             
+            $model->imagen = UploadedFile::getInstances($model, 'imagen');
+            $id = $_POST['id'];
+            $check = $_POST['check'];
+          
+             $a = 0;
+             $c = 1;
+             foreach ($model->imagen as $file) {
+
+                    $nombre= explode(":", $data['new_'.$a]);
+
+                    $descripcion= explode(":", $data['init_'.($a+1)]);
+                    
+
+                    $model2 = new Imagen();
+
+                    $ext = end((explode(".", $file->name)));
+
+                    // genera nombre unico de archivo
+                    $path =  Yii::$app->security->generateRandomString().".{$ext}";
+           
+                    $file->saveAs('uploads/' . $path);
+                    
+                    $model2->id_inmueble   =  (int)$id;
+                    $model2->estado        =  (int)$model->estado;
+                    if($c == (int)$check){
+                        $model2->destacada     =  (int)1;
+                    }else{
+                         $model2->destacada     =  (int)0;
+                    }
+                    
+                    $model2->descripcion   =  $descripcion[0];
+                    $model2->titulo        =  $nombre[0];
+                    $model2->ruta = $path;
+
+                    $model2->fecha_creacion = date("Y/m/d");
+
+                    $model2->save(false);
+                   
+                    $a = $a + 2;
+                    $c++; 
+            }
+            $output = ['success'=>'Imagen guardada.'];
+            return json_encode($output) ;      
+        }else {
+            return $this->render('altaImagenes', [
+                'model' => $model,
+            ]);
+        }
+
+
+
     }
 
     /**
