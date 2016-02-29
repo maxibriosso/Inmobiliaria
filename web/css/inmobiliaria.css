@@ -44,12 +44,33 @@ body{
     padding-bottom: 2px;
     padding-right: 2px;
 }
+#frontend .mn-menu-social-header>li>.no-link{
+  font-family: 'Open Sans Condensed', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;    
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color:white;
+    background: transparent !important;
+    border: 1px solid transparent;
+    
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+#frontend .mn-menu-social-header>li>.no-link:hover{
+    color:white;
+    padding-left: 5px;
+    padding-right: 5px; 
+}
 #frontend .mn-menu-social-header>li>a{
     font-family: 'Open Sans Condensed', 'Helvetica Neue', sans-serif;
     font-weight: 300;
-
     font-size: 14px;
-   
+    
     padding-top: 3px;
     padding-bottom: 3px;
     color:white;

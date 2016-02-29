@@ -10,7 +10,8 @@ use app\models\LoginForm;
 use app\models\Solicitud;
 use app\models\Presentacion;
 use app\models\PresentacionSearch;
-
+use app\models\Inmueble;
+use app\models\InmuebleSearch;
 
 class SiteController extends Controller
 {
@@ -52,12 +53,20 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $searchModel = new Presentacion();
+        $data = Inmueble::find()
+            ->where(['destacado' => 1])->andWhere(['activo'=> 1])
+            ->orderBy('id')
+            ->all();
+
+        $sql = 'SELECT * FROM Inmueble WHERE fecha_creacion BETWEEN (NOW() - interval 30 day) AND NOW()';
+        $ultima = Inmueble::findBySql($sql)->andWhere(['activo'=> 1])->all();
+
         $dataProvider = Presentacion::find()->all();
-        /*return $this->render('index');*/
 
         return $this->render('index', [
             'pre' => $dataProvider,
+            'des' => $data,
+            'ultima' => $ultima,
         ]);
     }
 

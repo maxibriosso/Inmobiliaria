@@ -41,6 +41,8 @@ use Yii;
  */
 class Inmueble extends \yii\db\ActiveRecord
 {
+    const STATUS_INACTIVE = 0;
+    const STATUS_ACTIVE = 1;
     /**
      * @inheritdoc
      */
@@ -107,7 +109,12 @@ class Inmueble extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Imagen::className(), ['id_inmueble' => 'id']);
     }
-
+//falta terminar
+  /*  public function getDestacada($id)
+    {
+        return $this->hasMany(Imagen::className(), ['id_inmueble' => 'id']);
+    }
+*/
     /**
      * @return \yii\db\ActiveQuery
      */

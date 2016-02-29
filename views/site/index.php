@@ -129,86 +129,23 @@ if(Yii::$app->user->isGuest){
       </div>
       <div class="container">
           <div id="owl-demo" class="owl-carousel owl-theme">
+          <?php foreach ($des as $d): ?>
             <div class="item">         
                 <div class="thumbnail">
-                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
+                  <?php foreach ($d->getImagens()->all() as $img): ?>
+                    <?php if($img->destacada == 1): ?>  
+                      <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img->ruta?>" alt="...">
+                    <?php endif; ?>
+                  <?php endforeach; ?>
                   <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <h3><?php echo $d->titulo ?></h3>
+                    <p><?php echo $d->descripcion ?></p>
+                    <p>$ <?php echo $d->valor ?></p>
+                    <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                   </div>
                 </div>
             </div>
-            <div class="item">     
-                <div class="thumbnail">
-                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
-                  <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-            </div>
-            <div class="item">     
-                <div class="thumbnail">
-                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
-                  <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-            </div>
-            <div class="item">     
-                <div class="thumbnail">
-                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
-                  <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-            </div>
-            <div class="item">     
-                <div class="thumbnail">
-                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
-                  <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-            </div>
-            <div class="item">     
-                <div class="thumbnail">
-                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
-                  <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-            </div> 
-            <div class="item">     
-                <div class="thumbnail">
-                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
-                  <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-            </div> 
-            <div class="item">     
-                <div class="thumbnail">
-                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
-                  <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                  </div>
-                </div>
-            </div>            
+          <?php endforeach; ?>        
           </div>
       </div>
     </section>
@@ -220,8 +157,25 @@ if(Yii::$app->user->isGuest){
       </div>
       <div class="container">
           <div id="owl-uingresos" class="owl-carousel owl-theme">
+            <?php foreach ($ultima as $u): ?>
             <div class="item">         
                 <div class="thumbnail">
+                  <?php foreach ($u->getImagens()->all() as $img2): ?>
+                    <?php if($img2->destacada == 1): ?>  
+                      <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img2->ruta?>" alt="...">
+                    <?php endif; ?>
+                  <?php endforeach; ?>
+                  <div class="caption">
+                    <h3><?php echo $u->titulo ?></h3>
+                    <p><?php echo $u->descripcion ?></p>
+                    <p>$ <?php echo $u->valor ?></p>
+                    <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+                  </div>
+                </div>
+            </div>
+            <?php endforeach; ?>  
+            <!--<div class="item">         
+                <div class="thumbnail">
                   <div class="mask">  
                     <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" class="img-responsive zoom-img" alt="...">
                   </div>
@@ -279,7 +233,7 @@ if(Yii::$app->user->isGuest){
                     <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                   </div>
                 </div>
-            </div>
+            </div>-->
           
           </div>
       </div>
