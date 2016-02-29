@@ -24,21 +24,25 @@ class AppAsset extends AssetBundle
         'css/nifty.min.css',
         'css/fileinput.css',
         'lineicons/style.css',
+        'css/jquery.steps.css',
+        'css/flexslider.css',
+        'css/owl.carousel.css',
         'css/estilo.css',
         'css/inmobiliaria.css',
         'css/responsive.css',
-        'css/jquery.steps.css',
-        
     ];
     public $js = [
-        'js/jquery-2.1.4.min.js',
+/*        'js/jquery-2.1.4.min.js',*/
         'js/bootstrap.js',
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',
         'js/jquery.steps.min.js',
         'js/wow.min.js',
         'js/bootstrap-select.js',
+        'js/jquery.flexslider.js',
         'js/file/fileinput.js',
+        'js/owl.carousel.min.js',
+        'js/jquery.sequence.min.js',
         'js/inmobiliaria.js',
         'js/admin.js',
         'http://maps.google.com/maps/api/js?sensor=false',

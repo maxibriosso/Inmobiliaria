@@ -6,46 +6,50 @@ $this->title = 'My Yii Application';
 if(Yii::$app->user->isGuest){ 
 ?>
     <section class="contenido-principal-index">
-
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-          <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              <img src="img/aptos/2.jpg" style="width: 100%;height:600px;" alt="...">
-              <div class="carousel-caption">
-                <h1>Titulo propiedad</h1>
-                <p>descripcion</p>
-              </div>
-            </div>
-            <div class="item">
-              <img src="img/aptos/1.jpg" style="width: 100%;height:600px;" alt="...">
-              <div class="carousel-caption">
-                <h1>Titulo propiedad</h1>
-                <div class="sliderTextBox">
-                    <p>descripcion</p>
+      <section id="content_top">
+        <!-- STart sequence Slider  -->
+        <div id="sequence">
+          <a href="#" class="sequence-prev">Prev</a>
+          <a href="#" class="sequence-next">Next</a>
+          <ul class="sequence-canvas unstyled">
+            <?php foreach ($pre as $p): ?>
+            <li class="animate-in ">
+              <div class="start_anime">
+                <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$p->ruta?>" class="bg_slider" alt="preview"/>
+                <div class="box_area_slider">
+                  <div class="panel" >
+                    <h2 class="title"><small><?php echo $p->titulo ?></small></h2>
+                    <div class="description">
+                      <p><?php echo $p->descripcion ?></p>
+                    </div>
+                   <img src="<?= Yii::$app->request->baseUrl . '/img/casa.png'?>" class="img_sllider" alt="preview">
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="item">
-              <img src="img/aptos/3.jpg" style="width: 100%;height:600px;" alt="...">
-              <div class="carousel-caption">
-                <h1>Titulo propiedad</h1>
-                <div class="sliderTextBox">
-                    <p>descripcion</p>
+            </li>
+            <?php endforeach; ?>
+            <!--<li>
+              <div class="start_anime">
+                <img src="<?= Yii::$app->request->baseUrl . '/img/2.jpg'?>" class="bg_slider" alt="preview"/>
+                <div class="box_area_slider">
+                  <div class="panel" >
+                    <h2 class="title">En busqueda<small>de un <strong></strong>Inmuble?</small></h2>
+                    <div class="description">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <img src="<?= Yii::$app->request->baseUrl . '/img/condominio.png'?>" class="img_sllider" alt="preview">
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="item">
-              <img src="img/aptos/4.jpg" style="width: 100%;height:600px;" alt="...">
-              <div class="carousel-caption">
-                <h1>Titulo propiedad</h1>
-                <div class="sliderTextBox">
-                    <p>descripcion</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            </li>-->
+          </ul>
+        </div><!-- End sequence Slider  -->
+      </section><!-- End section content page -->
         
 
     </section>
@@ -117,14 +121,169 @@ if(Yii::$app->user->isGuest){
             <p>Hacemos su vida más fácil y así es como lo hacemos</p>
         </div>
     </section>  
+    
+    <!-- INMUEBLES DESTACADOS -->
+    <section class="contenedor-inm-favoritos">
+      <div class="titulo-index">           
+        <h3 class="text-center">PROPIEDADES DESTACADAS</h3>
+      </div>
+      <div class="container">
+          <div id="owl-demo" class="owl-carousel owl-theme">
+            <div class="item">         
+                <div class="thumbnail">
+                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="item">     
+                <div class="thumbnail">
+                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="item">     
+                <div class="thumbnail">
+                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="item">     
+                <div class="thumbnail">
+                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="item">     
+                <div class="thumbnail">
+                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="item">     
+                <div class="thumbnail">
+                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div> 
+            <div class="item">     
+                <div class="thumbnail">
+                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div> 
+            <div class="item">     
+                <div class="thumbnail">
+                  <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>            
+          </div>
+      </div>
+    </section>
 
-    <!-- INMUEBLES PRINCIPALES -->
-    <section class="contenedor-buscador">
-       <div class="container">
-           
-       </div>
-        
-    </section>    
+    <!-- ULTIMOS INGRESOS -->
+    <section class="contenedor-inm-ui">
+      <div class="titulo-index">           
+        <h3 class="text-center">ULTIMOS INGRESOS</h3>
+      </div>
+      <div class="container">
+          <div id="owl-uingresos" class="owl-carousel owl-theme">
+            <div class="item">         
+                <div class="thumbnail">
+                  <div class="mask">  
+                    <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" class="img-responsive zoom-img" alt="...">
+                  </div>
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="item">     
+                <div class="thumbnail">
+                  <div class="mask">  
+                    <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" class="img-responsive zoom-img" alt="...">
+                  </div>
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="item">     
+                <div class="thumbnail">
+                  <div class="mask">
+                    <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" class="img-responsive zoom-img" alt="...">
+                  </div>
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="item">     
+                <div class="thumbnail">
+                  <div class="mask">
+                    <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" class="img-responsive zoom-img" alt="...">
+                  </div>
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="item">     
+                <div class="thumbnail">
+                  <div class="mask">  
+                    <img src="<?= Yii::$app->request->baseUrl . '/img/pi.jpg'?>" class="img-responsive zoom-img" alt="...">
+                  </div>
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+            </div>
+          
+          </div>
+      </div>
+    </section>   
 <?php }else{ ?>
 
   <h1>Bienvenido al panel admin!</h1>

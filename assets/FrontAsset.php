@@ -26,7 +26,7 @@ class FrontAsset extends AssetBundle
         'css/jquery.steps.css',
     ];
     public $js = [
-        'js/jquery-2.1.4.min.js',
+/*        'js/jquery-2.1.4.min.js',*/
         'js/bootstrap.js',
         'js/wow.min.js',
         'js/bootstrap-select.js',
