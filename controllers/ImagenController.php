@@ -69,6 +69,28 @@ class ImagenController extends Controller
         ]);
     }
 
+     public function actionUpl(){
+        
+        if (Yii::$app->request->isAjax) {
+            $data = Yii::$app->request->post();
+             var_dump($_POST);
+            exit();
+            $searchname= explode(":", $data['searchname']);
+            $searchby= explode(":", $data['searchby']);
+            $searchname= $searchname[0];
+            $searchby= $searchby[0];
+            $search = // your logic;
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return [
+                'search' => $search,
+                'code' => 100,
+            ];
+      }
+
+
+
+    }
+
     /**
      * Creates a new Imagen model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -81,6 +103,8 @@ class ImagenController extends Controller
         $model->estado = 1;
 
         if ($model->load(Yii::$app->request->post())) {
+             var_dump($_POST);
+                exit();
             
             $model->imagen = UploadedFile::getInstances($model, 'imagen');
             

@@ -5,6 +5,8 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use kartik\file\FileInput;
 use app\models\Inmueble;
+use yii\helpers\Url;
+use     yii\web\JsExpression ;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Imagen */
@@ -23,12 +25,38 @@ use app\models\Inmueble;
   
     <!--<?= $form->field($model, 'imagen')->fileInput() ?>-->
    <?php echo $form->field($model, 'imagen[]')->widget(FileInput::classname(), [
-    'options' => ['accept' => 'image/*' , 'multiple'=>true],
+    'options' => ['accept' => 'image/*' , 'multiple'=>true,'id'=>'img1'],
     'pluginOptions' => [
+        'uploadUrl' => Url::current(),
         'showUpload' => false,
         'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
-        'browseLabel' =>  'Imagen'
-    ]
+        'browseLabel' =>  'Imagen',
+        'uploadExtraData' => new JsExpression('function() {
+
+             var $el2 = $("#img1");
+             var out = {}, key, i = 0;
+            $(".kv-input:visible").each(function() {
+                $el = $(this);
+                key = $el.hasClass("kv-new") ? "new_" + i : "init_" + i;
+                out[key] = $el.val();
+                i++;
+            });
+
+            return out;
+        }'),
+        /*'layoutTemplates' => [
+            'footer' => '<div class="file-thumbnail-footer">\n' +
+                        '   <div style="margin:5px 0">\n' +
+                                '<h6><label class="control-label" for="img1">Nombre:</label></h6>'+
+                        '       <input class="kv-input kv-new form-control input-sm {TAG_CSS_NEW}" value="{caption}" placeholder="Enter caption...">\n' +
+                                '<h6><label class="control-label" for="img1">Descripcion:</label></h6>'+
+                        '       <input class="kv-input kv-init form-control input-sm " value="{TAG_VALUE}" placeholder="Enter caption...">\n' +
+                        '   </div>\n' +
+                        '   {actions}\n' +
+                        '</div>'
+        ]*/
+    ],
+    
     ]); ?>
 
 
