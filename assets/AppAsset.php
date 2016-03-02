@@ -47,7 +47,6 @@ class AppAsset extends AssetBundle
         'js/jquery.sequence.min.js',
         'js/inmobiliaria.js',
         'js/admin.js',
-        'http://maps.google.com/maps/api/js?sensor=false',
         'js/localizacionMapa.js',
         'js/altaImagenes.js',
         
