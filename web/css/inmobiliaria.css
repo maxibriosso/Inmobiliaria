@@ -468,14 +468,18 @@ body{
 
 
 #frontend .titulo-index h3 {
-    font-size: 3em;
+    font-size: 2.5em;
     color: #000;
     margin: 0 0 1em;
     padding-top:1em !important;
     font-family: 'Montserrat';
     text-align: center;
 }
-
+#frontend .titulo-index h4{
+    font-size: 1.5em;
+    font-family: 'Montserrat';
+    text-align: center;
+}
 #frontend .titulo-index h3:after, .titulo-index h3:before {
     width: 200px;
     height: 1px;
@@ -486,7 +490,7 @@ body{
     margin: 0 1%;
 }
 #frontend .contenedor-inm-favoritos{
-  background:#b2b2b2;
+  background:white;
 }
 
 #frontend .contenedor-inm-ui{
@@ -521,7 +525,7 @@ body{
 /*----------------- BUSCADOR ---------------------*/
 /*----------------------------------------------------------*/
 #frontend .contenedor-buscador{ 
-    margin-top: -68px;
+    margin-top: -75px;
     position: relative;
     z-index: 10;
 }
@@ -578,22 +582,95 @@ body{
 /*----------------------------------------------------------*/
 
 #frontend .bigMessage {
-    background: white;
+    background: #b2b2b2;
     padding: 70px 0px 70px 0px;
 }
 #frontend .bigMessage h1 {
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    font-size: 40px;
+    font-size: 3em;
+    text-transform:uppercase;
+    font-family: 'Montserrat';
+    color:white;
     margin: 0px;
 }
 #frontend .bigMessage p {
-    font-size: 19px;
+    font-size: 1em;
+    color:white;
+    font-family: 'Montserrat';
+    text-transform:uppercase;
     text-align: center;
     margin: 0 0 10px;
 }
 
 /*----------------- FIN - MENSAJE ---------------------*/
+/*----------------------------------------------------------*/
+
+/*----------------- TESTIMONIOS ---------------------*/
+/*----------------------------------------------------------*/
+
+#frontend .contenedor-testimonios{
+  background:white;
+}
+
+/*----------------- FIN - TESTIMONIOS ---------------------*/
+/*----------------------------------------------------------*/
+
+/*----------------- FRASE 2 ---------------------*/
+/*----------------------------------------------------------*/
+
+#frontend .contenedor-frase-contacto{
+  background:#b2b2b2;
+}
+
+#frontend .img-frase-b{
+  min-height:150px;
+}
+#frontend .img-frase-b img{
+  position:absolute;
+  bottom: 0px;
+  width:350px;
+}
+#frontend .cont-contenido-test{
+  min-height:400px;
+}
+#frontend .texto-frase-b{
+  padding:20px;
+  font-family: 'Montserrat';
+  text-transform:uppercase;
+
+  min-height:150px;
+}
+#frontend .texto-frase-b h3{
+  margin-top:10px;
+  font-size:2em !important;
+}
+#frontend .btn-frase-b{
+  min-height:150px;
+  text-align:center;
+}
+#frontend .btn-frase-b a{
+  font-size:20px;
+  padding-right:40px;
+  padding-left:40px;
+  padding-top:15px;
+  padding-bottom:15px;
+  border:2px solid;
+  background:transparent !important;
+  font-family: 'Montserrat';
+  text-transform:uppercase;
+  margin-top:40px;
+}
+#frontend .btn-frase-b a:hover{
+  color:white;
+  border:2px solid #333333;
+  background:#333333 !important;
+
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+/*----------------- FIN - FRASE 2 ---------------------*/
 /*----------------------------------------------------------*/
 
 /*----------------- FOOTER ---------------------*/
@@ -700,7 +777,7 @@ body{
 /*----------------------------------------------------------*/
 .contenedor-img-contacto{ 
     position:relative;
-    background: url(../img/bl1.jpg) no-repeat;
+    background: url(../img/titulo-inmo-cm.jpg) no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -711,6 +788,86 @@ body{
 
 }
 
+.contenedor-img-contacto h1{
+  position:absolute;
+  left:8%;
+  bottom:20%;
+  color:white;
+  text-transform:uppercase;
+  font-size:50px;
+  outline: 4px solid white;
+  padding:15px;
+}
+.cont-form-contacto{
+  padding:50px;
+}
+.cont-texto-contrato{
+  padding:20px; 
+}
+.cont-texto-contrato h3{
+  text-align:center;
 
+}
+.row{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
 /*----------------- FIN - CONTACTO ---------------------*/
+/*----------------------------------------------------------*/
+
+/*----------------- EMPRESA ---------------------*/
+/*----------------------------------------------------------*/
+.contenedor-img-empresa{ 
+    position:relative;
+    background: url(../img/titulo-inmo-bm.jpg) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: 350px;
+
+}
+
+.contenedor-img-empresa h1{
+  position:absolute;
+  left:8%;
+  bottom:20%;
+  color:white;
+  text-transform:uppercase;
+  font-size:50px;
+  outline: 4px solid white;
+  padding:15px;
+}
+/*----------------- FIN - EMPRESA ---------------------*/
+/*----------------------------------------------------------*/
+
+
+/*----------------- SERVICIOS ---------------------*/
+/*----------------------------------------------------------*/
+.contenedor-img-servicios{ 
+    position:relative;
+    background: url(../img/titulo-inmo-dm.jpg) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: 350px;
+
+}
+
+.contenedor-img-servicios h1{
+  position:absolute;
+  left:8%;
+  bottom:20%;
+  color:white;
+  text-transform:uppercase;
+  font-size:50px;
+  outline: 4px solid white;
+  padding:15px;
+}
+/*----------------- FIN - SERVICIOS ---------------------*/
 /*----------------------------------------------------------*/

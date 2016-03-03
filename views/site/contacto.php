@@ -11,11 +11,11 @@ $this->title = 'Contacto';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <section class="contenedor-img-contacto">
-
+    <h1><?= Html::encode($this->title) ?></h1>  
 </section>
-<div class="container contenido-contacto">
-    <h1><?= Html::encode($this->title) ?></h1>
-
+<div class="container-fluid contenido-contacto">
+    
+    
     <?php if (Yii::$app->session->hasFlash('contactoFormSubmitted')): ?>
 
         <div class="alert alert-success">
@@ -23,13 +23,15 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
     <?php endif; ?>
-
-        <p>
-            Si tiene consultas comerciales u otras preguntas , por favor llene el siguiente formulario para contactar con nosotros. Gracias.
-        </p>
+        <div class="cont-texto-contrato">
+            <h3>
+                Si tiene consultas comerciales u otras preguntas , por favor llene el siguiente formulario para contactar con nosotros. Gracias.
+            </h3>
+        </div>
+        
 
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-5 cont-form-contacto">
 
                 <div class="solicitud-form">
 
@@ -54,6 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
             </div>
+            <div class="col-lg-7 cont-mapa-contacto">
+            </div>
         </div>
-
 </div>

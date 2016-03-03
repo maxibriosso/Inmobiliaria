@@ -32,9 +32,9 @@ AppAsset::register($this);
           <div class="menu-social-header navbar-fixed-top navbar-collapse2 collapse">
             <div class="container contenedor-menu-social-header">
                 <ul class="nav navbar-nav mn-menu-social-header navbar-left text-center">                    
-                    <li><a href="#" class="no-link">099392222</a></li>
+                    <li><a href="#" class="no-link"><i class="fa fa-mobile"></i> 099392222</a></li>
                     <li><a href="#" class="no-link">|</a></li>
-                    <li><a href="#" class="no-link">info@inmobiliaria.com</a></li>
+                    <li><a href="#" class="no-link"><i class="fa fa-envelope"></i> info@inmobiliaria.com</a></li>
                     <li><a href="#" class="no-link">|</a></li>
                     <li><a href="<?= Url::to(['site/login']) ?>">Login</a></li>
                 </ul>
