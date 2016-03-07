@@ -8,7 +8,8 @@ use app\models\Barrio;
 use app\models\Usuario;
 
 
-
+$baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
+$this->registerJsFile($baseUrl.'/js/localizacionMapa.js');
 /* @var $this yii\web\View */
 /* @var $model app\models\Inmueble */
 /* @var $form yii\widgets\ActiveForm */
@@ -91,7 +92,9 @@ $wizard_config = [
  
 
 <?php ActiveForm::end(); ?>
-
 <script type="text/javascript">
 var coordGuardadas = <?php echo json_encode($model->coord); ?>; 
 </script>
+
+
+

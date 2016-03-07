@@ -56,11 +56,16 @@
     };
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
+    var latlngbounds = new google.maps.LatLngBounds();
+
     marker = new google.maps.Marker({
       position: latlng,
       map: map,
       title: "Tu Inmueble",
     });
+
+
+
     $('#markets').val(coordGuardadas);
 
     google.maps.event.addListener(map, 'click', function(event) {

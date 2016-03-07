@@ -47,8 +47,8 @@ class AppAsset extends AssetBundle
         'js/jquery.sequence.min.js',
         'js/inmobiliaria.js',
         'js/admin.js',
-        'js/localizacionMapa.js',
         'js/altaImagenes.js',
+        'js/modificarImagenes.js',
         
         
         

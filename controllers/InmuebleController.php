@@ -178,6 +178,89 @@ class InmuebleController extends Controller
         }
     }
 
+
+     public function actionUpdateimage($id)
+    {
+        $model = new Imagen();
+        $imagenes = Imagen::find()
+            ->where(['id_inmueble' => $id])
+            ->orderBy('id')
+            ->all();
+        $array = array();
+        $arrayNombres = array();
+        $arrayDesc = array();
+        $cont=0;
+        foreach ($imagenes as $imagen) {
+            $img = "<img style='height:160px' src='".Yii::$app->request->baseUrl .'/uploads/'.$imagen->ruta."'>";
+            array_push($array,$img);
+            /*$nombres ='{caption:'.'"'.$imagen->titulo.'", width: "120px", url: "http://localhost/Inmobiliaria/web/inmueble/deleteimage", key:'.$cont++.'}';*/
+            $nombres = ['caption' => "$imagen->titulo", 'width' => '120px', 'url' => "http://localhost/Inmobiliaria/web/inmueble/deleteimage", 'key' => $imagen->id];
+            $descripcion = ['{TAG_VALUE}' => "$imagen->descripcion",'{Key}' => "$imagen->id"];
+            
+            array_push($arrayNombres,$nombres);
+            array_push($arrayDesc,$descripcion);
+            $cont++;
+
+        }  
+
+   
+
+            
+        if (Yii::$app->request->isAjax) {
+
+            $model->save();
+            return $this->redirect(['view', 'id' => $id]);
+        } else {
+            return $this->render('updateImage', [
+                'imagenes' => $array,
+                'model' => $model,
+                'nombres' => $arrayNombres,
+                'descripcion' => $arrayDesc,
+                'id' => $id,
+ 
+
+            ]);
+        }
+    }
+
+     public function actionDeleteimage()
+    {   
+       
+        $model = new Imagen();
+            
+        if (Yii::$app->request->isAjax) {
+
+
+            $model->imagen = UploadedFile::getInstances($model, 'imagen');
+            
+            $key = $_POST['key'];
+            $idInmueble = $_POST['idInmueble'];
+
+
+
+            $imagen = Imagen::find()
+            ->where(['id' => (int)$key])
+            ->one();
+            
+            var_dump( $imagen);
+            exit();
+
+            $image = 'C:\wamp\www\Inmobiliaria\web' . '/uploads/' . $imagen->ruta;
+            if (unlink($image)) {
+                $imagen->delete();
+                
+            }
+           
+            $output = ['success'=>'Imagen eliminada.'];
+            return json_encode($output) ;
+        } else {
+            return $this->render('updateImage', [
+                'model' => $model,
+
+            ]);
+        }
+    }
+
     /**
      * Deletes an existing Inmueble model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
