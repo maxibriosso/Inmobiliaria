@@ -30,14 +30,13 @@ use yii\helpers\Url;
 </div>
 <script type="text/javascript">
 var imagenes = <?php echo json_encode($imagenes); ?>;
-var conf = <?php echo json_encode($nombres); ?>;
+var conf = <?php echo json_encode($previewconf); ?>;
 var desc = <?php echo json_encode($descripcion); ?>;
 var idInmueble = <?php echo json_encode($id); ?>;
+var destacada = <?php echo json_encode($destacada); ?>;
 
 
-console.log(imagenes);
-console.log(conf);
-console.log(desc);
+
 
 
 </script>

@@ -9,8 +9,8 @@ var footerTemplate = '<div class="file-thumbnail-footer">\n' +
 '       <input class="kv-input kv-new form-control input-sm " value="{caption}" placeholder="Enter caption...">\n' +
         '<h6><label class="control-label" for="img2">Descripcion:</label></h6>'+
 '       <input class="kv-input kv-init form-control input-sm " value="{TAG_VALUE}" placeholder="Enter caption...">\n' +
-        '<div class="checkbox kv-check2 ">'+
-          '<label class="control-label" for="img2"><input class="kv-check" type="checkbox" value="" onchange="valueChanged()">Favorito</label>'+
+        '<div class="checkbox kv-checkDiv ">'+
+          '<label class="control-label" for="img2"><input class="kv-check{TAG_CSS_NEW} " type="checkbox" value="">Favorito</label>'+
         '</div>'+
 '   </div>\n' +
 '   {actions}\n' +
@@ -19,7 +19,7 @@ var footerTemplate = '<div class="file-thumbnail-footer">\n' +
 $el3.fileinput({
     uploadAsync: false,
     showUpload: false,
-    uploadUrl: 'http://localhost/Inmobiliaria/web/inmueble/updateimage',
+    uploadUrl: 'http://localhost/Inmobiliaria/web/inmueble/updateimage?id='+idInmueble,
     dropZoneEnabled: false,
     browseIcon: '<i class="glyphicon glyphicon-camera"></i> ',
     browseLabel: 'Imagen',
@@ -28,6 +28,7 @@ $el3.fileinput({
     layoutTemplates: {footer: footerTemplate},
     previewThumbTags: {
         '{TAG_VALUE}': '',        // no value
+        '{TAG_CSS_NEW}':'',   
     },
     initialPreview:imagenes,
     initialPreviewConfig:conf,
@@ -42,7 +43,7 @@ $el3.fileinput({
         });
 
         var j = 1;
-        $('.kv-check:visible').each(function() {
+        $('input:checkbox').each(function() {
 
             if($(this).is(":checked")){   
                 out['check']=j;
@@ -51,6 +52,7 @@ $el3.fileinput({
 
             j++;            
         });
+
 
         return out;
     },
@@ -67,16 +69,11 @@ $("#formImg2 button[type=\"submit\"]").on("click", function(e) {
     $("#img2").fileinput("upload");
 });
 
-function valueChanged()
-{
-    if($('.kv-check').is(":checked")){
-         $(".kv-check2").addClass("disabled");
-         $('.kv-check').attr('disabled', true);
 
-    }   
-       
-    
-}
+$('input:checkbox').on('change', function() {
+    $('input:checkbox').not(this).prop('checked', false);  
+});
+
 $el3.on("filepredelete", function(jqXHR) {
     var abort = true;
     if (confirm("Estas seguro que quieres eliminar esta imagen?")) {
@@ -85,5 +82,18 @@ $el3.on("filepredelete", function(jqXHR) {
     return abort; // you can also send any data/object that you can receive on `filecustomerror` event
 });
  
+$el3.on('filebatchuploaderror', function(event, data, previewId, index) {
+var form = data.form, files = data.files, extra = data.extra, 
+    response = data.response, reader = data.reader;
 
+});
+
+
+$el3.on('filebatchuploadsuccess', function(event, data, previewId, index) {
+   var form = data.form, files = data.files, extra = data.extra, 
+    response = data.response, reader = data.reader;
+    alert (extra.bdInteli + " " +  response.uploaded);
+});
+
+$('.kv-check'+destacada).attr('checked', true);
 
