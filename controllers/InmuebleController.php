@@ -293,7 +293,8 @@ class InmuebleController extends Controller
                     $a = $a + 2;
                     $c++; 
             }
-            $output = ['success'=>'Imagen guardada.'];
+
+            $output = ['respuesta'=>'Imagen guardada.'];
             return json_encode($output) ;
         } else {
             return $this->render('updateImage', [
@@ -311,8 +312,6 @@ class InmuebleController extends Controller
 
      public function actionDeleteimage()
     {   
-       
-        $model = new Imagen();
             
         if (Yii::$app->request->isAjax) {
             
@@ -325,22 +324,16 @@ class InmuebleController extends Controller
             ->where(['id' => (int)$key])
             ->one();
             
-          
-
             $image = 'C:\wamp\www\Inmobiliaria\web' . '/uploads/' . $imagen->ruta;
+
             if (unlink($image)) {
                 $imagen->delete();
                 
             }
            
-            $output = ['success'=>'Imagen eliminada.'];
+            $output = ['respuesta'=>'Imagen eliminada.'];
             return json_encode($output) ;
-        } else {
-            return $this->render('updateImage', [
-                'model' => $model,
-
-            ]);
-        }
+        } 
     }
 
     /**

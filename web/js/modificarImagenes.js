@@ -1,6 +1,7 @@
 
 
- var $el3 = $("#img2");
+var $el3 = $("#img2");
+
 // custom footer template for the scenario
 // the custom tags are in braces
 var footerTemplate = '<div class="file-thumbnail-footer">\n' +
@@ -16,6 +17,7 @@ var footerTemplate = '<div class="file-thumbnail-footer">\n' +
 '   {actions}\n' +
 '</div>';
 
+//Configuracion para file input
 $el3.fileinput({
     uploadAsync: false,
     showUpload: false,
@@ -64,35 +66,52 @@ $el3.fileinput({
 
 });
 
+//Upload todas las imagenes nuevas
 $("#formImg2 button[type=\"submit\"]").on("click", function(e) {
     e.preventDefault();
     $("#img2").fileinput("upload");
 });
 
-
+//Chequea un unico checkbox
 $('input:checkbox').on('change', function() {
     $('input:checkbox').not(this).prop('checked', false);  
 });
 
+//Evento de consulta antes de eliminar imagen
 $el3.on("filepredelete", function(jqXHR) {
     var abort = true;
-    if (confirm("Estas seguro que quieres eliminar esta imagen?")) {
+    if (confirm("¿Estas seguro que quieres eliminar esta imagen?")) {
         abort = false;
     }
     return abort; // you can also send any data/object that you can receive on `filecustomerror` event
 });
- 
+
+//Evento despues de imagen subida con error 
 $el3.on('filebatchuploaderror', function(event, data, previewId, index) {
-var form = data.form, files = data.files, extra = data.extra, 
-    response = data.response, reader = data.reader;
+    //data extra toda la informacion subida en uploadExtraData
+    //data files imagenes nuevas subidas
+    //data response respuesta de modificacion de imagenes
+    var response = data.response;
+    alert (response.respuesta);
 
 });
 
-
+//Evento despues de imagen subida con exito 
 $el3.on('filebatchuploadsuccess', function(event, data, previewId, index) {
-   var form = data.form, files = data.files, extra = data.extra, 
-    response = data.response, reader = data.reader;
-    alert (extra.bdInteli + " " +  response.uploaded);
+    //data extra toda la informacion subida en uploadExtraData
+    //data files imagenes nuevas subidas
+    //data response respuesta de modificacion de imagenes
+   var response = data.response;
+   alert (response.respuesta);
+
+
+});
+
+//Evento despues de imagen eliminada
+$el3.on('filedeleted', function(event, key, data) {
+    var response = data.responseJSON;
+    alert(response.respuesta);
+    
 });
 
 $('.kv-check'+destacada).attr('checked', true);

@@ -10,7 +10,7 @@ var footerTemplate = '<div class="file-thumbnail-footer">\n' +
         '<h6><label class="control-label" for="img1">Descripcion:</label></h6>'+
 '       <input class="kv-input kv-init form-control input-sm " value=" " placeholder="Enter caption...">\n' +
         '<div class="checkbox kv-check2 ">'+
-          '<label class="control-label" for="img1"><input class="kv-check" type="checkbox" value="" onchange="valueChanged()">Favorito</label>'+
+          '<label class="control-label" for="img1"><input class="kv-check" type="checkbox" value="">Favorito</label>'+
         '</div>'+
 '   </div>\n' +
     '<div class="file-actions">\n'+
@@ -22,6 +22,7 @@ var footerTemplate = '<div class="file-thumbnail-footer">\n' +
     '</div>\n'+
 '</div>';
 
+//Configuracion para file input
 $el2.fileinput({
     uploadAsync: false,
     showUpload: false,
@@ -53,25 +54,21 @@ $el2.fileinput({
         });
 
         out['id']=$('#imagen-id_inmueble').val();
-        console.log(out);
+       
         return out;
     }
 });
 
-
+//Upload todas las imagenes nuevas
 $("#formImg button[type=\"submit\"]").on("click", function(e) {
     e.preventDefault();
     $("#img1").fileinput("upload");
 });
 
-function valueChanged()
-{
-    if($('.kv-check').is(":checked")){
-         $(".kv-check2").addClass("disabled");
-         $('.kv-check').attr('disabled', true);
+//Chequea un unico checkbox
+$('input:checkbox').on('change', function() {
+    $('input:checkbox').not(this).prop('checked', false);  
+});
 
-    }   
-       
-    
-}
+
 
