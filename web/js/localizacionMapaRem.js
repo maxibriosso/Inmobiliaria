@@ -21,7 +21,7 @@
       var lat2 = marker2.getPosition().lat();
       var lng2 = marker2.getPosition().lng();
       var coorde = lat2 + ',' + lng2;
-      $("#markets").val(coorde);
+      $("#markets2").val(coorde);
 
     } else {
       marker2 = new google.maps.Marker({
@@ -65,6 +65,7 @@
       position: latlng2,
       map: map2,
       title: "Tu Remate",
+      icon: '../img/pinr.png',
     });
 
 

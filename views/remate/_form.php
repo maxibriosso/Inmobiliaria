@@ -30,7 +30,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaRem.js');
         </div>
         <div class="col-md-6">
              
-             <input type="hidden" name="markets2" id="markets2" value="coordenadas2">    
+             <input type="hidden" name="markets2" id="markets2" value="coordenadas">    
              <div id="map_remate" class="col-md-12"  style="width:100%;height:310px;"></div>
         </div>
         <div class="col-md-12">

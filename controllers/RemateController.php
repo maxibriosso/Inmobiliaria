@@ -79,6 +79,8 @@ class RemateController extends Controller
         $imagen = new Imagen_remate();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $imagen->load(Yii::$app->request->post())) {
+
+            $model->ubicacion = Yii::$app->request->bodyParams['markets2'];
             $model->estado=1;
             if($model->save() && !empty($imagen->ruta)){
                 $img = UploadedFile::getInstances($imagen, 'ruta');
@@ -140,8 +142,13 @@ class RemateController extends Controller
         $model = $this->findModel($id);
         $imagen = new Imagen_remate();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()){
+            
+            $model->ubicacion = Yii::$app->request->bodyParams['markets2'];
+            
+            if($model->save()) {
+                return $this->redirect(['index']);
+            }
         } else {
             return $this->render('update', [
                 'model' => $model,

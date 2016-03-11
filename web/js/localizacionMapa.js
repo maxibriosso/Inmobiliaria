@@ -64,6 +64,7 @@
       position: latlng,
       map: map,
       title: "Tu Inmueble",
+      icon: '../img/pini.png',
     });
 
     $('#markets').val(coordGuardadas);
