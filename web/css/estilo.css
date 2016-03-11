@@ -758,7 +758,7 @@
 }
 
 #backend .panel-heading a{
-  color: white;
+  color: white !important;
   float: right;
 }
 
@@ -778,13 +778,24 @@
 #backend .grid-view{
   padding-top: 0px !important;
 }
-
+#backend .grid-view table thead tr th a{
+  color:white;
+}
 #backend .form-horizontal .control-label{
 /* text-align:right; */
 text-align:left !important;
 
 }
+#backend .content-form{
+  padding:20px;
+}
 
+#backend .grid-view table tbody td a{
+  color:white;
+}
+#backend .grid-view table tbody td a:hover{
+  color:#2293FC;
+}
 /*#publicaciones-grid .items thead tr{
 
   background-color: rgba(0,0,0,0.4) !important;

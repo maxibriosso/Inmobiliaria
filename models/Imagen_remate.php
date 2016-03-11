@@ -33,12 +33,12 @@ class Imagen_remate extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_imagen'], 'required'],
-            [['id_imagen', 'destacada', 'estado'], 'integer'],
+            [['id_remate'], 'required'],
+            [['id_remate', 'destacada', 'estado'], 'integer'],
             [['ruta'], 'string'],
             [['fecha_creacioin'], 'safe'],
             [['nombre'], 'string', 'max' => 200],
-            [['id_imagen'], 'unique']
+            [['id_remate'], 'unique']
         ];
     }
 
@@ -49,7 +49,7 @@ class Imagen_remate extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_imagen' => 'Id Imagen',
+            'id_remate' => 'Remate',
             'nombre' => 'Nombre',
             'ruta' => 'Ruta',
             'destacada' => 'Destacada',
@@ -63,6 +63,6 @@ class Imagen_remate extends \yii\db\ActiveRecord
      */
     public function getIdImagen()
     {
-        return $this->hasOne(Remate::className(), ['id' => 'id_imagen']);
+        return $this->hasOne(Remate::className(), ['id' => 'id_remate']);
     }
 }

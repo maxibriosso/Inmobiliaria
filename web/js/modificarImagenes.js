@@ -116,3 +116,6 @@ $el3.on('filedeleted', function(event, key, data) {
 
 $('.kv-check'+destacada).attr('checked', true);
 
+function render(){
+  google.maps.event.trigger(map, 'resize');
+}

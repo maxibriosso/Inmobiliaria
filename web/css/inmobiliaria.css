@@ -775,7 +775,7 @@ body{
 
 /*----------------- CONTACTO ---------------------*/
 /*----------------------------------------------------------*/
-.contenedor-img-contacto{ 
+#frontend .contenedor-img-contacto{ 
     position:relative;
     background: url(../img/titulo-inmo-cm.jpg) no-repeat;
     -webkit-background-size: cover;
@@ -788,7 +788,7 @@ body{
 
 }
 
-.contenedor-img-contacto h1{
+#frontend .contenedor-img-contacto h1{
   position:absolute;
   left:8%;
   bottom:20%;
@@ -798,17 +798,17 @@ body{
   outline: 4px solid white;
   padding:15px;
 }
-.cont-form-contacto{
+#frontend .cont-form-contacto{
   padding:50px;
 }
-.cont-texto-contrato{
+#frontend .cont-texto-contrato{
   padding:20px; 
 }
-.cont-texto-contrato h3{
+#frontend .cont-texto-contrato h3{
   text-align:center;
 
 }
-.row{
+#frontend .row{
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
@@ -817,7 +817,7 @@ body{
 
 /*----------------- EMPRESA ---------------------*/
 /*----------------------------------------------------------*/
-.contenedor-img-empresa{ 
+#frontend .contenedor-img-empresa{ 
     position:relative;
     background: url(../img/titulo-inmo-bm.jpg) no-repeat;
     -webkit-background-size: cover;
@@ -830,7 +830,7 @@ body{
 
 }
 
-.contenedor-img-empresa h1{
+#frontend .contenedor-img-empresa h1{
   position:absolute;
   left:8%;
   bottom:20%;
@@ -846,7 +846,7 @@ body{
 
 /*----------------- SERVICIOS ---------------------*/
 /*----------------------------------------------------------*/
-.contenedor-img-servicios{ 
+#frontend .contenedor-img-servicios{ 
     position:relative;
     background: url(../img/titulo-inmo-dm.jpg) no-repeat;
     -webkit-background-size: cover;
@@ -859,7 +859,7 @@ body{
 
 }
 
-.contenedor-img-servicios h1{
+#frontend .contenedor-img-servicios h1{
   position:absolute;
   left:8%;
   bottom:20%;
