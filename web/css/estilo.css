@@ -796,6 +796,101 @@ text-align:left !important;
 #backend .grid-view table tbody td a:hover{
   color:#2293FC;
 }
+
+#backend .estilo-inm form{
+  margin-top:0px;
+  padding-top:0px;
+}
+
+#backend .wizard {
+  margin: 0px !important;
+}
+#backend .wizard .nav-tabs {
+  margin:5px !important;
+}
+#backend .wizard .tooltip {
+  z-index:2200 !important;
+} 
+
+#backend .wizard li span.round-tab {
+    background: rgb(35,35,35) !important;
+}
+#backend .wizard li.active span.round-tab {
+    background: white !important;
+}
+
+#backend .wizard .btn-wizard-a{
+  position:absolute;
+  background:rgba(0,0,0,0.4) !important;
+  border-color:white;
+  right:1px;
+  top:0;
+}
+#backend .wizard .btn-wizard-a:hover{
+  color:#5bc0de;
+  border-color:#5bc0de;
+}
+
+#backend .wizard .btn-wizard-b{
+  background:rgba(0,0,0,0.4) !important;
+  border-color:white;
+  position:absolute;
+  right:90px;
+  top:0;
+} 
+#backend .wizard .btn-wizard-b:hover{
+  color:#5bc0de;
+  border-color:#5bc0de;
+}
+#backend .wizard .btn-wizard-s{
+  background:rgba(0,0,0,0.4) !important;
+  border-color:white;
+  position:absolute;
+  right:80px;
+  top:0;
+} 
+#backend .wizard .btn-wizard-s:hover{
+  color:#5bc0de;
+  border-color:#5bc0de;
+}
+#backend .panel-view{
+  padding-left: 0px !important;
+  padding-right: 5px !important;
+
+}
+#backend .panel-view h3,#backend .panel-view h5{
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+}
+#backend .operacion-view{
+  margin-top: 5px !important;
+  margin-bottom: 15px !important;
+
+}
+#backend .btn-action-view{
+  position:absolute;
+  right:5px;
+  top:0;
+}
+#backend .btn-action-view a{
+  background:transparent !important;
+  border-color:transparent !important;
+}
+#backend .btn-action-view a:hover{
+  color:#5bc0de !important;
+}
+#backend .operacion-view span{
+  margin-right: 5px;
+}
+#backend .table-accs-inm-view{
+  padding-top:10px;
+}
+#backend .table-accs-inm-view tbody tr td{
+  border-top: none !important;
+}
+#backend .table-info-inm-view{
+  margin-bottom: 10px !important;
+}
 /*#publicaciones-grid .items thead tr{
 
   background-color: rgba(0,0,0,0.4) !important;

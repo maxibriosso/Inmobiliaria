@@ -35,6 +35,6 @@ use app\models\Usuario;
 
     <?= $form->field($dataset, 'superficie')->textInput()?>
 
-    <?= $form->field($dataset, 'operacion')->dropDownList([ 'Compra' => 'Compra', 'Alquiler' => 'Alquiler', ], ['prompt' => ''])?>
+    <?= $form->field($dataset, 'operacion')->dropDownList([ 'Venta' => 'Venta', 'Alquiler' => 'Alquiler', ], ['prompt' => ''])?>
                 
 </div>

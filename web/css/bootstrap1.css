@@ -5849,6 +5849,7 @@ button.close {
   font-weight: normal;
   line-height: 1.4;
   opacity: 0;
+  z-index:400;
   filter: alpha(opacity=0);
 }
 .tooltip.in {

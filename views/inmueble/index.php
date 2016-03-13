@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use app\models\Barrio;
 use app\models\Usuario;
@@ -14,75 +14,83 @@ use app\models\Propietario;
 
 $this->title = 'Inmuebles';
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->registerJs("$('.filters').toggle().hide();
+$('.search-button').click(function(){
+    $('.filters').toggle();
+    return false;
+});
+");
 ?>
-<div class="inmueble-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<div class="panel panel-default" role="menu" data-wow-duration="0.8s" data-wow-delay="0s">
+      <div class="panel-heading text-left"><?= Html::encode($this->title) ?>
+        <a href="#" class="btn-link btn-sm search-button"><i class="fa fa-search"></i></a>
+        <a href="<?= Url::to(['inmueble/create']) ?>" class="btn-link btn-sm"><i class="fa fa-plus"></i></a>
+      </div>
 
-    <p>
-        <?= Html::a('Create Inmueble', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+      <div class="panel-body admin">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'summary'=>"",
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                'id',
+                //'id_barrio',
+                [
+                    'attribute'=>'id_barrio',
+                    'value'=> function($model){
+                        $barrio = Barrio::findOne($model->id_barrio);
+                        return $barrio->nombre;  
+                    }, 
+                    'filter'=> ArrayHelper::map(Barrio::find()->all(),'id','nombre'),
+                ],
+                //'id_usuario',
+                [
+                    'attribute'=>'id_usuario',
+                    'value'=> function($model){
+                        $usuario = Usuario::findOne($model->id_usuario);
+                        return $usuario->nombre;  
+                    }, 
+                    'filter'=> ArrayHelper::map(Usuario::find()->all(),'id','nombre'),
+                ],
+                //'id_propietario',
+                [
+                    'attribute'=>'id_propietario',
+                    'value'=> function($model){
+                        $propietario = Propietario::findOne($model->id_propietario);
+                        return $propietario->nombre;  
+                    }, 
+                    'filter'=> ArrayHelper::map(Propietario::find()->all(),'id','nombre'),
+                ],
+                'nombre',
+                // 'valor',
+                // 'estado',
+                // 'direccion',
+                // 'titulo',
+                // 'descripcion:ntext',
+                // 'amueblado',
+                // 'garage',
+                // 'jardin',
+                // 'parrillero',
+                // 'piso',
+                // 'tipo',
+                // 'prestamo_bancario',
+                // 'cantidad_banios',
+                // 'cantidad_habitaciones',
+                // 'superficie',
+                // 'coord:ntext',
+                // 'operacion',
+                // 'destacado',
+                // 'favorito',
+                // 'activo',
+                // 'fecha_creacion',
 
-            'id',
-            //'id_barrio',
-            [
-                'attribute'=>'id_barrio',
-                'value'=> function($model){
-                    $barrio = Barrio::findOne($model->id_barrio);
-                    return $barrio->nombre;  
-                }, 
-                'filter'=> ArrayHelper::map(Barrio::find()->all(),'id','nombre'),
+                ['class' => 'yii\grid\ActionColumn'],
             ],
-            //'id_usuario',
-            [
-                'attribute'=>'id_usuario',
-                'value'=> function($model){
-                    $usuario = Usuario::findOne($model->id_usuario);
-                    return $usuario->nombre;  
-                }, 
-                'filter'=> ArrayHelper::map(Usuario::find()->all(),'id','nombre'),
-            ],
-            //'id_propietario',
-            [
-                'attribute'=>'id_propietario',
-                'value'=> function($model){
-                    $propietario = Propietario::findOne($model->id_propietario);
-                    return $propietario->nombre;  
-                }, 
-                'filter'=> ArrayHelper::map(Propietario::find()->all(),'id','nombre'),
-            ],
-            'nombre',
-            // 'valor',
-            // 'estado',
-            // 'direccion',
-            // 'titulo',
-            // 'descripcion:ntext',
-            // 'amueblado',
-            // 'garage',
-            // 'jardin',
-            // 'parrillero',
-            // 'piso',
-            // 'tipo',
-            // 'prestamo_bancario',
-            // 'cantidad_banios',
-            // 'cantidad_habitaciones',
-            // 'superficie',
-            // 'coord:ntext',
-            // 'operacion',
-            // 'destacado',
-            // 'favorito',
-            // 'activo',
-            // 'fecha_creacion',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
+            'tableOptions' =>['class' => 'table'],
+        ]); ?>
+    </div>
 </div>

@@ -31,7 +31,7 @@ $wizard_config = [
             'buttons' => [
                 'next' => [
                     'title' => 'Siguiente', 
-                    'options' => ['class' => 'btn btn-success'],
+                    'options' => ['class' => 'btn btn-success btn-wizard-a'],
                  ],
              ],
         ],
@@ -42,11 +42,11 @@ $wizard_config = [
             'buttons' => [
                 'next' => [
                     'title' => 'Siguiente', 
-                    'options' => ['class' => 'btn btn-success'],
+                    'options' => ['class' => 'btn btn-success  btn-wizard-a'],
                  ],
                 'prev' => [
                     'title' => 'Anterior', 
-                    'options' => ['class' => 'btn btn-success'],
+                    'options' => ['class' => 'btn btn-success  btn-wizard-b'],
                  ],
              ],
             
@@ -58,11 +58,11 @@ $wizard_config = [
             'buttons' => [
                 'next' => [
                     'title' => 'Siguiente', 
-                    'options' => ['class' => 'btn btn-success'],
+                    'options' => ['class' => 'btn btn-success  btn-wizard-a'],
                  ],
                 'prev' => [
                     'title' => 'Anterior', 
-                    'options' => ['class' => 'btn btn-success' ],
+                    'options' => ['class' => 'btn btn-success  btn-wizard-b' ],
                  ],
              ],
         ],
@@ -71,13 +71,13 @@ $wizard_config = [
             'icon' => 'glyphicon glyphicon-globe',
             'content' => $this->render('_step4', ['form' => $form, 'dataset' => $model]),
             'buttons' => [
-                'prev' => [
-                    'title' => 'Anterior', 
-                    'options' => ['class' => 'btn btn-success'],
-                 ],
                 'save' => [
                     'title' => 'Guardar', 
-                    'options' => ['class' => 'btn btn-success', 'type' => 'submit'],
+                    'options' => ['class' => 'btn btn-success  btn-wizard-a', 'type' => 'submit'],
+                 ],
+                'prev' => [
+                    'title' => 'Anterior', 
+                    'options' => ['class' => 'btn btn-success  btn-wizard-s'],
                  ],
              ],
         ],
