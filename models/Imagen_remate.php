@@ -37,8 +37,8 @@ class Imagen_remate extends \yii\db\ActiveRecord
             [['id_remate', 'destacada', 'estado'], 'integer'],
             [['ruta'], 'string'],
             [['fecha_creacioin'], 'safe'],
-            [['nombre'], 'string', 'max' => 200],
-            [['id_remate'], 'unique']
+            [['nombre'], 'string', 'max' => 200]
+          
         ];
     }
 
@@ -61,7 +61,7 @@ class Imagen_remate extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdImagen()
+    public function getIdRemate()
     {
         return $this->hasOne(Remate::className(), ['id' => 'id_remate']);
     }
