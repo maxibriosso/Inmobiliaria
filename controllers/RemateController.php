@@ -78,51 +78,49 @@ class RemateController extends Controller
         $model = new Remate();
         $imagen = new Imagen_remate();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $imagen->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
+            //Se carga ubicacion del remate.
             $model->ubicacion = Yii::$app->request->bodyParams['markets2'];
-            $model->estado=1;
-            if($model->save() && !empty($imagen->ruta)){
+            //Se carga el estado del remate.
+            $model->estado = 1;
+            //Si se guarda el remate se dan de alta las imagenes del mismo.
+            if($model->save()){
+
                 $img = UploadedFile::getInstances($imagen, 'ruta');
-                $imagen->estado = 1;
-                $imagen->id_remate= $model->id;
-                $a = 0;
-                foreach ($img as $file) {
-                    $a++;
-                    $model2[$a] = new Imagen_remate();
-                    if($a == 1){
-                        $model2[$a]->destacada     =1;
+
+                if(!empty($img)){
+                    $a = 0;
+                    foreach ($img as $file) {
+                        $a++;
+                        $model2[$a] = new Imagen_remate();
+                        if($a == 1){
+                            $model2[$a]->destacada     = 1;
+                        }
+                        else{
+                            $model2[$a]->destacada     = 0;
+                        }
+                        $ext = end((explode(".", $file->name)));
+
+                        // generate a unique file name
+                        $path = 'remate'.Yii::$app->security->generateRandomString().".{$ext}";
+                        //Se guarda la imagen en uploads.
+                        $file->saveAs('uploads/' . $path);
+                        //Se cargan datos en el modelo.
+                        $model2[$a]->id_remate   =  (int)$model->id;
+                        $model2[$a]->ruta        =  $path;
+                        $model2[$a]->nombre      =  $file->name;
+                        $model2[$a]->estado      =  1;
+            
+                        $model2[$a]->save(false);
                     }
-                    else{
-                        $model2[$a]->destacada     =  (int)$imagen->destacada;
-                    }
-                    $ext = end((explode(".", $file->name)));
 
-                    // generate a unique file name
-                    $path = 'remate'.Yii::$app->security->generateRandomString().".{$ext}";
-                    
-                    $file->saveAs('uploads/' . $path);
-                    
-                    $model2[$a]->id_remate   =  (int)$imagen->id_remate;
-                    $model2[$a]->ruta = $path;
-                    $model2[$a]->nombre        =  $imagen->nombre;
-                    $model2[$a]->estado        =  (int)$imagen->estado;
-                    
-                
-
-                    $model2[$a]->save(false);
-
-               
                 }
+                
                 
                 //return $this->redirect(['view', 'id' => $model->id]);
                 return $this->redirect(['index']);
             }
-            /*if ($model->load(Yii::$app->request->post())) {
-            $model->estado=1;
-            if($model->save()){
-                return $this->redirect(['view', 'id' => $model->id]);
-            }*/
         } else {
             return $this->render('create', [
                 'model' => $model,

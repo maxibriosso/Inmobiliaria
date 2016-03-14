@@ -17,7 +17,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaRem.js');
 
 <div class="row content-form">
 <?php $form = ActiveForm::begin([
-    'id'=>'formid',   
+    'id'=>'formRemateid',   
     'options' => ['enctype' => 'multipart/form-data']]); 
 ?>
 
