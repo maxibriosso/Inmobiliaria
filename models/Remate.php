@@ -63,7 +63,7 @@ class Remate extends \yii\db\ActiveRecord
      */
     public function getImagenRemates()
     {
-        return $this->hasMany(ImagenRemate::className(), ['id_remate' => 'id']);
+        return $this->hasMany(Imagen_remate::className(), ['id_remate' => 'id']);
     }
 
     /**
