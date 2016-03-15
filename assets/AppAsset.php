@@ -49,6 +49,7 @@ class AppAsset extends AssetBundle
         'js/admin.js',
         'js/altaImagenes.js',
         'js/modificarImagenes.js',
+        'js/modificarRemateImagenes.js',
         
         
         

@@ -20,7 +20,9 @@ $this->params['breadcrumbs'][] = 'Modificar';
 
         <?= $this->render('_form', [
             'model' => $model,
-            'imagen'=> $imagen,
+            'imagen' => $imagen,
+            'imagenes' => $imagenes,
+        	'previewconf' => $previewconf,
         ]) ?>
     </div>
 </div>

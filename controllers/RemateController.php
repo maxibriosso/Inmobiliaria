@@ -78,6 +78,9 @@ class RemateController extends Controller
         $model = new Remate();
         $imagen = new Imagen_remate();
 
+        $array = array();
+        $arrayPreviewConf = array();
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
             //Se carga ubicacion del remate.
@@ -125,6 +128,8 @@ class RemateController extends Controller
             return $this->render('create', [
                 'model' => $model,
                 'imagen'=> $imagen,
+                'imagenes' => $array,
+                'previewconf' => $arrayPreviewConf,
             ]);
         }
     }
@@ -138,7 +143,26 @@ class RemateController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
         $imagen = new Imagen_remate();
+
+        $imagenes = Imagen_remate::find()
+            ->where(['id_remate' => $id])
+            ->orderBy('id')
+            ->all();
+        $array = array();
+        $arrayPreviewConf = array();
+    
+        foreach ($imagenes as $image) {
+
+            $img = "<img style='height:160px' src='".Yii::$app->request->baseUrl .'/uploads/'.$image->ruta."'>";
+            $initialPreviewConfig = ['caption' => "$image->nombre", 'width' => '120px', 'url' => "http://localhost/Inmobiliaria/web/remate/deleteimage", 'key' => $image->id];
+            
+            array_push($array,$img);
+            array_push($arrayPreviewConf,$initialPreviewConfig);
+           
+
+        }  
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()){
             
@@ -150,9 +174,36 @@ class RemateController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'imagen'=> $imagen,
+                'imagen' => $imagen,
+                'imagenes' => $array,
+                'previewconf' => $arrayPreviewConf,
             ]);
         }
+    }
+
+    //Borra imagenes del remate 
+    public function actionDeleteimage()
+    {   
+            
+        if (Yii::$app->request->isAjax) {
+            
+            $key = $_POST['key'];
+
+
+            $imagen = Imagen_remate::find()
+            ->where(['id' => (int)$key])
+            ->one();
+            
+            $image = 'C:\wamp\www\Inmobiliaria\web' . '/uploads/' . $imagen->ruta;
+
+            if (unlink($image)) {
+                $imagen->delete();
+                
+            }
+           
+            $output = ['respuesta'=>'Imagen eliminada.'];
+            return json_encode($output) ;
+        } 
     }
 
     /**
