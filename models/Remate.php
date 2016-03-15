@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property integer $id_barrio
  * @property string $titulo
+ * @property string $direccion
  * @property string $descripcion
  * @property string $ubicacion
  * @property integer $estado
@@ -38,7 +39,8 @@ class Remate extends \yii\db\ActiveRecord
             [['id_barrio', 'estado'], 'integer'],
             [['descripcion', 'ubicacion'], 'string'],
             [['titulo'], 'string', 'max' => 200],
-            [['fecha_creacion'], 'safe']
+            [['fecha_creacion'], 'safe'],
+            [['direccion'], 'string', 'max' => 500]
         ];
     }
 
@@ -51,6 +53,7 @@ class Remate extends \yii\db\ActiveRecord
             'id' => 'ID',
             'id_barrio' => 'Barrio',
             'titulo' => 'Título',
+            'direccion' => 'Dirección',
             'descripcion' => 'Descripción',
             'ubicacion' => 'Ubicación',
             'estado' => 'Estado',

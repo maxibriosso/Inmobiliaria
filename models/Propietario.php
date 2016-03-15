@@ -10,7 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $nombre
  * @property string $apellido
- * @property integer $telefono
+ * @property string $telefono
  * @property string $email
  * @property integer $ci
  * @property integer $estado
@@ -34,10 +34,11 @@ class Propietario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['telefono', 'ci', 'estado'], 'integer'],
+            [['ci', 'estado'], 'integer'],
             [['estado'], 'required'],
             [['fecha_creacion'], 'safe'],
-            [['nombre', 'apellido', 'email'], 'string', 'max' => 100]
+            [['nombre', 'apellido', 'email'], 'string', 'max' => 100],
+            [['telefono'],'string', 'max' => 11]
         ];
     }
 

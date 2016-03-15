@@ -23,6 +23,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaRem.js');
 
         <div class="col-md-6">
             <?=$form->field($model, 'id_barrio')->dropDownList(ArrayHelper::map(Barrio::find()->all(), 'id', 'nombre')); ?>
+            <?= $form->field($model, 'direccion')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'titulo')->textInput() ?>
 
@@ -31,7 +32,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaRem.js');
         <div class="col-md-6">
              
              <input type="hidden" name="markets2" id="markets2" value="coordenadas">    
-             <div id="map_remate" class="col-md-12"  style="width:100%;height:310px;"></div>
+             <div id="map_remate" class="col-md-12"  style="width:100%;height:380px;"></div>
         </div>
         <div class="col-md-12">
             <?= $form->field($imagen, 'ruta[]')->widget(FileInput::classname(), [

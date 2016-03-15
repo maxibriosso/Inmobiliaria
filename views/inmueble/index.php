@@ -7,7 +7,7 @@ use yii\helpers\ArrayHelper;
 use app\models\Barrio;
 use app\models\Usuario;
 use app\models\Propietario;
-
+use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\InmuebleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -30,6 +30,7 @@ $('.search-button').click(function(){
       </div>
 
       <div class="panel-body admin">
+        <?php Pjax::begin(); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
@@ -88,9 +89,18 @@ $('.search-button').click(function(){
                 // 'activo',
                 // 'fecha_creacion',
 
-                ['class' => 'yii\grid\ActionColumn'],
+                [   'class' => 'yii\grid\ActionColumn',
+                    'template' => '{view} {update} {updateImage} {delete} ',
+                    'buttons' => [
+                        'updateImage' => function ($url,$model,$key) {
+                                return Html::a('<span class="glyphicon glyphicon-picture"></span>', $url);
+                        },
+                    ],
+                ],
+
             ],
             'tableOptions' =>['class' => 'table'],
         ]); ?>
+        <?php Pjax::end(); ?>
     </div>
 </div>

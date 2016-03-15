@@ -12,6 +12,7 @@ use app\models\Presentacion;
 use app\models\PresentacionSearch;
 use app\models\Inmueble;
 use app\models\InmuebleSearch;
+use app\models\SolicitudSearch;
 
 class SiteController extends Controller
 {
@@ -63,10 +64,14 @@ class SiteController extends Controller
 
         $dataProvider = Presentacion::find()->all();
 
+        $searchModel = new SolicitudSearch();
+        $solic = $searchModel->obtener(Yii::$app->request->queryParams);
+        
         return $this->render('index', [
             'pre' => $dataProvider,
             'des' => $data,
             'ultima' => $ultima,
+            'solic'=> $solic,
         ]);
     }
 

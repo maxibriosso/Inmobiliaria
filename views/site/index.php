@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\grid\GridView;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -189,7 +191,29 @@ if(Yii::$app->user->isGuest){
 
 
 <?php }else{ ?>
+  
+  <div class="col-md-8 panel panel-default" role="menu" data-wow-duration="0.8s" data-wow-delay="0s">
+      <div class="panel-heading text-left">Solicitudes
+      </div>
+      <div class="panel-body admin">
 
-  <h1>Bienvenido al panel admin!</h1>
+        <?= GridView::widget([
+                'dataProvider' => $solic,
+                'summary'=>"",
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+                    'nombre',
+                    'telefono',
+                    'email',
+                    'tipo',
+                    [ 'class' => 'yii\grid\ActionColumn',
+                      'template' => '{view}',
+                    ],
+                    
+                ],
+                'tableOptions' =>['class' => 'table'],
 
+            ]); ?>
+    </div>
+</div>
 <?php } ?>

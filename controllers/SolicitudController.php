@@ -42,7 +42,7 @@ class SolicitudController extends Controller
      * Lists all Solicitud models.
      * @return mixed
      */
-    public function actionIndex()
+/*    public function actionIndex()
     {
         $searchModel = new SolicitudSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -52,7 +52,7 @@ class SolicitudController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
+*/
     /**
      * Displays a single Solicitud model.
      * @param integer $id

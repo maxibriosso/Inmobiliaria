@@ -69,4 +69,19 @@ class SolicitudSearch extends Solicitud
 
         return $dataProvider;
     }
+
+    public function obtener($params)
+    {
+        $query = Solicitud::find()
+            ->where(['leida' => 1])->andWhere(['estado'=> 1])
+            ->orderBy('id desc');
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params);
+
+        return $dataProvider;
+    }
 }

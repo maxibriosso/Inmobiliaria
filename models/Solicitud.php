@@ -13,6 +13,7 @@ use Yii;
  * @property string $email
  * @property string $descripcion
  * @property string $tipo
+ * @property integer $leida
  * @property integer $estado
  * @property string $fecha_creacion
  */
@@ -34,7 +35,7 @@ class Solicitud extends \yii\db\ActiveRecord
         return [
             [['descripcion', 'tipo'], 'string'],
             [['estado'], 'required'],
-            [['estado'], 'integer'],
+            [['estado','leida'], 'integer'],
             [['fecha_creacion'], 'safe'],
             [['nombre', 'telefono'], 'string', 'max' => 15],
             [['email'], 'string', 'max' => 50]
@@ -53,6 +54,7 @@ class Solicitud extends \yii\db\ActiveRecord
             'email' => 'Email',
             'descripcion' => 'Descripcion',
             'tipo' => 'Tipo',
+            'leida' => 'Leida',
             'estado' => 'Estado',
             'fecha_creacion' => 'Fecha Creacion',
         ];
