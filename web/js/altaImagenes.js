@@ -9,7 +9,7 @@ var footerTemplate = '<div class="file-thumbnail-footer">\n' +
 '       <input class="kv-input kv-new form-control input-sm " value="{caption}" placeholder="Enter caption...">\n' +
         '<h6><label class="control-label" for="img1">Descripcion:</label></h6>'+
 '       <input class="kv-input kv-init form-control input-sm " value=" " placeholder="Enter caption...">\n' +
-        '<div class="checkbox kv-check2 ">'+
+        '<div class="checkbox">'+
           '<label class="control-label" for="img1"><input class="kv-check" type="checkbox" value="">Favorito</label>'+
         '</div>'+
 '   </div>\n' +
@@ -65,10 +65,13 @@ $("#formImg button[type=\"submit\"]").on("click", function(e) {
     $("#img1").fileinput("upload");
 });
 
-//Chequea un unico checkbox
-$('input:checkbox').on('change', function() {
-    $('input:checkbox').not(this).prop('checked', false);  
+$(document).ready(function() {
+    //Chequea un unico checkbox
+    $('#formImg').on('click','input:checkbox', function()  {
+        $('#formImg input:checkbox').not(this).prop('checked', false);  
+    });
 });
+
 
 
 

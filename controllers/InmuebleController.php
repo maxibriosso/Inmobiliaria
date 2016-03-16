@@ -104,8 +104,6 @@ class InmuebleController extends Controller
 
             $data = Yii::$app->request->post();
          
-             var_dump($_POST);
-            exit();
 
             $model->imagen = UploadedFile::getInstances($model, 'imagen');
 

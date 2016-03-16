@@ -10,7 +10,7 @@ var footerTemplate = '<div class="file-thumbnail-footer">\n' +
 '       <input class="kv-input kv-new form-control input-sm " value="{caption}" placeholder="Enter caption...">\n' +
         '<h6><label class="control-label" for="img2">Descripcion:</label></h6>'+
 '       <input class="kv-input kv-init form-control input-sm " value="{TAG_VALUE}" placeholder="Enter caption...">\n' +
-        '<div class="checkbox kv-checkDiv ">'+
+        '<div class="checkbox ">'+
           '<label class="control-label" for="img2"><input class="kv-check{TAG_CSS_NEW} " type="checkbox" value="">Favorito</label>'+
         '</div>'+
 '   </div>\n' +
@@ -73,8 +73,8 @@ $("#formImg2 button[type=\"submit\"]").on("click", function(e) {
 });
 
 //Chequea un unico checkbox
-$('input:checkbox').on('change', function() {
-    $('input:checkbox').not(this).prop('checked', false);  
+$('#formImg2').on('click','input:checkbox', function()  {
+    $('#formImg2 input:checkbox').not(this).prop('checked', false);  
 });
 
 //Evento de consulta antes de eliminar imagen
