@@ -90,9 +90,9 @@ $('.search-button').click(function(){
                 // 'fecha_creacion',
 
                 [   'class' => 'yii\grid\ActionColumn',
-                    'template' => '{view} {update} {updateImage} {delete} ',
+                    'template' => '{view} {update} {updateimage} {delete} ',
                     'buttons' => [
-                        'updateImage' => function ($url,$model,$key) {
+                        'updateimage' => function ($url,$model,$key) {
                                 return Html::a('<span class="glyphicon glyphicon-picture"></span>', $url);
                         },
                     ],
