@@ -66,13 +66,38 @@ class SiteController extends Controller
 
         $searchModel = new SolicitudSearch();
         $solic = $searchModel->obtener(Yii::$app->request->queryParams);
-        
-        return $this->render('index', [
+
+        $searchModel = new InmuebleSearch();
+
+        if($searchModel->load(Yii::$app->request->get()))
+        {
+            if ($searchModel->validate())
+            {
+                $dataSearch = $searchModel->search(Yii::$app->request->queryParams);
+
+                return $this->render('inmueblesearch', [
+                    'dataProvider' => $dataSearch,
+                ]);
+            }
+            else{
+                $form->getErrors();
+            }
+        }else{
+
+             return $this->render('index', [
             'pre' => $dataProvider,
             'des' => $data,
             'ultima' => $ultima,
             'solic'=> $solic,
-        ]);
+            'searchModel' => $searchModel,
+            ]);
+
+
+
+        }
+
+        
+       
     }
 
     public function actionLogin()
