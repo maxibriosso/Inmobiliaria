@@ -67,15 +67,15 @@ class SiteController extends Controller
         $searchModel = new SolicitudSearch();
         $solic = $searchModel->obtener(Yii::$app->request->queryParams);
 
-        $searchModel = new InmuebleSearch();
+        $buscador = new InmuebleSearch();
 
-        if($searchModel->load(Yii::$app->request->get()))
+        if($buscador->load(Yii::$app->request->get()))
         {
-            if ($searchModel->validate())
+            if ($buscador->validate())
             {
-                $dataSearch = $searchModel->search(Yii::$app->request->queryParams);
+                $dataSearch = $buscador->search(Yii::$app->request->queryParams);
 
-                return $this->render('inmueblesearch', [
+                return $this->render('busqueda', [
                     'dataProvider' => $dataSearch,
                 ]);
             }
@@ -84,12 +84,13 @@ class SiteController extends Controller
             }
         }else{
 
-             return $this->render('index', [
+            return $this->render('index', [
             'pre' => $dataProvider,
             'des' => $data,
             'ultima' => $ultima,
             'solic'=> $solic,
             'searchModel' => $searchModel,
+            'buscador' => $buscador,
             ]);
 
 
@@ -166,5 +167,9 @@ class SiteController extends Controller
     public function actionServicios()
     {
         return $this->render('servicios');
+    }
+    public function actionBusqueda()
+    {
+        
     }
 }

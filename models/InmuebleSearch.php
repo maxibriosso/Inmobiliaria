@@ -15,6 +15,10 @@ class InmuebleSearch extends Inmueble
     /**
      * @inheritdoc
      */
+    public $precio_max;
+    public $precio_min;
+
+
     public function rules()
     {
         return [

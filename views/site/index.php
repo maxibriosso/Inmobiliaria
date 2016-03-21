@@ -2,6 +2,7 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -41,58 +42,33 @@ if(Yii::$app->user->isGuest){
     <!-- BUSCADOR -->
     <section class="contenedor-buscador">
        <div class="container buscador">
-           <form class="form-inline form-buscador">
-              <div class="form-group">
-                <!--<label for="exampleInputName2">Name</label>-->
-                <select class="form-control">
-                  <option value="" selected disabled>OPERACION</option>
-                  <option>ALQUILER</option>
-                  <option>VENTA</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <!--<label for="exampleInputEmail2">Email</label>-->
-                <select class="form-control">
-                  <option value="" selected disabled>TIPO PROPIEDAD</option>
-                  <option>CASA</option>
-                  <option>APARTAMENTO</option>
-                  <option>TERRENO</option>
-                </select>
-              </div>
-              <div class="form-group ">
-                <!--<label for="exampleInputEmail2">Email</label>-->
-                <select class="form-control">
-                  <option value="" selected disabled>HABITACIONES</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                </select>
-              </div>
-              <div class="form-group ">
-                <!--<label for="exampleInputEmail2">Email</label>-->
-                <select class="form-control">
-                  <option value="" selected disabled>BAÑOS</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <!--<label for="exampleInputEmail2">Email</label>-->
-                <input type="text" class="form-control" placeholder="PRECIO MIN">
-              </div>
-              <div class="form-group">
-                <!--<label for="exampleInputEmail2">Email</label>-->
-                <input type="text" class="form-control" placeholder="PRECIO MAX">
-              </div>
-              <button type="submit" class="btn btn-default btn-form-buscar">BUSCAR</button>
-            </form>
+          <?php $form = ActiveForm::begin([
+                'action' => ['index'],
+                'method' => 'get',
+                'options'=>['class'=>'form-horizontal form-inline form-buscador']
+                
+            ]); ?>
+
+             <div class="form-group">
+               <?= $form->field($buscador, 'operacion')->dropDownList([ 'Venta' => 'VENTA', 'Alquiler' => 'ALQUILER', ], ['prompt' => 'OPERACION'])->label('  '); ?>
+             </div>
+             <div class="form-group">
+                 <?= $form->field($buscador, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD'])->label('  '); ?>
+             </div>
+             <div class="form-group">
+                 <?= $form->field($buscador, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES'])->label('  '); ?>
+             </div>
+             <div class="form-group ">
+                <?= $form->field($buscador, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS'])->label('  '); ?>
+            </div>
+            <div class="form-group">
+                <?= $form->field($buscador, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN'))->label('  '); ?>
+            </div>
+            <div class="form-group">
+                <?= $form->field($buscador, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX'))->label('  '); ?>
+            </div>       
+            <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default btn-form-buscar']) ?>
+          <?php ActiveForm::end(); ?>
        </div>
 
     </section>
