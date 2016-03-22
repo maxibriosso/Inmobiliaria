@@ -73,6 +73,7 @@ class SiteController extends Controller
         {
             if ($buscador->validate())
             {
+                
                 $dataSearch = $buscador->search(Yii::$app->request->queryParams);
 
                 return $this->render('busqueda', [

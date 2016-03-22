@@ -23,8 +23,8 @@ class InmuebleSearch extends Inmueble
     {
         return [
             [['id', 'id_barrio', 'id_usuario', 'id_propietario', 'amueblado', 'garage', 'jardin', 'parrillero', 'piso', 'prestamo_bancario', 'cantidad_banios', 'cantidad_habitaciones', 'superficie', 'destacado', 'favorito', 'activo'], 'integer'],
-            [['nombre', 'estado', 'direccion', 'titulo', 'descripcion', 'tipo', 'coord', 'operacion', 'fecha_creacion'], 'safe'],
-            [['valor'], 'number'],
+            [['nombre', 'estado', 'direccion', 'titulo', 'descripcion', 'tipo', 'coord', 'operacion', 'fecha_creacion','precio_max','precio_min'], 'safe'],
+            [['valor','precio_max','precio_min'], 'number'],
         ];
     }
 
@@ -88,7 +88,10 @@ class InmuebleSearch extends Inmueble
             ->andFilterWhere(['like', 'descripcion', $this->descripcion])
             ->andFilterWhere(['like', 'tipo', $this->tipo])
             ->andFilterWhere(['like', 'coord', $this->coord])
-            ->andFilterWhere(['like', 'operacion', $this->operacion]);
+            ->andFilterWhere(['like', 'operacion', $this->operacion])
+            ->andFilterWhere(['between', 'valor', $this->precio_min, $this->precio_max]);
+
+           
 
         return $dataProvider;
     }
