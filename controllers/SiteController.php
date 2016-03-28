@@ -163,7 +163,17 @@ class SiteController extends Controller
     }
     public function actionVentas()
     {
-        return $this->render('ventas');
+
+         $data = Inmueble::find()
+            ->where(['operacion' => 'Venta'])
+            ->orderBy('id')
+            ->all();
+
+
+        return $this->render('ventas',[
+            'inmuebles' => $data,
+
+            ]);
     }
     public function actionServicios()
     {

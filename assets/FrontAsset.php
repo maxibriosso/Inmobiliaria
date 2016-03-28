@@ -24,6 +24,7 @@ class FrontAsset extends AssetBundle
         'css/inmobiliaria.css',
         'css/responsive.css',
         'css/jquery.steps.css',
+        'css/list_gridview.css',
     ];
     public $js = [
 /*        'js/jquery-2.1.4.min.js',*/
@@ -32,6 +33,7 @@ class FrontAsset extends AssetBundle
         'js/bootstrap-select.js',
         'js/inmobiliaria.js',
         'js/jquery.steps.min.js',
+        'js/list_gridview.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
