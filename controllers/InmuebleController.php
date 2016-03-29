@@ -11,7 +11,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 // Para guardar imagenes
 use yii\web\UploadedFile;
-
+use pheme\grid\actions\ToggleAction;
+use pheme\grid\actions\TogglecAction;
 /**
  * InmuebleController implements the CRUD actions for Inmueble model.
  */
@@ -28,7 +29,7 @@ class InmuebleController extends Controller
             ],
             'access' => [
                         'class' => \yii\filters\AccessControl::className(),
-                        'only' => ['index','create','update','view','delete'],
+                        'only' => ['index','create','update','view','delete','toggle'],
                         'rules' => [
                             // allow authenticated users
                             [
@@ -41,6 +42,25 @@ class InmuebleController extends Controller
         ];
     }
 
+
+    public function actions()
+    {
+        return [
+            'toggle' => [
+                'class' => ToggleAction::className(),
+                'modelClass' => 'app\models\Inmueble',
+                // Uncomment to enable flash messages
+                'setFlash' => true,
+            ],
+            'fav' => [
+                'class' => TogglecAction::className(),
+                'modelClass' => 'app\models\Inmueble',
+                // Uncomment to enable flash messages
+                'setFlash' => true,
+            ]
+        ];
+    }
+    
     /**
      * Lists all Inmueble models.
      * @return mixed
@@ -55,6 +75,17 @@ class InmuebleController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+/*    public function actionToggle($id){
+        $model=$this->findModel($id);
+        if($model->activo){
+            $model->activo=0;
+        }
+        else{
+            $model->activo=1;
+        }
+
+        $model->save();
+    }*/
 
     /**
      * Displays a single Inmueble model.

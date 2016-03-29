@@ -34,11 +34,12 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
 /*        'js/jquery-2.1.4.min.js',*/
-        'js/bootstrap.js',
+        //'js/bootstrap.js',
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',
         'js/jquery.steps.min.js',
         'js/wow.min.js',
+        //'js/modalview.js',
         'js/bootstrap-select.js',
         'js/jquery.flexslider.js',
         'js/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js',
@@ -58,6 +59,7 @@ class AppAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
     ];
 }

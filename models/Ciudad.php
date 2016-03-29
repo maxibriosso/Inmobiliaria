@@ -46,7 +46,7 @@ class Ciudad extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_departamento' => 'Id Departamento',
+            'id_departamento' => 'Departamento',
             'nombre' => 'Nombre',
             'estado' => 'Estado',
             'fecha_creacion' => 'Fecha Creacion',

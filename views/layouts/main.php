@@ -24,6 +24,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
     <?php if(Yii::$app->user->isGuest){ ?>
+
     <div id="frontend">
       <!-- HEADER -->
       <header>

@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 use app\models\Imagen_remate;
 // Para guardar imagenes
 use yii\web\UploadedFile;
-
+use pheme\grid\actions\TogglebAction;
 /**
  * RemateController implements the CRUD actions for Remate model.
  */
@@ -28,7 +28,7 @@ class RemateController extends Controller
             ],
             'access' => [
                         'class' => \yii\filters\AccessControl::className(),
-                        'only' => ['index','create','update','view','delete'],
+                        'only' => ['index','create','update','view','delete','toggle'],
                         'rules' => [
                             // allow authenticated users
                             [
@@ -41,6 +41,17 @@ class RemateController extends Controller
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'toggle' => [
+                'class' => TogglebAction::className(),
+                'modelClass' => 'app\models\Remate',
+                // Uncomment to enable flash messages
+                'setFlash' => true,
+            ]
+        ];
+    }
     /**
      * Lists all Remate models.
      * @return mixed

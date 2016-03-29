@@ -1,33 +1,39 @@
 /*---LEFT BAR ACCORDION----*/
+
 $(function() {
-    $('#nav-accordion2').dcAccordion({
-        eventType: 'click',
-        autoClose: true,
-        saveState: true,
-        disableLink: true,
-        speed: 'slow',
-        showCount: false,
-        autoExpand: true,
-//        cookie: 'dcjq-accordion-1',
-        classExpand: 'dcjq-current-parent'
-    });
-
-
+    function leftmenu(){
+        $('#nav-accordion2').dcAccordion({
+            eventType: 'click',
+            autoClose: true,
+            saveState: true,
+            disableLink: true,
+            speed: 'slow',
+            showCount: false,
+            autoExpand: true,
+    //        cookie: 'dcjq-accordion-1',
+            classExpand: 'dcjq-current-parent'
+        });
+    }
+    $(window).on('load', leftmenu);
+    $(window).on('resize', leftmenu);
 });
 
 $(function() {
-    $('#nav-accordion').dcAccordion({
-        eventType: 'click',
-        autoClose: true,
-        saveState: true,
-        disableLink: true,
-        speed: 'slow',
-        showCount: false,
-        autoExpand: true,
-//        cookie: 'dcjq-accordion-1',
-        classExpand: 'dcjq-current-parent'
-    });
-
+    function leftmenu2(){
+        $('#nav-accordion').dcAccordion({
+            eventType: 'click',
+            autoClose: true,
+            saveState: true,
+            disableLink: true,
+            speed: 'slow',
+            showCount: false,
+            autoExpand: true,
+    //        cookie: 'dcjq-accordion-1',
+            classExpand: 'dcjq-current-parent'
+        });
+    }
+    $(window).on('load', leftmenu2);
+    $(window).on('resize', leftmenu2);
 });
 
 var Script = function () {

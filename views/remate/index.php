@@ -6,6 +6,7 @@ use yii\helpers\Url;
 use yii\widgets\Pjax;
 use yii\helpers\ArrayHelper;
 use app\models\Barrio;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\RemateSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -48,7 +49,12 @@ $('.search-button').click(function(){
                     'titulo',
                     //'descripcion:ntext',
                     //'ubicacion:ntext',
-                    'estado',
+                    [
+                        'class' => '\pheme\grid\ToggleColumn',
+                        'attribute' => 'estado',
+                        // Uncomment if  you don't want AJAX
+                        // 'enableAjax' => false,
+                    ], 
                     [   'attribute'=>'fecha_creacion',
                         'format' =>  ['date', 'php:d-m-Y'],
                     ],

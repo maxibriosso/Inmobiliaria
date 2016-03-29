@@ -8,7 +8,7 @@ use app\models\CiudadSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use pheme\grid\actions\TogglebAction;
 /**
  * CiudadController implements the CRUD actions for Ciudad model.
  */
@@ -25,7 +25,7 @@ class CiudadController extends Controller
             ],
             'access' => [
                         'class' => \yii\filters\AccessControl::className(),
-                        'only' => ['index','create','update','view','delete'],
+                        'only' => ['index','create','update','view','delete','toggle'],
                         'rules' => [
                             // allow authenticated users
                             [
@@ -37,7 +37,18 @@ class CiudadController extends Controller
                     ],
         ];
     }
-
+   
+    public function actions()
+    {
+        return [
+            'toggle' => [
+                'class' => TogglebAction::className(),
+                'modelClass' => 'app\models\Ciudad',
+                // Uncomment to enable flash messages
+                'setFlash' => true,
+            ]
+        ];
+    }
     /**
      * Lists all Ciudad models.
      * @return mixed

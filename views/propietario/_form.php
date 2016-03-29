@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="propietario-form">
+<div class="row content-form">
     <?php $form = ActiveForm::begin(); ?>
     <div class="col-md-6">
         <?= $form->field($model, 'ci')->textInput() ?>

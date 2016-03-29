@@ -25,7 +25,7 @@ class SolicitudController extends Controller
             ],
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
-                'only' => ['index','view','delete'],
+                'only' => ['index','view','delete','toggle'],
                 'rules' => [
                     // allow authenticated users
                     [

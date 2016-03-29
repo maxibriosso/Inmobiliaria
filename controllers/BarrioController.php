@@ -6,9 +6,14 @@ use Yii;
 use app\models\Barrio;
 use app\models\BarrioSearch;
 use yii\web\Controller;
+use app\models\Ciudad;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use pheme\grid\actions\TogglebAction;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
+use app\models\HtmlHelpers;
+use yii\helpers\ArrayHelper;
 /**
  * BarrioController implements the CRUD actions for Barrio model.
  */
@@ -25,7 +30,7 @@ class BarrioController extends Controller
             ],
             'access' => [
                         'class' => \yii\filters\AccessControl::className(),
-                        'only' => ['index','create','update','view','delete'],
+                        'only' => ['index','create','update','view','delete','toggle','ciudad'],
                         'rules' => [
                             // allow authenticated users
                             [
@@ -37,7 +42,18 @@ class BarrioController extends Controller
                     ],
         ];
     }
-
+    
+    public function actions()
+    {
+        return [
+            'toggle' => [
+                'class' => TogglebAction::className(),
+                'modelClass' => 'app\models\Barrio',
+                // Uncomment to enable flash messages
+                'setFlash' => true,
+            ]
+        ];
+    }
     /**
      * Lists all Barrio models.
      * @return mixed
@@ -70,17 +86,34 @@ class BarrioController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($submit=false)
     {
         $model = new Barrio();
 
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post('barrio-form')) && $submit == false) {
+            //echo "<script>console.log( 'Entro a primer if' );</script>";
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+        
         if ($model->load(Yii::$app->request->post())) {
             $model->estado=1;
+            //echo "<script>console.log( 'Entro a segundo if if' );</script>";
             if($model->save()){
-                return $this->redirect(['view', 'id' => $model->id]);
+                //$model->refresh();
+                //Yii::$app->response->format = Response::FORMAT_JSON;
+                //return [
+                //    'message' => '¡Éxito!',
+                //];
+                echo 1;
+            } else {
+                //Yii::$app->response->format = Response::FORMAT_JSON;
+                echo 0;
+                //return ActiveForm::validate($model);
             }
+        
         } else {
-            return $this->render('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }
@@ -92,14 +125,42 @@ class BarrioController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id,$submit = false)
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()) && $submit == false) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+        /*if ($model->load(Yii::$app->request->post())) {
+            if($model->save()){
+                $model->refresh();
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                return [
+                    'message' => '¡Éxito!',
+                ];
+            } else {
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                return ActiveForm::validate($model);
+            }*/
+        if ($model->load(Yii::$app->request->post())) {
+            //$model->estado=1;
+            //echo "<script>console.log( 'Entro a segundo if if' );</script>";
+            if($model->save()){
+                //$model->refresh();
+                //Yii::$app->response->format = Response::FORMAT_JSON;
+                //return [
+                //    'message' => '¡Éxito!',
+                //];
+                echo 2;
+            } else {
+                //Yii::$app->response->format = Response::FORMAT_JSON;
+                echo 0;
+                //return ActiveForm::validate($model);
+            }
         } else {
-            return $this->render('update', [
+            return $this->renderAjax('update', [
                 'model' => $model,
             ]);
         }
@@ -133,4 +194,10 @@ class BarrioController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionCiudad($id){
+        echo HtmlHelpers::dropDownList(Ciudad::className(), 'id_departamento', $id, 'id', 'nombre');
+    }
+
+    
 }

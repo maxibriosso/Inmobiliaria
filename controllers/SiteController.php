@@ -93,13 +93,7 @@ class SiteController extends Controller
             'searchModel' => $searchModel,
             'buscador' => $buscador,
             ]);
-
-
-
         }
-
-        
-       
     }
 
     public function actionLogin()
@@ -229,5 +223,15 @@ class SiteController extends Controller
     public function actionBusqueda()
     {
         
+    }
+
+    public function actionDetalle($id)
+    {
+        //$data = Inmueble::findByPk($id);
+        $data2 = Inmueble::findModel($id);
+
+        return $this->render('detalle', [
+            'model' => $data2,
+        ]);
     }
 }

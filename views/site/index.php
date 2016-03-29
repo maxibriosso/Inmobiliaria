@@ -45,7 +45,7 @@ if(Yii::$app->user->isGuest){
           <?php $form = ActiveForm::begin([
                 'action' => ['index'],
                 'method' => 'get',
-                'options'=>['class'=>'form-horizontal form-inline form-buscador']
+                'options'=>['class'=>'form-inline form-buscador']
                 
             ]); ?>
 
@@ -66,7 +66,7 @@ if(Yii::$app->user->isGuest){
             </div>
             <div class="form-group">
                 <?= $form->field($buscador, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX'))->label('  '); ?>
-            </div>       
+            </div>     
             <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default btn-form-buscar']) ?>
           <?php ActiveForm::end(); ?>
        </div>

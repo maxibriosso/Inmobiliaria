@@ -38,7 +38,10 @@ $('.search-button').click(function(){
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
+                [
+                    'attribute'=>'id',
+                    'contentOptions'=>['style'=>'max-width: 50px;'],
+                ],
                 //'id_barrio',
                 [
                     'attribute'=>'id_barrio',
@@ -49,14 +52,14 @@ $('.search-button').click(function(){
                     'filter'=> ArrayHelper::map(Barrio::find()->all(),'id','nombre'),
                 ],
                 //'id_usuario',
-                [
+/*                [
                     'attribute'=>'id_usuario',
                     'value'=> function($model){
                         $usuario = Usuario::findOne($model->id_usuario);
                         return $usuario->nombre;  
                     }, 
                     'filter'=> ArrayHelper::map(Usuario::find()->all(),'id','nombre'),
-                ],
+                ],*/
                 //'id_propietario',
                 [
                     'attribute'=>'id_propietario',
@@ -86,7 +89,18 @@ $('.search-button').click(function(){
                 // 'operacion',
                 // 'destacado',
                 // 'favorito',
-                // 'activo',
+                [
+                    'class' => '\pheme\grid\TogglecColumn',
+                    'attribute' => 'destacado',
+                    // Uncomment if  you don't want AJAX
+                    // 'enableAjax' => false,
+                ], 
+                [
+                    'class' => '\pheme\grid\ToggleColumn',
+                    'attribute' => 'activo',
+                    // Uncomment if  you don't want AJAX
+                    // 'enableAjax' => false,
+                ],
                 // 'fecha_creacion',
 
                 [   'class' => 'yii\grid\ActionColumn',
@@ -96,6 +110,7 @@ $('.search-button').click(function(){
                                 return Html::a('<span class="glyphicon glyphicon-picture"></span>', $url);
                         },
                     ],
+                    'contentOptions'=>['style'=>'max-width: 100px;'],
                 ],
 
             ],

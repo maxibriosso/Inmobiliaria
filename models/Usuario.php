@@ -16,7 +16,7 @@ use yii\web\IdentityInterface;
  * @property string $nombre
  * @property string $apellido
  * @property integer $ci
- * @property integer $telefono
+ * @property string $telefono
  * @property string $email
  * @property string $nick
  * @property string $password
@@ -42,10 +42,11 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ci', 'telefono', 'estado'], 'integer'],
+            [['ci', 'estado'], 'integer'],
             [['nick', 'password', 'estado'], 'required'],
             [['fecha_nacimiento', 'fecha_creacion'], 'safe'],
             [['nombre', 'apellido'], 'string', 'max' => 20],
+            [['telefono'], 'string', 'max' => 11],
             [['email'], 'string', 'max' => 50],
             [['nick'], 'string', 'max' => 15],
             [['password'], 'string', 'max' => 255]
@@ -61,7 +62,7 @@ class Usuario extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nombre' => 'Nombre',
             'apellido' => 'Apellido',
-            'ci' => 'Ci',
+            'ci' => 'CI',
             'telefono' => 'Telefono',
             'email' => 'Email',
             'nick' => 'Nick',

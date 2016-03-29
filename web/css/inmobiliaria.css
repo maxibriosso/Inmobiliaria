@@ -843,6 +843,33 @@ body{
 /*----------------- FIN - EMPRESA ---------------------*/
 /*----------------------------------------------------------*/
 
+/*----------------- DETALLE INMUEBLE ---------------------*/
+/*----------------------------------------------------------*/
+#frontend .contenedor-img-detalle{ 
+    position:relative;
+    background: url(../img/titulo-inmo-bm.jpg) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: 350px;
+
+}
+
+#frontend .contenedor-img-detalle h1{
+  position:absolute;
+  left:8%;
+  bottom:20%;
+  color:white;
+  text-transform:uppercase;
+  font-size:50px;
+  outline: 4px solid white;
+  padding:15px;
+}
+/*----------------- FIN - DETALLE INMUEBLE ---------------------*/
+/*----------------------------------------------------------*/
 
 /*----------------- SERVICIOS ---------------------*/
 /*----------------------------------------------------------*/

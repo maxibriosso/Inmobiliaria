@@ -48,8 +48,8 @@ class Barrio extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_departamento' => 'Id Departamento',
-            'id_ciudad' => 'Id Ciudad',
+            'id_departamento' => 'Departamento',
+            'id_ciudad' => 'Ciudad',
             'nombre' => 'Nombre',
             'estado' => 'Estado',
             'fecha_creacion' => 'Fecha Creacion',

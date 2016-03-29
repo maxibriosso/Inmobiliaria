@@ -8,7 +8,7 @@ use app\models\UsuarioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use pheme\grid\actions\TogglebAction;
 /**
  * UsuarioController implements the CRUD actions for Usuario model.
  */
@@ -25,7 +25,7 @@ class UsuarioController extends Controller
             ],
             'access' => [
                         'class' => \yii\filters\AccessControl::className(),
-                        'only' => ['index','create','update','view','delete'],
+                        'only' => ['index','create','update','view','delete','toggle'],
                         'rules' => [
                             // allow authenticated users
                             [
@@ -38,6 +38,17 @@ class UsuarioController extends Controller
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'toggle' => [
+                'class' => TogglebAction::className(),
+                'modelClass' => 'app\models\Usuario',
+                // Uncomment to enable flash messages
+                'setFlash' => true,
+            ]
+        ];
+    }
     /**
      * Lists all Usuario models.
      * @return mixed

@@ -778,6 +778,9 @@
 #backend .grid-view{
   padding-top: 0px !important;
 }
+#backend .grid-view table{
+  margin-bottom:0px !important;
+}
 #backend .grid-view table thead tr th a{
   color:white;
 }
@@ -891,6 +894,10 @@ text-align:left !important;
 #backend .table-info-inm-view{
   margin-bottom: 10px !important;
 }
+
+#backend .pres-grid .table tbody tr td img{
+  width:150px !important;
+}
 /*#publicaciones-grid .items thead tr{
 
   background-color: rgba(0,0,0,0.4) !important;
@@ -924,7 +931,7 @@ text-align:left !important;
 
 
 #backend .pagination{
-
+  margin: 0 0 !important;
   background: transparent !important;
   color: white !important;
 }
@@ -950,6 +957,16 @@ text-align:left !important;
     color: #337ab7 !important;
 }
 
+#backend .pagination > .disabled > span, 
+#backend .pagination > .disabled > span:hover, 
+#backend .pagination > .disabled > span:focus, 
+#backend .pagination > .disabled > a, 
+#backend .pagination > .disabled > a:hover, 
+#backend .pagination > .disabled > a:focus{
+  color: black !important;
+  background-color: rgba(0,0,0,0.7) !important;
+  border-color: rgba(0,0,0,0.4) !important;
+}
 #backend .file>.form-control{
   background: transparent !important;
   color: white;
