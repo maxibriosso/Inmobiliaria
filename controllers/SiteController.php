@@ -169,11 +169,30 @@ class SiteController extends Controller
             ->orderBy('id')
             ->all();
 
+        $buscador = new InmuebleSearch();
 
-        return $this->render('ventas',[
+        if($buscador->load(Yii::$app->request->get()))
+        {
+            if ($buscador->validate())
+            {
+                
+                $dataSearch = $buscador->search(Yii::$app->request->queryParams);
+
+                return $this->render('busqueda', [
+                    'dataProvider' => $dataSearch,
+                ]);
+            }
+            else{
+                $form->getErrors();
+            }
+        }else{
+
+            return $this->render('ventas',[
             'inmuebles' => $data,
+            'buscador' => $buscador,
 
             ]);
+        }
     }
     public function actionServicios()
     {

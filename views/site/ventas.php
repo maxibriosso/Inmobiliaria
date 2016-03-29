@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>  
 </section>
 
-<div class="container-fluid" style="margin-top: 30px;">
+<div class="col-md-8">
     <div class="well well-sm">
         <strong>Display</strong>
         <div class="btn-group">
@@ -45,4 +45,36 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         <?php endforeach; ?> 
     </div>
+</div>
+
+<!-- BUSCADOR -->
+<div class="col-md-4">
+       <div class="container">
+          <?php $form = ActiveForm::begin([
+            'method' => 'get',
+            'options'=>['class'=>'form-buscador']
+          ]); ?>
+
+             <div class="form-group">
+               <?= $form->field($buscador, 'operacion')->dropDownList([ 'Venta' => 'VENTA', 'Alquiler' => 'ALQUILER', ], ['prompt' => 'OPERACION'])->label('  '); ?>
+             </div>
+             <div class="form-group">
+                 <?= $form->field($buscador, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD'])->label('  '); ?>
+             </div>
+             <div class="form-group">
+                 <?= $form->field($buscador, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES'])->label('  '); ?>
+             </div>
+             <div class="form-group ">
+                <?= $form->field($buscador, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS'])->label('  '); ?>
+            </div>
+            <div class="form-group">
+                <?= $form->field($buscador, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN'))->label('  '); ?>
+            </div>
+            <div class="form-group">
+                <?= $form->field($buscador, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX'))->label('  '); ?>
+            </div>       
+            <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default btn-form-buscar']) ?>
+          <?php ActiveForm::end(); ?>
+       </div>
+
 </div>
