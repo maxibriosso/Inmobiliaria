@@ -11,23 +11,7 @@ $this->title = 'Ventas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="container">
-          
-    <?php foreach ($inmuebles as $d): ?>
-            <div class="item">         
-                <div class="thumbnail">
-                  <?php foreach ($d->getImagens()->all() as $img): ?>
-                    <?php if($img->destacada == 1): ?>  
-                      <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img->ruta?>" alt="...">
-                    <?php endif; ?>
-                  <?php endforeach; ?>
-                  
-                </div>
-            </div>
-    <?php endforeach; ?>        
-          
-</div>
-<div class="container">
+<div class="container" style="margin-top: 30px;">
     <div class="well well-sm">
         <strong>Display</strong>
         <div class="btn-group">
@@ -37,26 +21,25 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
     <div id="products" class="row list-group">
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+        <?php foreach ($inmuebles as $d): ?>
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <?php $img = $d->getImagendestacada() ?>
+                    <img class="group list-group-image" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img->ruta?>" alt="...">
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            <?=  $d->titulo ?></h4>
+                        <p class="group inner list-group-item-text">
+                            <?=  $d->descripcion ?></p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $<?=  $d->valor ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php endforeach; ?> 
     </div>
 </div>

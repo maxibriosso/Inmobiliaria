@@ -138,4 +138,14 @@ class Inmueble extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Propietario::className(), ['id' => 'id_propietario']);
     }
+
+    public function getImagendestacada()
+    {
+
+        $imagen = Imagen::find()
+            ->where(['destacada' => 1])
+            ->one();
+
+        return $imagen;
+    }
 }
