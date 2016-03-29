@@ -10,8 +10,11 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Ventas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<section class="contenedor-img-contacto">
+    <h1><?= Html::encode($this->title) ?></h1>  
+</section>
 
-<div class="container" style="margin-top: 30px;">
+<div class="container-fluid" style="margin-top: 30px;">
     <div class="well well-sm">
         <strong>Display</strong>
         <div class="btn-group">

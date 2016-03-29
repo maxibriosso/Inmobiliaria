@@ -30,6 +30,7 @@ class AppAsset extends AssetBundle
         'css/estilo.css',
         'css/inmobiliaria.css',
         'css/responsive.css',
+        'css/list_gridview.css',
     ];
     public $js = [
 /*        'js/jquery-2.1.4.min.js',*/
@@ -50,6 +51,7 @@ class AppAsset extends AssetBundle
         'js/altaImagenes.js',
         'js/modificarImagenes.js',
         'js/modificarRemateImagenes.js',
+        'js/list_gridview.js',
         
         
         
