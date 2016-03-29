@@ -155,7 +155,35 @@ class SiteController extends Controller
 
     public function actionAlquileres()
     {
-        return $this->render('alquileres');
+        $data = Inmueble::find()
+            ->where(['operacion' => 'Alquiler'])
+            ->orderBy('id')
+            ->all();
+
+        $buscador = new InmuebleSearch();
+
+        if($buscador->load(Yii::$app->request->get()))
+        {
+            if ($buscador->validate())
+            {
+                
+                $dataSearch = $buscador->search(Yii::$app->request->queryParams);
+
+                return $this->render('busqueda', [
+                    'dataProvider' => $dataSearch,
+                ]);
+            }
+            else{
+                $form->getErrors();
+            }
+        }else{
+
+            return $this->render('alquileres',[
+            'inmuebles' => $data,
+            'buscador' => $buscador,
+
+            ]);
+        }
     }
     public function actionEmpresa()
     {
