@@ -6,6 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\widgets\ListView;
 
 $this->title = 'Ventas';
 $this->params['breadcrumbs'][] = $this->title;
@@ -14,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>  
 </section>
 <div class="container-fluid">
+
 
     <div class="col-md-8">
         <div class="well well-sm">
@@ -24,28 +26,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     class="glyphicon glyphicon-th"></span>Grid</a>
             </div>
         </div>
-        <div id="products" class="row list-group">
-            <?php foreach ($inmuebles as $d): ?>
-                <div class="item  col-xs-4 col-lg-4">
-                    <div class="thumbnail">
-                        <?php $img = $d->getImagendestacada() ?>
-                        <img class="group list-group-image" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img->ruta?>" alt="...">
-                        <div class="caption">
-                            <h4 class="group inner list-group-item-heading">
-                                <?=  $d->titulo ?></h4>
-                            <p class="group inner list-group-item-text">
-                                <?=  $d->descripcion ?></p>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6">
-                                    <p class="lead">
-                                        $<?=  $d->valor ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?> 
-        </div>
+          <?= 
+          ListView::widget([
+              'dataProvider' => $listDataProvider,
+              'options' => [
+                  'tag' => 'div',
+                  'class' => 'row list-group',
+                  'id' => 'products',
+              ],
+              'layout' => "{items}\n{pager}",
+              'itemView' => 'list_item',
+          ]);
+          ?>
+        
     </div>
 
     <!-- BUSCADOR -->

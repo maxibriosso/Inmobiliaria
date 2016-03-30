@@ -13,6 +13,7 @@ use app\models\PresentacionSearch;
 use app\models\Inmueble;
 use app\models\InmuebleSearch;
 use app\models\SolicitudSearch;
+use yii\data\ActiveDataProvider; 
 
 class SiteController extends Controller
 {
@@ -149,10 +150,6 @@ class SiteController extends Controller
 
     public function actionAlquileres()
     {
-        $data = Inmueble::find()
-            ->where(['operacion' => 'Alquiler'])
-            ->orderBy('id')
-            ->all();
 
         $buscador = new InmuebleSearch();
 
@@ -172,9 +169,16 @@ class SiteController extends Controller
             }
         }else{
 
+            $dataProvider = new ActiveDataProvider([
+                'query' => Inmueble::find()->where(['operacion' => 'Alquiler'])->orderBy('id DESC'),
+                'pagination' => [
+                    'pageSize' => 8,
+                ],
+            ]);
+
             return $this->render('alquileres',[
-            'inmuebles' => $data,
             'buscador' => $buscador,
+            'listDataProvider' => $dataProvider
 
             ]);
         }
@@ -185,11 +189,7 @@ class SiteController extends Controller
     }
     public function actionVentas()
     {
-
-         $data = Inmueble::find()
-            ->where(['operacion' => 'Venta'])
-            ->orderBy('id')
-            ->all();
+        
 
         $buscador = new InmuebleSearch();
 
@@ -209,9 +209,16 @@ class SiteController extends Controller
             }
         }else{
 
+            $dataProvider = new ActiveDataProvider([
+                'query' => Inmueble::find()->where(['operacion' => 'Venta'])->orderBy('id DESC'),
+                'pagination' => [
+                    'pageSize' => 8,
+                ],
+            ]);
+
             return $this->render('ventas',[
-            'inmuebles' => $data,
             'buscador' => $buscador,
+            'listDataProvider' => $dataProvider
 
             ]);
         }
