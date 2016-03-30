@@ -7,6 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\widgets\ListView;
+use app\models\Barrio;
 
 $this->title = 'Ventas';
 $this->params['breadcrumbs'][] = $this->title;
@@ -18,14 +19,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <div class="col-md-8">
-        <div class="well well-sm">
-            <strong>Display</strong>
-            <div class="btn-group">
-                <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-                </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-                    class="glyphicon glyphicon-th"></span>Grid</a>
-            </div>
-        </div>
           <?= 
           ListView::widget([
               'dataProvider' => $listDataProvider,
@@ -43,7 +36,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <!-- BUSCADOR -->
     <div class="col-md-4">
-           <div class="container">
+        <div class="col-md-12">
+              <div class="btn-group">
+                  <a href="#" id="list" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-th-list">Lista</span>
+                  </a>
+                  <a href="#" id="grid" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-th">Grilla</span>
+                  </a>
+              </div> 
+        </div> 
+        <div class="col-md-12">
               <?php $form = ActiveForm::begin([
                 'method' => 'get',
                 'options'=>['class'=>'form-buscador']
@@ -69,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>       
                 <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default']) ?>
               <?php ActiveForm::end(); ?>
-           </div>
+        </div> 
 
     </div>
 

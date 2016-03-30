@@ -517,6 +517,124 @@ body{
   -moz-transition-timing-function: ease-out;
   -moz-transition-duration: 250ms;
 }
+
+
+
+
+
+#frontend .propertyItem {
+    font-family: 'Open Sans', sans-serif;
+    background-color:white;
+  box-shadow: 0px 1px 3px #d4d4d4;
+  margin-bottom:30px;
+}
+
+#frontend .propertyContent { padding:9px; }
+#frontend .propertyContent a { color:#2a2a2a; }
+#frontend .propertyContent a:hover { color:#4a4786; }
+
+#frontend .propertyImg {
+  max-width:100%;
+  margin-bottom:15px;
+}
+
+#frontend .propertyImgLink {
+  -webkit-transition: opacity 0.3s linear;
+    -moz-transition: copacity 0.3s linear;
+    -ms-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+}
+
+#frontend .propertyImgLink:hover { opacity:0.8; }
+
+#frontend .propertyType {
+  text-transform:uppercase;
+  position:absolute;
+  font-family: 'Open Sans', sans-serif;
+  font-size:12px;
+  background-color:#27da93;
+  color:white !important;
+  padding:7px;
+  z-index:1;
+}
+
+#frontend .openHouse {
+  position:absolute;
+  font-family: 'Open Sans', sans-serif;
+  color:white;
+  font-size:13px;
+  right:7px;
+  background-image: url('../images/open-house-bg.png');
+  background-repeat:no-repeat;
+  padding:19px 13px 15px 15px;
+  z-index:1;
+}
+
+#frontend .forSale {
+  text-transform:uppercase;
+  float:left;
+  font-family: 'Open Sans', sans-serif;
+  font-size:15px;
+  background-color:#d5d5d5;
+  color:white;
+  padding:4px 9px 4px 9px;
+  border-radius:4px;
+  display:inline-block;
+}
+
+#frontend .price {
+  font-family: 'Open Sans', sans-serif;
+  float:right;
+  color:#4a4786;
+  font-size:23px;
+}
+
+#frontend .propertyDetails { 
+  background-color:#f8f8f8;
+  margin-top:0px; 
+  border:1px solid #cacaca;
+  width:100%;
+  text-align:center;
+}
+
+#frontend .propertyDetails td {
+  font-family: 'Open Sans', sans-serif;
+  font-size:12px;
+  width:33.6%;
+  height:45px;
+  border-color:#cacaca;
+  color:#ababab;
+}
+
+#frontend .pageList { text-align:center; margin-top:20px; }
+#frontend .pageList li { display:inline; }
+#frontend .pageList li .current { background-color:#4a4786; color:white; font-family: 'Open Sans', sans-serif; }
+#frontend .pageList li a {
+  color:#a1a1a1;
+  padding:4px 10px 4px 10px;
+  border-radius:3px;
+  background-color:#dcdcdc;
+}
+
+#frontend .pageList li a:hover { 
+  background-color:#4a4786; 
+  color:white; 
+  -webkit-transition: background 0.2s linear;
+    -moz-transition: background 0.2s linear;
+    -ms-transition: background 0.2s linear;
+    -o-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+}
+
+#frontend .masonryRow .col-lg-3 { width:292px; } 
+#frontend .masonryRow .col-lg-3.wide { width:583px; }
+
+/** PROPERTIES ROW **/
+#frontend .rowText { padding-top:17px; padding-right:33px; }
+#frontend .rowText h4 { float:left; font-size:19px; margin-bottom:0px; }
+#frontend .rowText .price { float:right; }
+#frontend .rowText .forSale { float:right; margin-right:20px; }
 /*----------------- FIN - INDEX ---------------------*/
 /*----------------------------------------------------------*/
 
@@ -535,7 +653,7 @@ body{
 }
 #frontend .form-buscador{
     display: inline-block !important;
-    padding-bottom: 20px !important;
+    padding-bottom: 10px !important;
     padding-top: 20px !important;
 }
 

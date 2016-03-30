@@ -2,6 +2,7 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Barrio;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 
@@ -67,7 +68,9 @@ if(Yii::$app->user->isGuest){
             <div class="form-group">
                 <?= $form->field($buscador, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX'))->label('  '); ?>
             </div>     
+            <div class="form-group">
             <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default btn-form-buscar']) ?>
+            </div>
           <?php ActiveForm::end(); ?>
        </div>
 
@@ -90,20 +93,33 @@ if(Yii::$app->user->isGuest){
       <div class="container">
           <div id="owl-demo" class="owl-carousel owl-theme">
           <?php foreach ($des as $d): ?>
-            <div class="item">         
-                <div class="thumbnail">
-                  <?php foreach ($d->getImagens()->all() as $img): ?>
-                    <?php if($img->destacada == 1): ?>  
-                      <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img->ruta?>" alt="...">
-                    <?php endif; ?>
-                  <?php endforeach; ?>
-                  <div class="caption">
-                    <h3><?php echo $d->titulo ?></h3>
-                    <p><?php echo $d->descripcion ?></p>
-                    <p>$ <?php echo $d->valor ?></p>
-                  </div>
+            
+            
+                <div class="propertyItem">
+                    <div class="propertyContent">
+                        <a class="propertyType" href="#"><?php echo $d->operacion ?></a>
+                        <a href="#" class="propertyImgLink">
+                          <?php foreach ($d->getImagens()->all() as $img): ?>
+                            <?php if($img->destacada == 1): ?>  
+                              <img class="propertyImg" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img->ruta?>" alt="...">
+                            <?php endif; ?>
+                          <?php endforeach; ?>
+                        </a>
+                        <h4><a href="#"><?php echo $d->direccion ?></a></h4>
+                        <p><?php echo Barrio::findOne($d->id_barrio)->nombre ?></p>
+                        <div class="divider thin"></div>
+                        <p class="forSale"><?php echo $d->tipo ?></p>
+                        <p class="price">$<?php echo $d->valor ?></p>
+                    </div>
+                    <table border="1" class="propertyDetails">
+                        <tbody><tr>
+                        <td><i class="fa fa-arrows-alt" style="margin-right:7px;"></i><?php echo $d->superficie ?>m2</td>
+                        <td><i class="fa fa-bed" style="margin-right:7px;"></i><?php echo $d->cantidad_habitaciones ?> Hab.</td>
+                        <td><i class="fa fa-tint" style="margin-right:7px;"></i><?php echo $d->cantidad_banios ?> Baños</td>
+                        </tr>
+                    </tbody></table> 
                 </div>
-            </div>
+         
           <?php endforeach; ?>        
           </div>
       </div>
@@ -126,7 +142,6 @@ if(Yii::$app->user->isGuest){
                   <?php endforeach; ?>
                   <div class="caption">
                     <h3><?php echo $u->titulo ?></h3>
-                    <p><?php echo $u->descripcion ?></p>
                     <p>$ <?php echo $u->valor ?></p>
                   </div>
                 </div>
