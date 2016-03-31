@@ -49,6 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-12">
               <?php $form = ActiveForm::begin([
                 'method' => 'get',
+                'action' => ['index'],
                 'options'=>['class'=>'form-buscador']
               ]); ?>
 
