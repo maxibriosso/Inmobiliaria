@@ -8,9 +8,21 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\widgets\ListView;
 use app\models\Barrio;
+use yii\widgets\Pjax;
 
 $this->title = 'Ventas';
 $this->params['breadcrumbs'][] = $this->title;
+?>
+
+<?php
+ 
+  $this->registerJs(
+     '$("document").ready(function(){ 
+          $("#forminmuebles").on("pjax:end", function() {
+              $.pjax.reload({container:"#listinmuebles"});  //Reload ListView
+          });
+        });'
+  );
 ?>
 <section class="contenedor-img-contacto">
     <h1><?= Html::encode($this->title) ?></h1>  
@@ -19,8 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <div class="col-md-8">
-          <?= 
-          ListView::widget([
+      <?php Pjax::begin(['id' => 'listinmuebles']) ?>
+          <?= ListView::widget([
               'dataProvider' => $listDataProvider,
               'options' => [
                   'tag' => 'div',
@@ -31,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
               'itemView' => 'list_item',
           ]);
           ?>
+      <?php Pjax::end() ?>
         
     </div>
 
@@ -47,32 +60,30 @@ $this->params['breadcrumbs'][] = $this->title;
               </div> 
         </div> 
         <div class="col-md-12">
+          <?php Pjax::begin(['id' => 'forminmuebles']) ?>
               <?php $form = ActiveForm::begin([
                 'method' => 'get',
-                'action' => ['index'],
-                'options'=>['class'=>'form-buscador']
+                'options'=>['class'=>'form-buscador','data-pjax' => true]
               ]); ?>
 
                  <div class="form-group">
-                   <?= $form->field($buscador, 'operacion')->dropDownList([ 'Venta' => 'VENTA', 'Alquiler' => 'ALQUILER', ], ['prompt' => 'OPERACION'])->label('  '); ?>
+                     <?= $form->field($searchModel, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD'])->label('  '); ?>
                  </div>
                  <div class="form-group">
-                     <?= $form->field($buscador, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD'])->label('  '); ?>
-                 </div>
-                 <div class="form-group">
-                     <?= $form->field($buscador, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES'])->label('  '); ?>
+                     <?= $form->field($searchModel, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES'])->label('  '); ?>
                  </div>
                  <div class="form-group ">
-                    <?= $form->field($buscador, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS'])->label('  '); ?>
+                    <?= $form->field($searchModel, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS'])->label('  '); ?>
                 </div>
                 <div class="form-group">
-                    <?= $form->field($buscador, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN'))->label('  '); ?>
+                    <?= $form->field($searchModel, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN'))->label('  '); ?>
                 </div>
                 <div class="form-group">
-                    <?= $form->field($buscador, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX'))->label('  '); ?>
+                    <?= $form->field($searchModel, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX'))->label('  '); ?>
                 </div>       
                 <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default']) ?>
               <?php ActiveForm::end(); ?>
+          <?php Pjax::end() ?>
         </div> 
 
     </div>

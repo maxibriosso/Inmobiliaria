@@ -141,9 +141,9 @@ class Inmueble extends \yii\db\ActiveRecord
 
     public function getImagendestacada()
     {
-
         $imagen = Imagen::find()
-            ->where(['destacada' => 1])
+            ->where(['id_inmueble' => $this->id])
+            ->andwhere(['destacada' => 1])
             ->one();
 
         return $imagen;

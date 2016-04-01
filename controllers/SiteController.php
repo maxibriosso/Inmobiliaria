@@ -150,38 +150,16 @@ class SiteController extends Controller
 
     public function actionAlquileres()
     {
+        $searchModel = new InmuebleSearch();
+        $searchModel->operacion = 'Alquiler';
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize=8;
 
-        $buscador = new InmuebleSearch();
-
-        if($buscador->load(Yii::$app->request->get()))
-        {
-            if ($buscador->validate())
-            {
-                
-                $dataSearch = $buscador->search(Yii::$app->request->queryParams);
-
-                return $this->render('busqueda', [
-                    'dataProvider' => $dataSearch,
-                ]);
-            }
-            else{
-                $form->getErrors();
-            }
-        }else{
-
-            $dataProvider = new ActiveDataProvider([
-                'query' => Inmueble::find()->where(['operacion' => 'Alquiler'])->orderBy('id DESC'),
-                'pagination' => [
-                    'pageSize' => 8,
-                ],
-            ]);
-
-            return $this->render('alquileres',[
-            'buscador' => $buscador,
+        return $this->render('ventas',[
+            'searchModel' => $searchModel,
             'listDataProvider' => $dataProvider
 
             ]);
-        }
     }
     public function actionEmpresa()
     {
@@ -189,39 +167,16 @@ class SiteController extends Controller
     }
     public function actionVentas()
     {
-        
+        $searchModel = new InmuebleSearch();
+        $searchModel->operacion = 'Venta';
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize=8;
 
-        $buscador = new InmuebleSearch();
-
-        if($buscador->load(Yii::$app->request->get()))
-        {
-            if ($buscador->validate())
-            {
-                
-                $dataSearch = $buscador->search(Yii::$app->request->queryParams);
-
-                return $this->render('busqueda', [
-                    'dataProvider' => $dataSearch,
-                ]);
-            }
-            else{
-                $form->getErrors();
-            }
-        }else{
-
-            $dataProvider = new ActiveDataProvider([
-                'query' => Inmueble::find()->where(['operacion' => 'Venta'])->orderBy('id DESC'),
-                'pagination' => [
-                    'pageSize' => 8,
-                ],
-            ]);
-
-            return $this->render('ventas',[
-            'buscador' => $buscador,
+        return $this->render('ventas',[
+            'searchModel' => $searchModel,
             'listDataProvider' => $dataProvider
 
             ]);
-        }
     }
     public function actionServicios()
     {
