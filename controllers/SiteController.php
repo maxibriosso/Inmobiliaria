@@ -5,11 +5,14 @@ namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\Session;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\Solicitud;
 use app\models\Presentacion;
 use app\models\PresentacionSearch;
+use app\models\Parametro;
+use app\models\ParametroSearch;
 use app\models\Inmueble;
 use app\models\InmuebleSearch;
 use app\models\SolicitudSearch;
@@ -60,14 +63,24 @@ class SiteController extends Controller
             ->orderBy('id')
             ->all();
 
-        $sql = 'SELECT * FROM Inmueble WHERE fecha_creacion BETWEEN (NOW() - interval 30 day) AND NOW()';
+        //Inmuebles con menos de un mes
+        //$sql = 'SELECT * FROM Inmueble WHERE fecha_creacion BETWEEN (NOW() - interval 30 day) AND NOW()';
+        
+        //Ultimos 10 inmuebles ingresados
+        $sql='SELECT * FROM Inmueble ORDER BY id DESC LIMIT 10';
         $ultima = Inmueble::findBySql($sql)->andWhere(['activo'=> 1])->all();
 
+        //Todos los inmuebles
         $dataProvider = Presentacion::find()->all();
 
         $searchModel = new SolicitudSearch();
         $solic = $searchModel->obtener(Yii::$app->request->queryParams);
 
+        $parametro=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="img_pred"')->one();
+        $session = Yii::$app->session;
+        //if (!$session->has('img_pred'))
+            $session->set('img_pred', $parametro->valor);
+        
         $buscador = new InmuebleSearch();
 
         if($buscador->load(Yii::$app->request->get()))
@@ -152,30 +165,42 @@ class SiteController extends Controller
     {
         $searchModel = new InmuebleSearch();
         $searchModel->operacion = 'Alquiler';
+
+
+        $parametro=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="img_pred"')->one();
+        $session = Yii::$app->session;
+        //if (!$session->has('img_pred'))
+            $session->set('img_pred', $parametro->valor);
+
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->pagination->pageSize=8;
 
-        return $this->render('ventas',[
+        return $this->render('alquileres',[
             'searchModel' => $searchModel,
             'listDataProvider' => $dataProvider
-
             ]);
     }
+
     public function actionEmpresa()
     {
         return $this->render('empresa');
     }
+
     public function actionVentas()
     {
         $searchModel = new InmuebleSearch();
         $searchModel->operacion = 'Venta';
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->pagination->pageSize=8;
+        
+        $parametro=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="img_pred"')->one();
+        $session = Yii::$app->session;
+        //if (!$session->has('img_pred'))
+            $session->set('img_pred', $parametro->valor);
 
         return $this->render('ventas',[
             'searchModel' => $searchModel,
             'listDataProvider' => $dataProvider
-
             ]);
     }
     public function actionServicios()
@@ -189,11 +214,15 @@ class SiteController extends Controller
 
     public function actionDetalle($id)
     {
-        //$data = Inmueble::findByPk($id);
-        $data2 = Inmueble::findModel($id);
+        $searchModel = new InmuebleSearch();
+        $data2 = Inmueble::find()->where(['id' => $id])->one();
+        $parametro=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="img_pred"')->one();
+        $session = Yii::$app->session;
+        $session->set('img_pred', $parametro->valor);
 
         return $this->render('detalle', [
             'model' => $data2,
+            'searchModel' => $searchModel,
         ]);
     }
 }

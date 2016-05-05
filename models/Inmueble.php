@@ -109,6 +109,15 @@ class Inmueble extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Imagen::className(), ['id_inmueble' => 'id']);
     }
+
+    public function getImagenes()
+    {
+        $imagenes = Imagen::find()
+            ->where(['id_inmueble' => $this->id])
+            ->all();
+
+        return $imagenes;
+    }
 //falta terminar
   /*  public function getDestacada($id)
     {

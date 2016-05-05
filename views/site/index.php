@@ -50,26 +50,26 @@ if(Yii::$app->user->isGuest){
                 
             ]); ?>
 
-             <div class="form-group">
-               <?= $form->field($buscador, 'operacion')->dropDownList([ 'Venta' => 'VENTA', 'Alquiler' => 'ALQUILER', ], ['prompt' => 'OPERACION'])->label('  '); ?>
+             <div class="form-group form-select">
+               <?= $form->field($buscador, 'operacion')->dropDownList([ 'Venta' => 'VENTA', 'Alquiler' => 'ALQUILER', ], ['prompt' => 'OPERACION','class'=>'form-input'])->label('  '); ?>
              </div>
-             <div class="form-group">
-                 <?= $form->field($buscador, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD'])->label('  '); ?>
+             <div class="form-group form-select">
+                 <?= $form->field($buscador, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD','class'=>'form-input'])->label('  '); ?>
              </div>
-             <div class="form-group">
-                 <?= $form->field($buscador, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES'])->label('  '); ?>
+             <div class="form-group form-select">
+                 <?= $form->field($buscador, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES','class'=>'form-input'])->label('  '); ?>
              </div>
-             <div class="form-group ">
-                <?= $form->field($buscador, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS'])->label('  '); ?>
+             <div class="form-group form-select">
+                <?= $form->field($buscador, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS','class'=>'form-input'])->label('  '); ?>
             </div>
             <div class="form-group">
-                <?= $form->field($buscador, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN'))->label('  '); ?>
+                <?= $form->field($buscador, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN','class'=>'form-input'))->label('  '); ?>
             </div>
             <div class="form-group">
-                <?= $form->field($buscador, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX'))->label('  '); ?>
+                <?= $form->field($buscador, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX','class'=>'form-input'))->label('  '); ?>
             </div>     
-            <div class="form-group">
-            <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default btn-form-buscar']) ?>
+            <div class="form-group cont-btn-busc-index">
+              <?= Html::submitButton('<i class="fa fa-search fa-lg"></i>', ['class' => 'btn btn-default btn-form-buscar']) ?>
             </div>
           <?php ActiveForm::end(); ?>
        </div>
@@ -93,17 +93,22 @@ if(Yii::$app->user->isGuest){
       <div class="container">
           <div id="owl-demo" class="owl-carousel owl-theme">
           <?php foreach ($des as $d): ?>
-            
-            
                 <div class="propertyItem">
                     <div class="propertyContent">
-                        <a class="propertyType" href="#"><?php echo $d->operacion ?></a>
-                        <a href="#" class="propertyImgLink">
-                          <?php foreach ($d->getImagens()->all() as $img): ?>
-                            <?php if($img->destacada == 1): ?>  
-                              <img class="propertyImg" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img->ruta?>" alt="...">
-                            <?php endif; ?>
-                          <?php endforeach; ?>
+                        <a class="propertyType" href="<?= Url::to(['site/detalle','id' => $d->id]) ?>"><?php echo $d->operacion ?></a>
+                        <a href="<?= Url::to(['site/detalle','id' => $d->id]) ?>" class="propertyImgLink">
+                          <?php 
+                              if (is_null($d->getImagendestacada())){
+                                  $session = Yii::$app->session;
+                                  $img_pred = $session->get('img_pred');
+                          ?>
+                          <img class="propertyImg" src="<?= Yii::$app->request->baseUrl . '/parametros/'.$img_pred ?>" alt="...">
+                          <?php 
+                              }else{
+                                  $img = $d->getImagendestacada();
+                          ?>
+                          <img class="propertyImg" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img->ruta?>" alt="...">
+                          <?php }  ?> 
                         </a>
                         <h4><a href="#"><?php echo $d->direccion ?></a></h4>
                         <p><?php echo Barrio::findOne($d->id_barrio)->nombre ?></p>
@@ -112,12 +117,14 @@ if(Yii::$app->user->isGuest){
                         <p class="price">$<?php echo $d->valor ?></p>
                     </div>
                     <table border="1" class="propertyDetails">
-                        <tbody><tr>
-                        <td><i class="fa fa-arrows-alt" style="margin-right:7px;"></i><?php echo $d->superficie ?>m2</td>
-                        <td><i class="fa fa-bed" style="margin-right:7px;"></i><?php echo $d->cantidad_habitaciones ?> Hab.</td>
-                        <td><i class="fa fa-tint" style="margin-right:7px;"></i><?php echo $d->cantidad_banios ?> Baños</td>
-                        </tr>
-                    </tbody></table> 
+                        <tbody>
+                          <tr>
+                            <td><i class="fa fa-arrows-alt" style="margin-right:7px;"></i><?php echo $d->superficie ?>m2</td>
+                            <td><i class="fa fa-bed" style="margin-right:7px;"></i><?php echo $d->cantidad_habitaciones ?> Hab.</td>
+                            <td><i class="fa fa-tint" style="margin-right:7px;"></i><?php echo $d->cantidad_banios ?> Baños</td>
+                          </tr>
+                        </tbody>
+                    </table> 
                 </div>
          
           <?php endforeach; ?>        
@@ -132,20 +139,43 @@ if(Yii::$app->user->isGuest){
       </div>
       <div class="container">
           <div id="owl-uingresos" class="owl-carousel owl-theme">
-            <?php foreach ($ultima as $u): ?>
-            <div class="item">         
-                <div class="thumbnail">
-                  <?php foreach ($u->getImagens()->all() as $img2): ?>
-                    <?php if($img2->destacada == 1): ?>  
-                      <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img2->ruta?>" alt="...">
-                    <?php endif; ?>
-                  <?php endforeach; ?>
-                  <div class="caption">
-                    <h3><?php echo $u->titulo ?></h3>
-                    <p>$ <?php echo $u->valor ?></p>
-                  </div>
+            <?php foreach ($ultima as $u): ?>       
+              <div class="propertyItemTwo">
+                <div class="propertyPrice">
+                  <a class="propertyTypeTwo" href="<?= Url::to(['site/detalle','id' => $u->id]) ?>"><i class="fa fa-home"></i><?php echo $u->operacion ?><br><span>$ <?php echo $u->valor ?></span>
+                  </a>
+                  
                 </div>
-            </div>
+                <div class="propertyContentTwo">
+                  <a href="<?= Url::to(['site/detalle','id' => $u->id]) ?>" class="propertyImgLink">
+                    <?php 
+                        if (is_null($u->getImagendestacada())){
+                            $session = Yii::$app->session;
+                            $img_pred2 = $session->get('img_pred');
+                    ?>
+                    <img class="propertyImgTwo" src="<?= Yii::$app->request->baseUrl . '/parametros/'.$img_pred2 ?>" alt="...">
+                    <?php 
+                        }else{
+                            $img2 = $u->getImagendestacada();
+                    ?>
+                    <img class="propertyImgTwo" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img2->ruta?>" alt="...">
+                    <?php }  ?>
+                    <div class="propertyImgCaption">
+                      <h3><?php echo $u->titulo ?></h3>
+                      <p><?php echo $u->descripcion ?></p>
+                    </div>
+                  </a>
+                </div>
+                <table border="1" class="propertyDetails">
+                    <tbody>
+                      <tr>
+                        <td><i class="fa fa-arrows-alt" style="margin-right:7px;"></i><?php echo $u->superficie ?>m2</td>
+                        <td><i class="fa fa-bed" style="margin-right:7px;"></i><?php echo $u->cantidad_habitaciones ?> Hab.</td>
+                        <td><i class="fa fa-tint" style="margin-right:7px;"></i><?php echo $u->cantidad_banios ?> Baños</td>
+                      </tr>
+                    </tbody>
+                </table> 
+              </div>
             <?php endforeach; ?>  
           
           </div>

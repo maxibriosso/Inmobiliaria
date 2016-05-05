@@ -1,9 +1,6 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\ContactForm */
-
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\widgets\ListView;
@@ -27,9 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <section class="contenedor-img-contacto">
     <h1><?= Html::encode($this->title) ?></h1>  
 </section>
-<div class="container-fluid">
-
-
+<section class="contenedor-contenido-ventas">
+  <div class="container-fluid">
     <div class="col-md-8">
       <?php Pjax::begin(['id' => 'listinmuebles']) ?>
           <?= ListView::widget([
@@ -44,18 +40,17 @@ $this->params['breadcrumbs'][] = $this->title;
           ]);
           ?>
       <?php Pjax::end() ?>
-        
     </div>
 
     <!-- BUSCADOR -->
-    <div class="col-md-4">
+    <div class="col-md-4 buscador-ventas">
         <div class="col-md-12">
-              <div class="btn-group">
-                  <a href="#" id="list" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-th-list">Lista</span>
+              <div class="btn-group botones-buscador">
+                  <a href="#" id="list" class="btn btn-default">
+                    <i class="glyphicon glyphicon-th-list"><span>Lista</span></i>
                   </a>
-                  <a href="#" id="grid" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-th">Grilla</span>
+                  <a href="#" id="grid" class="btn btn-default">
+                    <i class="glyphicon glyphicon-th"><span>Grilla</span></i>
                   </a>
               </div> 
         </div> 
@@ -63,29 +58,30 @@ $this->params['breadcrumbs'][] = $this->title;
           <?php Pjax::begin(['id' => 'forminmuebles']) ?>
               <?php $form = ActiveForm::begin([
                 'method' => 'get',
-                'options'=>['class'=>'form-buscador','data-pjax' => true]
+                'options'=>['class'=>'ventas-form','data-pjax' => true]
               ]); ?>
 
-                 <div class="form-group">
-                     <?= $form->field($searchModel, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD'])->label('  '); ?>
+                 <div class="form-group form-select">
+                     <?= $form->field($searchModel, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD','class'=>'form-input'])->label('  '); ?>
                  </div>
-                 <div class="form-group">
-                     <?= $form->field($searchModel, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES'])->label('  '); ?>
+                 <div class="form-group form-select">
+                     <?= $form->field($searchModel, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES','class'=>'form-input'])->label('  '); ?>
                  </div>
-                 <div class="form-group ">
-                    <?= $form->field($searchModel, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS'])->label('  '); ?>
+                 <div class="form-group form-select">
+                    <?= $form->field($searchModel, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS','class'=>'form-input'])->label('  '); ?>
                 </div>
                 <div class="form-group">
-                    <?= $form->field($searchModel, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN'))->label('  '); ?>
+                    <?= $form->field($searchModel, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN','class'=>'form-input'))->label('  '); ?>
                 </div>
                 <div class="form-group">
-                    <?= $form->field($searchModel, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX'))->label('  '); ?>
-                </div>       
-                <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default']) ?>
+                    <?= $form->field($searchModel, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX','class'=>'form-input'))->label('  '); ?>
+                </div>
+                <div class="form-group cont-btn-form">  
+                  <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default btn-busc-lat']) ?>
+                </div>
               <?php ActiveForm::end(); ?>
           <?php Pjax::end() ?>
         </div> 
-
     </div>
-
-</div>
+  </div>
+</section>

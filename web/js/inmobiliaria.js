@@ -74,6 +74,29 @@ owl.owlCarousel({
       "<i class='fa fa-chevron-circle-right'></i>"
       ],
 });
+
+$(".botones-buscador > .btn").click(function(){
+    $(this).addClass("active").siblings().removeClass("active");
+});
+
+
+$('.slider-principal').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-principal',
+  dots: true,
+  centerMode: true,
+  focusOnSelect: true
+});
+
+
 });
 
 
@@ -105,3 +128,9 @@ function call_slider_sequence(){
   }
 }
 
+$(function() {
+    function activarbotonera(){
+        $(".botones-buscador > #grid").addClass("active");
+    }
+    $(window).on('load', activarbotonera);
+});
