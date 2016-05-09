@@ -79,22 +79,14 @@ $(".botones-buscador > .btn").click(function(){
     $(this).addClass("active").siblings().removeClass("active");
 });
 
-
-$('.slider-principal').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  asNavFor: '.slider-nav'
-});
-$('.slider-nav').slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  asNavFor: '.slider-principal',
-  dots: true,
-  centerMode: true,
-  focusOnSelect: true
-});
+  $('.bxslider').bxSlider({
+    pagerCustom: '#bx-pager',
+    nextSelector: '.slider-next',
+    prevSelector: '.slider-prev',
+    nextText: '<img src="web/images/slider-next2.png" alt="Next" />',
+    prevText: '<img src="web/images/slider-prev2.png" alt="Previous" />'
+  });
+  
 
 
 });

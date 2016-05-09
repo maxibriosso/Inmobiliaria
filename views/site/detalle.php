@@ -8,14 +8,15 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\widgets\ListView;
 use app\models\Barrio;
+use app\models\Ciudad;
 use yii\widgets\Pjax;
 
 $this->title = 'Detalle Inmueble';
 $this->params['breadcrumbs'][] = $this->title;
 
-$baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
-$this->registerCssFile($baseUrl.'/css/slick.css');
-$this->registerCssFile($baseUrl.'/css/slick-theme.css');
+//$baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
+//$this->registerCssFile($baseUrl.'/css/slick.css');
+//$this->registerCssFile($baseUrl.'/css/slick-theme.css');
 ?>
 
 <section class="contenedor-img-detalle">
@@ -23,44 +24,54 @@ $this->registerCssFile($baseUrl.'/css/slick-theme.css');
 </section>
 <div class="contenido-detalle">
     <div class="container">
-        <h1><?php echo $model->titulo ?></h1>
-
         <div class="col-md-8">
             <div class="col-md-12">
-                <section class="galeria-img-inm-detalle gallery-item">
-                    <div class="gallery-slider slider-principal ">
+                <h2><?php echo $model->titulo ?></h2>
+                <?php $cd=Barrio::findOne($model->id_barrio); ?>
+                <h3><?php echo Barrio::findOne($model->id_barrio)->nombre ?> , <?php echo Ciudad::findOne($cd->id_ciudad)->nombre ?></h3>
+            </div>
+             <div class="col-md-12">
+            </div>
+
+            <div class="col-md-12 gallery">
+                <ul class="bxslider">
+                    <?php 
+                        $imagenes=$model->getImagenes();
+                        if (is_null($imagenes)){
+                              $session = Yii::$app->session;
+                              $img_pred = $session->get('img_pred');
+                        ?>
+                            <li><img class="" src="<?= Yii::$app->request->baseUrl . '/parametros/'.$img_pred ?>" alt=""></li>
                         <?php 
-                            $imagenes=$model->getImagenes();
-                            if (is_null($imagenes)){
-                                  $session = Yii::$app->session;
-                                  $img_pred = $session->get('img_pred');
-                            ?>
-                                <div class="slider-item"><img class="" src="<?= Yii::$app->request->baseUrl . '/parametros/'.$img_pred ?>" alt=""></div>
-                            <?php 
-                            }else{
-                                foreach ($imagenes as $d):  
-                            ?>
-                            <div class="slider-item"><img class="" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$d->ruta?>" alt=""></div>
-                            <?php  endforeach; } ?>     
-                    </div>
-                    <div class="slider-nav">
-                        
-                            <?php 
-                                $imagenes=$model->getImagenes();
-                                if (is_null($imagenes)){
-                                      $session = Yii::$app->session;
-                                      $img_pred = $session->get('img_pred');
-                                ?>
-                                    <div class="slider-nav-item"><img class="" src="<?= Yii::$app->request->baseUrl . '/parametros/'.$img_pred ?>" alt=""></div>
-                                <?php 
-                                }else{
-                                    foreach ($imagenes as $d):  
-                                ?>
-                                <div class="slider-nav-item"><img class="" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$d->ruta?>" alt=""></div>
-                            <?php  endforeach; } ?>    
-                        
-                    </div>
-                </section>
+                        }else{
+                            foreach ($imagenes as $d):  
+                        ?>
+                        <li><img class="" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$d->ruta?>" alt=""></li>
+                    <?php  endforeach; } ?>  
+                </ul>
+
+                <div id="bx-pager">
+                    <?php       
+                        if (is_null($imagenes)){
+                              $session = Yii::$app->session;
+                              $img_pred = $session->get('img_pred');
+                        ?>
+                            <a data-slide-index="0" href=""><img class="" src="<?= Yii::$app->request->baseUrl . '/parametros/'.$img_pred ?>" alt=""></a>
+                        <?php 
+                        }else{
+                            $contador=0;
+                            foreach ($imagenes as $d):  
+                        ?>
+                        <a data-slide-index="<?= $contador; ?>" href=""><img class="" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$d->ruta?>" alt=""></a>
+                    <?php $contador++; endforeach; } ?> 
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h1>DESCRIPCIÓN</h1>
+                <p><?php echo $model->descripcion ?></p>
+            </div>
+            <div class="col-md-12">
+                <h1>CARACTERISTICAS</h1>
             </div>
         </div>
       <div class="col-md-4 buscador-ventas">

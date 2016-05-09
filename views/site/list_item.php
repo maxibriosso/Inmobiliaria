@@ -1,11 +1,13 @@
 <?php
 use app\models\Barrio;
+use yii\helpers\Url;
+use yii\helpers\Html;
 ?>
 <div class="item col-xs-4 col-lg-4">
     <div class="propertyItem">
         <div class="propertyContent">
-            <a class="propertyType" href="#"><?php echo $model->operacion ?></a>
-            <a href="#" class="propertyImgLink">
+            <a class="propertyType" href="<?= Url::to(['site/detalle','id' => $model->id]) ?>"><?php echo $model->operacion ?></a>
+            <a href="<?= Url::to(['site/detalle','id' => $model->id]) ?>" class="propertyImgLink">
                 <?php 
                     if (is_null($model->getImagendestacada())){
                         $session = Yii::$app->session;

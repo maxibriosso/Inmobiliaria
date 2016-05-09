@@ -1066,19 +1066,112 @@ body{
   outline: 4px solid white;
   padding:15px;
 }
-#frontend .cont-form-contacto{
-  padding:50px;
-}
 #frontend .cont-texto-contrato{
   padding:20px; 
 }
 #frontend .cont-texto-contrato h3{
+  text-transform:uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   text-align:center;
-
 }
-#frontend .row{
+#frontend .cont-map{
+/*   background-color:#b2b2b2; */
+  background-color:#878A84;
+}
+#frontend .cont-map .row{
   margin-left: 0px !important;
   margin-right: 0px !important;
+}
+#frontend .cont-map .row .cont-mapa-contacto{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+#frontend .cont-form-contacto{
+  padding:30px 50px;
+/*   background-color:#b2b2b2; */
+  background-color:#878A84;
+}
+#frontend #map_contacto{
+  width:100%;
+  height:680px;
+}
+#frontend .solicitud-form .form-input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  background: #878A84;
+ /*  border: 3px solid #bfbfbf; */
+  border: 3px solid white;
+  border-radius: 0px;
+  padding: 12px 16px;
+  min-width: 100%;
+}
+
+#frontend .solicitud-form .form-input::-webkit-input-placeholder {
+  color: white;
+}
+#frontend .solicitud-form .form-input:focus::-webkit-input-placeholder {
+   color: #252525;
+}
+
+#frontend .solicitud-form .form-input:-moz-placeholder{
+  color: white; 
+} /* Firefox 18- */
+#frontend .solicitud-form .form-input:focus:-moz-placeholder { /* Firefox 18- */
+   color: #252525; 
+}
+#frontend .solicitud-form .form-input::-moz-placeholder{
+  color: white;
+}  /* Firefox 19+ */
+#frontend .solicitud-form .form-input:focus::-moz-placeholder {  /* Firefox 19+ */
+  color: #252525; 
+}
+#frontend .solicitud-form .form-input:-ms-input-placeholder{
+  color: white;
+}
+#frontend .solicitud-form .form-input:focus:-ms-input-placeholder {  
+  color: #252525;   
+}
+#frontend .solicitud-form .form-select select{
+  color:white;
+}
+#frontend .solicitud-form .form-select select:focus option{
+  border: 2px solid #27da93 !important;
+}
+#frontend .solicitud-form .form-select select option{
+  color:black;
+  background:white;
+}
+#frontend .solicitud-form .form-select select option:hover{
+  background:#27da93 !important;
+}
+#frontend .solicitud-form .form-input:focus {
+  border-color: #27da93 !important;
+  box-shadow:none !important;
+}
+
+#frontend .btn-busc-cont{
+    font-family: 'Montserrat', sans-serif;
+    background: transparent !important;
+    border: 2px solid black;
+    color: black;
+    padding: 10px 25px !important;
+    transition: all 0.3s;
+}
+#frontend .btn-busc-cont:focus{
+    outline: none !important;
+}
+
+#frontend .btn-busc-cont:hover{
+    background: black !important;
+    border: 2px solid black !important;
+    color: white !important;
+    transition: all 0.3s;
+}
+
+#frontend .cont-btn-form{
+  padding-top:15px;
+
 }
 /*----------------- FIN - CONTACTO ---------------------*/
 /*----------------------------------------------------------*/
@@ -1397,43 +1490,34 @@ body{
 /*----------------- FIN - VENTAS ---------------------*/
 /*----------------------------------------------------------*/
 
-#frontend  .gallery-item .gallery-slider .slider-item img {
-    width: 100% !important;
+/*----------------- DETALLE ---------------------*/
+/*----------------------------------------------------------*/
+
+#frontend .contenido-detalle{
+  background:#e3e2db;
 }
 
-#frontend .gallery-item .slider-nav {
-    width: 648px !important;
-    margin: 0 auto !important;
+#frontend .gallery #bx-pager {
+    text-align: center;
+    background-color: transparent;
+    padding: 10px;
+}
+#frontend .bx-wrapper {
+    margin: 0px !important;
+}
+#frontend .gallery #bx-pager a.active img {
+    opacity: 1.0;
+}
+#frontend .gallery #bx-pager a img {
+    opacity: 0.6;
+    width:120px;
+}
+#frontend .bx-wrapper img{
+  width:690px !important;
 }
 
-#frontend .gallery-item .slider-nav .slider-nav-item {
-    height: 90px !important;
-    padding: 0 8px !important;
+#frontend .gallery .bx-wrapper .bx-viewport{
+  height:auto !important;
 }
-
-#frontend .gallery-item .slider-nav .slider-nav-item img {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-#frontend .gallery-item .slick-prev:before, .gallery-item .slick-next:before {
-    font-family: 'FontAwesome';
-    color: #34495e;
-    opacity: 1;
-}
-
-#frontend .gallery-item .slick-prev {
-    padding-right: 15px;
-}
-
-.gallery-item .slick-prev:before {
-    content: '\f104';
-}
-
-.gallery-item .slick-next {
-    padding-left: 15px;
-}
-
-.gallery-item .slick-next:before {
-    content: '\f105';
-}
+/*----------------- FIN - DETALLE ---------------------*/
+/*----------------------------------------------------------*/
