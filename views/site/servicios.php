@@ -23,9 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="well-image-container">
                             <img src="http://www.zillowstatic.com/cms/rent_1.1.jpg" />
                         </div>
-                        <h3>Property Alerts</h3>
+                        <h3>Titulo ejemplo</h3>
                         <p class="well-desc">
-                            Get alerts straight to your inbox when <br> matching properties hit the market.
+                            Descripcion de ejemplo <br> hay q ver que se le coloca.
                         </p>
                     </div>
                 </a>
@@ -39,9 +39,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="well-image-container">
                             <img src="http://www.zillowstatic.com/cms/rent_2.1.jpg" />
                         </div>
-                        <h3>Moving to the Area?</h3>
+                        <h3>Titulo ejemplo</h3>
                         <p class="well-desc">
-                            Moving can be stressful. See how we can help!
+                            Descripcion de ejemplo hay q ver que se le coloca.
                         </p>
                     </div>
                 </a>
@@ -55,9 +55,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="well-image-container">
                             <img src="http://www.zillowstatic.com/cms/rent_1.1.jpg" />
                         </div>
-                        <h3>Property Alerts</h3>
+                        <h3>Titulo ejemplo</h3>
                         <p class="well-desc">
-                            Get alerts straight to your inbox when matching properties hit the market.
+                            Descripcion de ejemplo hay q ver que se le coloca.
                         </p>
                     </div>
                 </a>
@@ -73,9 +73,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="well-image-container">
                             <img src="http://www.zillowstatic.com/cms/rent_2.1.jpg" />
                         </div>
-                        <h3>Moving to the Area?</h3>
+                        <h3>Titulo ejemplo</h3>
                         <p class="well-desc">
-                            Moving can be stressful. See how we can help!
+                            Descripcion de ejemplo hay q ver que se le coloca.
                         </p>
                     </div>
                 </a>
@@ -89,9 +89,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="well-image-container">
                             <img src="http://www.zillowstatic.com/cms/rent_2.1.jpg" />
                         </div>
-                        <h3>Moving to the Area?</h3>
+                        <h3>Titulo ejemplo</h3>
                         <p class="well-desc">
-                            Moving can be stressful. See how we can help!
+                           Descripcion de ejemplo hay q ver que se le coloca.
                         </p>
                     </div>
                 </a>
@@ -105,9 +105,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="well-image-container">
                             <img src="http://www.zillowstatic.com/cms/rent_2.1.jpg" />
                         </div>
-                        <h3>Moving to the Area?</h3>
+                        <h3>Titulo ejemplo</h3>
                         <p class="well-desc">
-                            Moving can be stressful. See how we can help!
+                            Descripcion de ejemplo hay q ver que se le coloca.
                         </p>
                     </div>
                 </a>

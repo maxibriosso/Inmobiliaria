@@ -1066,9 +1066,24 @@ body{
   outline: 4px solid white;
   padding:15px;
 }
+
+
+#frontend .cont-info-contrato .c-menu-item{
+  margin-top:40px;
+  padding-bottom: 20px;
+}
+#frontend .cont-info-contrato .c-menu-item .s-menu-item{
+  margin-top:20px;
+}
+#frontend .cont-info-contrato .c-menu-item .s-menu-item i {
+  font-size:50px;
+}
+
 #frontend .cont-texto-contrato{
   padding:20px; 
 }
+
+
 #frontend .cont-texto-contrato h3{
   text-transform:uppercase;
   font-family: 'Montserrat', sans-serif;
@@ -1077,7 +1092,7 @@ body{
 }
 #frontend .cont-map{
 /*   background-color:#b2b2b2; */
-  background-color:#878A84;
+  background-color:#4a525d;
 }
 #frontend .cont-map .row{
   margin-left: 0px !important;
@@ -1090,7 +1105,7 @@ body{
 #frontend .cont-form-contacto{
   padding:30px 50px;
 /*   background-color:#b2b2b2; */
-  background-color:#878A84;
+  background-color:#4a525d;
 }
 #frontend #map_contacto{
   width:100%;
@@ -1099,7 +1114,7 @@ body{
 #frontend .solicitud-form .form-input {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  background: #878A84;
+  background: #4a525d;
  /*  border: 3px solid #bfbfbf; */
   border: 3px solid white;
   border-radius: 0px;
@@ -1377,7 +1392,7 @@ body{
 }
 
 #frontend .buscador-ventas{
-  background:#b2b2b2;
+  background:#4a525d;
 }
 
 #frontend .botones-buscador{
@@ -1413,7 +1428,7 @@ body{
 #frontend .buscador-ventas .form-input {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  background: #b2b2b2;
+  background: #4a525d;
  /*  border: 3px solid #bfbfbf; */
   border: 3px solid white;
   border-radius: 0px;

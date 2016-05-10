@@ -165,7 +165,8 @@ var styles = [
       position: latlng4,
       map: map4,
       title: "Peraza-Gonzalez",
-      icon: '../img/pinc2.png',
+      animation:1,
+      icon: '../img/pinc3.png',
     });
 
 
