@@ -86,11 +86,11 @@ class BarrioController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($submit=false)
+    public function actionCreate()
     {
         $model = new Barrio();
 
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post('barrio-form')) && $submit == false) {
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post('barrio-form'))) {
             //echo "<script>console.log( 'Entro a primer if' );</script>";
             Yii::$app->response->format = Response::FORMAT_JSON;
             return ActiveForm::validate($model);
@@ -100,6 +100,7 @@ class BarrioController extends Controller
             $model->estado=1;
             //echo "<script>console.log( 'Entro a segundo if if' );</script>";
             if($model->save()){
+                //echo "<script>console.log( 'Entro a save' );</script>";
                 //$model->refresh();
                 //Yii::$app->response->format = Response::FORMAT_JSON;
                 //return [
@@ -125,14 +126,14 @@ class BarrioController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id,$submit = false)
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()) && $submit == false) {
+        /*if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return ActiveForm::validate($model);
-        }
+        }*/
         /*if ($model->load(Yii::$app->request->post())) {
             if($model->save()){
                 $model->refresh();

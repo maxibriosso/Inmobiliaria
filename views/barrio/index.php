@@ -21,7 +21,6 @@ $('.search-button').click(function(){
 });
 ");
 ?>
-
 <div class="panel panel-default" role="menu" data-wow-duration="0.8s" data-wow-delay="0s">
       <div class="panel-heading text-left"><?= Html::encode($this->title) ?> 
         <a href="#" class="btn-link btn-sm search-button" id="activity-index-link" data-toggle="model" data-target="#modal" data-url=""><i class="fa fa-search"></i></a>

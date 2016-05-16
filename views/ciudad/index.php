@@ -26,6 +26,7 @@ $('.search-button').click(function(){
         <?= Html::a('<i class="fa fa-plus"></i>', '#', [
             'id' => 'activity-index-link',
             'class' => 'btn-link btn-sm',
+            'title' => Yii::t('app', 'Crear Ciudad'),
             'data-toggle' => 'modal',
             'data-target' => '#modal',
             'data-url' => Url::to(['create']),
@@ -34,7 +35,7 @@ $('.search-button').click(function(){
       </div>
 
       <div class="panel-body admin">
-        <?php Pjax::begin(); ?>
+        <?php Pjax::begin(['id'=>'ciudad-grid']); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
@@ -72,7 +73,7 @@ $('.search-button').click(function(){
                         'update' => function ($url, $model, $key) {
                             return Html::a('<span class="glyphicon glyphicon-pencil"></span>', '#', [
                                 'id' => 'activity-index-link',
-                                'title' => Yii::t('app', 'Update'),
+                                'title' => Yii::t('app', 'Modificar Ciudad'),
                                 'data-toggle' => 'modal',
                                 'data-target' => '#modal',
                                 'data-url' => Url::to(['update', 'id' => $model->id]),
@@ -90,25 +91,35 @@ $('.search-button').click(function(){
 
 <?php
 
-/*$this->registerJs(
+$this->registerJs(
     "$(document).on('click', '#activity-index-link', (function() {
-        $.get(
-            $(this).data('url'),
-            function (data) {
-                $('.modal-body').html(data);
+        var titulo=$(this).attr('title');
+        $.ajax({
+            url: $(this).data('url'),
+            async: false,
+            type : 'get',
+            success: function (data) {
+                $('.modalContent').html(data);
+                $('.modal-header').html('<button class=\"close\" aria-hidden=\"true\" data-dismiss=\"modal\" type=\"button\">×</button><h2>'+ titulo + '</h2>');
                 $('#modal').modal();
-            }
-        );
+            },
+            
+        });
     }));"
 );
 
+
 Modal::begin([
     'id' => 'modal',
-    'header' => '<h4 class="modal-title">Complete</h4>',
-    'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">Cerrar</a>',
+    'clientOptions' => ['backdrop' => 'static', 'keyboard' => false],
+    //'header' => '<h2 class="modal-title">'.$this->title.'</h2>',
+    //'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">Cerrar</a>',
 ]);
  
-echo "<div class='well'></div>";
+echo "<div class='modalContent'></div>";
  
-Modal::end();*/
+Modal::end();
+
+
+
 ?>

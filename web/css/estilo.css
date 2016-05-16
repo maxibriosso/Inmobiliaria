@@ -989,3 +989,37 @@ text-align:left !important;
 #backend .drop-right li a i{
   padding-right: 5px;
 }
+
+/*----------------- TESTIMONIOS ---------------------*/
+/*----------------------------------------------------------*/
+
+#backend .test-grid .table tbody tr td img {
+    width: 50px !important;
+}
+
+/*----------------- FIN - TESTIMONIOS ---------------------*/
+/*----------------------------------------------------------*/
+
+
+#backend .filters td:nth-child(2){
+  width:90px !important;
+}
+
+#backend .inm-grid .filters td:nth-child(6),#backend .inm-grid .filters td:nth-child(7){
+  width:90px !important;
+}
+#backend #barrio-grid .filters td:nth-child(7){
+  width:130px !important;
+}
+#backend #barrio-grid .filters td:nth-child(6){
+  width:90px !important;
+}
+#backend .prop-grid .filters td:nth-child(5),#backend .prop-grid .filters td:nth-child(7){
+  width:130px !important;
+}
+#backend .usu-grid .filters td:nth-child(6),#backend .usu-grid .filters td:nth-child(5){
+  width:150px !important;
+}
+#backend .usu-grid .filters td:nth-child(7){
+  width:90px !important;
+}

@@ -20,7 +20,7 @@ $('.search-button').click(function(){
 <div class="panel panel-default" role="menu" data-wow-duration="0.8s" data-wow-delay="0s">
       <div class="panel-heading text-left"><?= Html::encode($this->title) ?> 
         <a href="#" class="btn-link btn-sm search-button"><i class="fa fa-search"></i></a>
-        <a href="<?= Url::to(['remate/create']) ?>" class="btn-link btn-sm"><i class="fa fa-plus"></i></a>
+        <a href="<?= Url::to(['presentacion/create']) ?>" class="btn-link btn-sm"><i class="fa fa-plus"></i></a>
       </div>
 
       <div class="panel-body admin pres-grid">
@@ -41,9 +41,15 @@ $('.search-button').click(function(){
                     'value'=>function($model) { return $model->imageurl; },
                     ),
 
-                    'fecha_creacion',
+                    [   'attribute'=>'fecha_creacion',
+                        'format' =>  ['date', 'php:d-m-Y'],
+                    ],
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'template' => '{update}{delete} ',
+                        'header'=>'Acciones',
+                    ],
                 ],
                 'tableOptions' =>['class' => 'table'],
             ]); ?>

@@ -52,4 +52,9 @@ class Testimonio extends \yii\db\ActiveRecord
             'fecha_creacion' => 'Fecha Creacion',
         ];
     }
+
+    public function getImageurl()
+    {
+    return \Yii::$app->request->BaseUrl.'/uploads/'.$this->ruta;
+    }
 }

@@ -3,11 +3,19 @@
 namespace app\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
 use app\models\Testimonio;
 use app\models\TestimonioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+// Para guardar imagenes
+use yii\web\UploadedFile;
+use pheme\grid\actions\TogglebAction;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
+use app\models\HtmlHelpers;
+use yii\helpers\ArrayHelper;
 
 /**
  * TestimonioController implements the CRUD actions for Testimonio model.
@@ -26,9 +34,32 @@ class TestimonioController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                        'class' => \yii\filters\AccessControl::className(),
+                        'only' => ['index','create','update','view','delete'],
+                        'rules' => [
+                            // allow authenticated users
+                            [
+                                'allow' => true,
+                                'roles' => ['@'],
+                            ],
+                            // everything else is denied
+                        ],
+                    ],
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'toggle' => [
+                'class' => TogglebAction::className(),
+                'modelClass' => 'app\models\Testimonio',
+                // Uncomment to enable flash messages
+                'setFlash' => true,
+            ]
+        ];
+    }
     /**
      * Lists all Testimonio models.
      * @return mixed
@@ -65,8 +96,23 @@ class TestimonioController extends Controller
     {
         $model = new Testimonio();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->estado = 1;
+
+            //var_dump($_POST);
+            //exit();
+            
+            $file = UploadedFile::getInstance($model, 'ruta');
+            $ext = end((explode(".", $file->name)));
+            // generate a unique file name
+            $path = 'testimonio'.Yii::$app->security->generateRandomString().".{$ext}";
+   
+            $file->saveAs('uploads/' . $path);
+
+            $model->ruta = $path;
+
+            if($model->save())
+                return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,

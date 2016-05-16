@@ -23,7 +23,7 @@ $('.search-button').click(function(){
         <a href="<?= Url::to(['usuario/create']) ?>" class="btn-link btn-sm"><i class="fa fa-plus"></i></a>
       </div>
 
-      <div class="panel-body admin">
+      <div class="panel-body admin usu-grid">
         <?php Pjax::begin(); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,

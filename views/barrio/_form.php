@@ -15,7 +15,7 @@ use yii\helpers\Url;
 <div class="barrio-form">
 <?php $form = ActiveForm::begin([
     'id'=>'barrio-form',
-    'enableAjaxValidation' => true,
+    'enableAjaxValidation' => false,
     'enableClientScript' => true,
     'enableClientValidation' => true,
 ]); ?>
@@ -59,12 +59,14 @@ $('form#barrio-form').on('beforeSubmit', function(e) {
     var form = $(this);
     var formData = form.serialize();
     $.ajax({
-        url: form.attr('action')+'&submit=true',
+        url: form.attr('action'),
         type: form.attr('method'),
         data: formData,
         success: function (data) {
+            alert(data);
             if(data==1){
                 $(form).trigger('reset');
+                //$('#modal').modal('hide');
                 $.pjax.reload({container:'#barrio-grid'});
             }else{ 
                 if(data==2){
@@ -72,7 +74,7 @@ $('form#barrio-form').on('beforeSubmit', function(e) {
                     $.pjax.reload({container:'#barrio-grid'});
                 }else{
                     $(form).trigger('reset');
-                    form.parent().html('Error al crear barrio');
+                    form.parent().html('Error en operacion barrio');
                 }
             }
         },

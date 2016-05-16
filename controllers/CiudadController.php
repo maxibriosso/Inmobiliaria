@@ -9,6 +9,11 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use pheme\grid\actions\TogglebAction;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
+use app\models\HtmlHelpers;
+use yii\helpers\ArrayHelper;
+/**
 /**
  * CiudadController implements the CRUD actions for Ciudad model.
  */
@@ -85,13 +90,23 @@ class CiudadController extends Controller
     {
         $model = new Ciudad();
 
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post('ciudad-form'))) {
+            //echo "<script>console.log( 'Entro a primer if' );</script>";
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+
         if ($model->load(Yii::$app->request->post())) {
             $model->estado=1;
             if($model->save()){
-                return $this->redirect(['view', 'id' => $model->id]);
+                //return $this->redirect(['view', 'id' => $model->id]);
+                echo 1;
+            }else{
+                echo 0;
             }
-        } else {
-            return $this->render('create', [
+        }
+        else {
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }
@@ -107,10 +122,22 @@ class CiudadController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+/*        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+*/
+        if ($model->load(Yii::$app->request->post())) {
+
+            if($model->save()){
+                //return $this->redirect(['view', 'id' => $model->id]);
+                echo 2;
+            }else{
+                echo 0;
+            }   
+            
         } else {
-            return $this->render('update', [
+            return $this->renderAjax('update', [
                 'model' => $model,
             ]);
         }

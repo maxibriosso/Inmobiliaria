@@ -99,8 +99,8 @@ class PresentacionController extends Controller
         $model = new Presentacion();
 
         if ($model->load(Yii::$app->request->post())) {
-             var_dump($_POST);
-                exit();
+            //var_dump($_POST);
+            //exit();
             
             $file = UploadedFile::getInstance($model, 'ruta');
             $ext = end((explode(".", $file->name)));
@@ -112,7 +112,7 @@ class PresentacionController extends Controller
             $model->ruta = $path;
 
             if($model->save()){
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['index']);
             }
             
         } else {
@@ -133,7 +133,7 @@ class PresentacionController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

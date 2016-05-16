@@ -219,10 +219,12 @@ AppAsset::register($this);
                             <span>Complementos</span>
                         </a>
                         <ul class="sub">
+                            <li><a href="<?= Url::to(['parametro/index']) ?>"><i class="fa fa-cog"></i>Parametros</a></li>
+                            <li><a href="<?= Url::to(['testimonio/index']) ?>"><i class="fa fa-commenting-o"></i>Testimonios</a></li>
                             <li><a href="<?= Url::to(['presentacion/index']) ?>"><i class="fa fa-desktop"></i>Slider</a></li>
                             <li><a href="<?= Url::to(['barrio/index']) ?>"><i class="fa fa-globe "></i>Barrios</a></li>
                             <li><a href="<?= Url::to(['ciudad/index']) ?>"><i class="fa fa-globe "></i>Ciudades</a></li>
-                            <li><a href="<?= Url::to(['departamento/index']) ?>"><i class="fa fa-globe"></i>Dptos</a></li>
+                            <li><a href="<?= Url::to(['departamento/index']) ?>"><i class="fa fa-globe"></i>Departamentos</a></li>
                         </ul>
                     </li>                    
               </ul>

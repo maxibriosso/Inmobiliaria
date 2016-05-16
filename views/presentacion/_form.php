@@ -10,7 +10,7 @@ use kartik\file\FileInput;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="presentacion-form">
+<div class="row content-form">
 
 <?php $form = ActiveForm::begin([
     'id'=>'presid',   
