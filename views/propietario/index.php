@@ -23,6 +23,7 @@ $('.search-button').click(function(){
         <a href="<?= Url::to(['propietario/create']) ?>" class="btn-link btn-sm"><i class="fa fa-plus"></i></a>
       </div>
       <div class="panel-body admin prop-grid">
+        <div class="table-responsive">
         <?php Pjax::begin(); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
@@ -45,5 +46,6 @@ $('.search-button').click(function(){
             'tableOptions' =>['class' => 'table'],
         ]); ?>
         <?php Pjax::end(); ?>
+        </div>
     </div>
 </div>

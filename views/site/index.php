@@ -190,7 +190,25 @@ if(Yii::$app->user->isGuest){
         <h4>TESTIMONIOS DE ALGUNOS DE NUESTROS CLIENTES</h4>
       </div>
       <div class="container cont-contenido-test">
-        
+          <div class="container">
+            <div id="owl-test" class="owl-carousel owl-theme">
+              <?php foreach ($testimonio as $test): ?>    
+                <div class="media">
+                  <div class="pull-left" href="javascript:;">
+                    <img class="img-responsive img-circle" width="173" height="179" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$test->ruta?>">
+                  </div>
+                  <div class="media-body">
+                    <div class="white-text">
+                      <h6 class="subheading" style="text-align:left">
+                        <em><?php echo $test->descripcion ?></em>
+                      </h6>
+                    </div>
+                    <h6 class="white-text"><?php echo $test->titulo ?></h6>
+                  </div>
+                </div>
+              <?php endforeach; ?>  
+            </div>
+        </div>
       </div>
     </section>  
 
@@ -214,8 +232,8 @@ if(Yii::$app->user->isGuest){
 
 <?php }else{ ?>
   
-  <div class="col-md-12 cont-widget">
-    <div class="col-md-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cont-widget">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
       <div class="panel widget wow zoomIn" data-wow-offset="15" data-wow-duration=".5s">
           <div class="row widget-row">
             <div class="col-xs-4 text-center icon-widget">
@@ -228,7 +246,7 @@ if(Yii::$app->user->isGuest){
           </div>
       </div>
     </div>
-    <div class="col-md-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
       <div class="panel widget wow zoomIn" data-wow-offset="15" data-wow-duration=".5s">
           <div class="row widget-row">
             <div class="col-xs-4 text-center icon-widget">
@@ -241,7 +259,7 @@ if(Yii::$app->user->isGuest){
           </div>
       </div>
     </div>
-    <div class="col-md-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
       <div class="panel widget wow zoomIn" data-wow-offset="15" data-wow-duration=".5s">
           <div class="row widget-row">
             <div class="col-xs-4 text-center icon-widget">
@@ -254,7 +272,7 @@ if(Yii::$app->user->isGuest){
           </div>
       </div>
     </div>
-    <div class="col-md-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
       <?php 
           date_default_timezone_set('America/Montevideo');
           $dias = array("domingo","lunes","martes","miércoles","jueves","viernes","sábado");
@@ -278,7 +296,7 @@ if(Yii::$app->user->isGuest){
     </div>
   </div>
 
-  <div class="col-md-8 panel panel-default wow zoomIn" data-wow-duration="0.3s" data-wow-delay="0s">
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 panel panel-default wow zoomIn" data-wow-duration="0.3s" data-wow-delay="0s">
       <div class="panel-heading text-left">Solicitudes</div>
       <div class="panel-body admin">
 

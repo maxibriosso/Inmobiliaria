@@ -37,6 +37,7 @@ $('.search-button').click(function(){
       </div>
 
       <div class="panel-body admin">
+        <div class="table-responsive">
             <?php Pjax::begin(['id'=>'barrio-grid']); ?>
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
@@ -99,6 +100,7 @@ $('.search-button').click(function(){
                 'tableOptions' =>['class' => 'table'],
             ]); ?>
             <?php Pjax::end(); ?>
+        </div>
     </div>
 </div>
 

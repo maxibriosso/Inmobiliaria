@@ -58,9 +58,9 @@ owl.owlCarousel({
 });
 
 
-var owl = $("#owl-uingresos");
+var owl2 = $("#owl-uingresos");
  
-owl.owlCarousel({
+owl2.owlCarousel({
     items : 4, //10 items above 1000px browser width
     itemsCustom : false,
     autoPlay:  true,
@@ -73,6 +73,21 @@ owl.owlCarousel({
       "<i class='fa fa-chevron-circle-left'></i>",
       "<i class='fa fa-chevron-circle-right'></i>"
       ],
+});
+
+var owl3 = $("#owl-test");
+ 
+owl3.owlCarousel({
+    animate: 'scaleToFade',
+    items : 1, //10 items above 1000px browser width
+    itemsCustom : false,
+    autoPlay:  true,
+    pagination : true,
+    paginationSpeed: 500,
+    responsive:  true,
+    stopOnHover: true,
+    navigation: false,
+    
 });
 
 $(".botones-buscador > .btn").click(function(){

@@ -13,6 +13,8 @@ use app\models\Solicitud;
 use app\models\Usuario;
 use app\models\Presentacion;
 use app\models\PresentacionSearch;
+use app\models\Testimonio;
+use app\models\TestimonioSearch;
 use app\models\Parametro;
 use app\models\ParametroSearch;
 use app\models\Inmueble;
@@ -76,6 +78,8 @@ class SiteController extends Controller
         $sql='SELECT * FROM Inmueble ORDER BY id DESC LIMIT 10';
         $ultima = Inmueble::findBySql($sql)->andWhere(['activo'=> 1])->all();
 
+        $testimonio = Testimonio::find()->andWhere(['estado'=> 1])->all();
+
         //Todos los inmuebles
         $dataProvider = Presentacion::find()->all();
 
@@ -113,6 +117,7 @@ class SiteController extends Controller
             'searchModel' => $searchModel,
             'buscador' => $buscador,
             'site' => $site,
+            'testimonio' => $testimonio,
             ]);
         }
     }

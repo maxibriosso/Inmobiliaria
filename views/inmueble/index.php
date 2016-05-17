@@ -30,6 +30,7 @@ $('.search-button').click(function(){
       </div>
 
       <div class="panel-body admin inm-grid">
+        <div class="table-responsive">
         <?php Pjax::begin(); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
@@ -117,5 +118,6 @@ $('.search-button').click(function(){
             'tableOptions' =>['class' => 'table'],
         ]); ?>
         <?php Pjax::end(); ?>
+        </div>
     </div>
 </div>

@@ -881,6 +881,18 @@ body{
   background:white;
 }
 
+#frontend .cont-contenido-test{
+  padding-top:30px;
+  padding-bottom: 160px;
+}
+#frontend .cont-contenido-test .media .media-body{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#frontend .cont-contenido-test .media .media-body h6{
+  font-size: 20px;
+}
+
 /*----------------- FIN - TESTIMONIOS ---------------------*/
 /*----------------------------------------------------------*/
 
@@ -899,9 +911,7 @@ body{
   bottom: 0px;
   width:350px;
 }
-#frontend .cont-contenido-test{
-  min-height:400px;
-}
+
 #frontend .texto-frase-b{
   padding:20px;
   font-family: 'Montserrat';
