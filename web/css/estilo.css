@@ -4,6 +4,11 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background: url(../img/fondo-inmobiliaria-backend.jpg) no-repeat fixed;
+
+  /* background-image: radial-gradient(farthest-side ellipse at 10% 0, #154265 20%, #7392c2);
+  background-image: -webkit-radial-gradient(10% 0, farthest-side ellipse, #154265 20%, #7392c2);
+  background-image: -moz-radial-gradient(10% 0, farthest-side ellipse, #154265 20%, #7392c2);
+  background-attachment: fixed, fixed; */
 }
 .borde{
   border: 1px solid red;
@@ -591,6 +596,59 @@
   min-height: 800px;
 }
 
+
+#backend .cont-widget{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+#backend .widget-l{
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+#backend .widget{
+  background-color: rgba(0,0,0,0.4) !important;
+  color:white;
+
+}
+#backend .widget-row{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+
+}
+#backend .widget .widget-row .icon-widget{
+  height:80px;
+  background-color: rgba(39,39,39,0.7) !important;
+  vertical-align: middle !important;
+
+}
+#backend .widget .widget-row .icon-widget small{
+  color:#DCDCDC;
+}
+#backend .widget .widget-row .icon-widget em{  
+    margin-top:15px;
+}
+#backend .widget .widget-row .icon-widget-t{
+  height:80px;
+  background-color: rgba(39,39,39,0.7) !important;
+  vertical-align: middle !important;
+}
+#backend .widget .widget-row .icon-widget-t small{
+  color:#DCDCDC;
+}
+#backend .widget .widget-row .icon-widget-t h2{  
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+#backend .widget .widget-row .pv-lg .mt0{
+  margin-top:10px !important;
+}
+#backend .widget .widget-row .pv-lg small{
+  color:#DCDCDC;
+}
+
+#backend .descrip-vista{
+  padding-bottom:20px;
+}
 /*----------------- FIN - MAIN CONTENT ---------------------*/
 /*----------------------------------------------------------*/
 
@@ -1000,6 +1058,23 @@ text-align:left !important;
 /*----------------- FIN - TESTIMONIOS ---------------------*/
 /*----------------------------------------------------------*/
 
+/*----------------- SOLICITUD ---------------------*/
+/*----------------------------------------------------------*/
+
+#backend .solicitud-view-t{
+  background-color: rgba(0,0,0,0.7) !important;
+  padding: 20px;
+  color:white;
+}
+#backend .solicitud-view-t .tel-contacto i{
+  padding-right:10px;
+}
+#backend .solicitud-view-t .tel-contacto{
+  font-size:16px;
+}
+
+/*----------------- FIN - SOLICITUD ---------------------*/
+/*----------------------------------------------------------*/
 
 #backend .filters td:nth-child(2){
   width:90px !important;

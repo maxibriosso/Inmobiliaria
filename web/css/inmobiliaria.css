@@ -1120,6 +1120,7 @@ body{
   border-radius: 0px;
   padding: 12px 16px;
   min-width: 100%;
+  color:white;
 }
 
 #frontend .solicitud-form .form-input::-webkit-input-placeholder {
@@ -1187,6 +1188,11 @@ body{
 #frontend .cont-btn-form{
   padding-top:15px;
 
+}
+
+#frontend .texto-success-contacto{
+  font-family: 'Montserrat', sans-serif;
+  text-transform:uppercase;
 }
 /*----------------- FIN - CONTACTO ---------------------*/
 /*----------------------------------------------------------*/

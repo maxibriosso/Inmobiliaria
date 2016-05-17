@@ -8,7 +8,9 @@ use yii\web\Controller;
 use yii\web\Session;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use app\models\InfoSite;
 use app\models\Solicitud;
+use app\models\Usuario;
 use app\models\Presentacion;
 use app\models\PresentacionSearch;
 use app\models\Parametro;
@@ -63,6 +65,10 @@ class SiteController extends Controller
             ->orderBy('id')
             ->all();
 
+        $site = new InfoSite();
+        $site->nro_usuarios=Usuario::find()->count();
+        $site->nro_inmubles=Inmueble::find()->Where(['activo'=> 1])->count();
+        $site->nro_comentarios=Solicitud::find()->count();
         //Inmuebles con menos de un mes
         //$sql = 'SELECT * FROM Inmueble WHERE fecha_creacion BETWEEN (NOW() - interval 30 day) AND NOW()';
         
@@ -106,6 +112,7 @@ class SiteController extends Controller
             'solic'=> $solic,
             'searchModel' => $searchModel,
             'buscador' => $buscador,
+            'site' => $site,
             ]);
         }
     }
@@ -145,6 +152,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->estado = 1;
+            $model->leida = 0;
             if($model->save()){
                 Yii::$app->session->setFlash('contactoFormSubmitted');
                 return $this->refresh();
@@ -223,6 +231,20 @@ class SiteController extends Controller
         return $this->render('detalle', [
             'model' => $data2,
             'searchModel' => $searchModel,
+        ]);
+    }
+
+    public function actionView($id)
+    {
+        $model = Solicitud::find()->andWhere(['id'=> $id])->one();
+
+        $ruta=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="cpt_param"')->one();
+        $parametro=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="dft_user"')->one();
+
+        return $this->renderAjax('view', [
+            'model' => $model,
+            'ruta' => $ruta,
+            'parametro' => $parametro,
         ]);
     }
 }

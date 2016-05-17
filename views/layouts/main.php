@@ -215,6 +215,15 @@ AppAsset::register($this);
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;" >
+                            <i class=" fa fa-envelope"></i>
+                            <span>Solicitudes</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="<?= Url::to(['solicitud/index']) ?>"><i class="fa fa-dot-circle-o"></i>Admin</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;" >
                             <i class=" fa fa-cogs"></i>
                             <span>Complementos</span>
                         </a>

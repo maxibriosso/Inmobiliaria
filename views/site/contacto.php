@@ -21,8 +21,8 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaCont.js');
     
     <?php if (Yii::$app->session->hasFlash('contactoFormSubmitted')): ?>
 
-        <div class="alert alert-success">
-            Gracias por contactarnos. Nosotros responderemos a la mayor brevedad posible.
+        <div class="alert alert-success text-center texto-success-contacto">
+            <h3>Gracias por contactarnos. <br>Nosotros responderemos a la mayor brevedad posible.</h3>
         </div>
 
     <?php endif; ?>

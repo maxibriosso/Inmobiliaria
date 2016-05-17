@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use app\models\Barrio;
 use yii\widgets\ActiveForm;
+use yii\bootstrap\Modal;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -213,9 +214,72 @@ if(Yii::$app->user->isGuest){
 
 <?php }else{ ?>
   
-  <div class="col-md-8 panel panel-default" role="menu" data-wow-duration="0.8s" data-wow-delay="0s">
-      <div class="panel-heading text-left">Solicitudes
+  <div class="col-md-12 cont-widget">
+    <div class="col-md-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
+      <div class="panel widget wow zoomIn" data-wow-offset="15" data-wow-duration=".5s">
+          <div class="row widget-row">
+            <div class="col-xs-4 text-center icon-widget">
+               <em class="fa fa-user-secret fa-3x"></em>
+            </div>
+            <div class="col-xs-8 pv-lg">
+               <div class="h2 mt0"><?php echo $site->nro_usuarios ?></div>
+               <div class="text-uppercase">Usuarios</div>
+            </div>
+          </div>
       </div>
+    </div>
+    <div class="col-md-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
+      <div class="panel widget wow zoomIn" data-wow-offset="15" data-wow-duration=".5s">
+          <div class="row widget-row">
+            <div class="col-xs-4 text-center icon-widget">
+               <em class="fa fa-home fa-3x"></em>
+            </div>
+            <div class="col-xs-8 pv-lg">
+               <div class="h2 mt0"><?php echo $site->nro_inmubles ?></div>
+               <div class="text-uppercase">Inmuebles</div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
+      <div class="panel widget wow zoomIn" data-wow-offset="15" data-wow-duration=".5s">
+          <div class="row widget-row">
+            <div class="col-xs-4 text-center icon-widget">
+               <em class="fa fa-commenting-o fa-3x"></em>
+            </div>
+            <div class="col-xs-8 pv-lg">
+               <div class="h2 mt0"><?php echo $site->nro_comentarios ?></div>
+               <div class="text-uppercase">Consultas</div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-3 widget-l" data-wow-duration="0.3s" data-wow-delay="0.1s">
+      <?php 
+          date_default_timezone_set('America/Montevideo');
+          $dias = array("domingo","lunes","martes","miércoles","jueves","viernes","sábado");
+          $diasemana=$dias[date("w")]; 
+          $numerodia=date("d"); 
+          $mes=date("M"); 
+          $am_pm=date("a"); 
+          $time=date("h:i");
+      ?>
+      <div class="panel widget wow zoomIn" data-wow-offset="15" data-wow-duration=".5s">
+          <div class="row widget-row">
+            <div class="col-xs-4 text-center icon-widget-t"> 
+              <h2><small><?php echo $mes ?></small><br><?php echo $numerodia ?></h2>
+            </div>
+            <div class="col-xs-8 pv-lg">
+              <div class="h2 mt0"><?php echo $time ?><small><?php echo $am_pm ?></small></div>
+               <div class="text-uppercase"><?php echo $diasemana ?></div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8 panel panel-default wow zoomIn" data-wow-duration="0.3s" data-wow-delay="0s">
+      <div class="panel-heading text-left">Solicitudes</div>
       <div class="panel-body admin">
 
         <?= GridView::widget([
@@ -227,14 +291,67 @@ if(Yii::$app->user->isGuest){
                     'telefono',
                     'email',
                     'tipo',
-                    [ 'class' => 'yii\grid\ActionColumn',
-                      'template' => '{view}',
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'template' => '{view}',
+                        'buttons' => [
+                            'view' => function ($url, $model, $key) {
+                                return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', '#', [
+                                    'id' => 'activity-index-link',
+                                    'title' => Yii::t('app', $model->tipo),
+                                    'data-toggle' => 'modal',
+                                    'data-target' => '#modal',
+                                    'data-url' => Url::to(['view', 'id' => $model->id]),
+                                    'data-pjax' => '0',
+                                ]);
+                            },
+                        ]
                     ],
                     
                 ],
                 'tableOptions' =>['class' => 'table'],
 
             ]); ?>
-    </div>
-</div>
+      </div>
+  </div>
+  <div class="col-md-4" data-wow-duration="0.3s" data-wow-delay="0.1s">
+  </div>
+
+<?php
+
+$this->registerJs(
+    "$(document).on('click', '#activity-index-link', (function() {
+        var titulo=$(this).attr('title');
+        $.ajax({
+            url: $(this).data('url'),
+            async: false,
+            type : 'get',
+            success: function (data) {
+                $('.modalContent').html(data);
+                $('.modal-header').html('<button class=\"close\" aria-hidden=\"true\" data-dismiss=\"modal\" type=\"button\">×</button><h2>'+ titulo + '</h2>');
+                $('#modal').modal();
+            },
+            
+        });
+    }));"
+);
+
+
+Modal::begin([
+    'id' => 'modal',
+    'clientOptions' => ['backdrop' => 'static', 'keyboard' => false],
+    //'header' => '<h2 class="modal-title">'.$this->title.'</h2>',
+    //'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">Cerrar</a>',
+]);
+ 
+echo "<div class='modalContent'></div>";
+ 
+Modal::end();
+
+
+
+?>
+  
+
+
 <?php } ?>

@@ -2,18 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
-/* @var $this yii\web\View */
-/* @var $model app\models\Solicitud */
-
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Solicitudes', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+use yii\helpers\Url;
 ?>
-<div class="solicitud-view-t">
-
-    <h2><?php echo $model->tipo ?></h2>
-    <hr>
+<div class="solicitud-view">
+    
     <?php $src= Yii::$app->request->baseUrl.'/'.$ruta->valor.'/'.$parametro->valor; ?>
     
     <div class="media">
@@ -23,12 +15,25 @@ $this->params['breadcrumbs'][] = $this->title;
       <div class="media-body">
         <h4 class="media-heading"><?php echo $model->nombre ?> <small><?php echo $model->fecha_creacion ?></small></h4>
         de <?php echo $model->email ?>
-        <span class="label label-info tel-contacto" style="float:right;"><i class="fa fa-phone"></i> <?php echo $model->telefono ?></span>
+        <span class="label label-info"><i class="fa fa-phone"></i> <?php echo $model->telefono ?></span>
       </div>
     </div>
     <hr>
     <div class="descrip-vista">
         <?php echo $model->descripcion ?>
     </div>
+    <?php #DetailView::widget([
+        #'model' => $model,
+        #'attributes' => [
+        #    'id',
+        #    'nombre',
+        #    'telefono',
+        #    'email:email',
+        #    'descripcion:ntext',
+        #    'tipo',
+        #    'estado',
+        #    'fecha_creacion',
+        #],
+    #]) ?>
 
 </div>

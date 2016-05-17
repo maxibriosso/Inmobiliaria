@@ -35,17 +35,17 @@ class TestimonioController extends Controller
                 ],
             ],
             'access' => [
-                        'class' => \yii\filters\AccessControl::className(),
-                        'only' => ['index','create','update','view','delete'],
-                        'rules' => [
-                            // allow authenticated users
-                            [
-                                'allow' => true,
-                                'roles' => ['@'],
-                            ],
-                            // everything else is denied
+                    'class' => \yii\filters\AccessControl::className(),
+                    'only' => ['index','create','update','view','delete'],
+                    'rules' => [
+                        // allow authenticated users
+                        [
+                            'allow' => true,
+                            'roles' => ['@'],
                         ],
+                        // everything else is denied
                     ],
+                ],
         ];
     }
 

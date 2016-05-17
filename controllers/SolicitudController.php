@@ -5,6 +5,8 @@ namespace app\controllers;
 use Yii;
 use app\models\Solicitud;
 use app\models\SolicitudSearch;
+use app\models\Parametro;
+use app\models\ParametroSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -42,7 +44,7 @@ class SolicitudController extends Controller
      * Lists all Solicitud models.
      * @return mixed
      */
-/*    public function actionIndex()
+    public function actionIndex()
     {
         $searchModel = new SolicitudSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -52,7 +54,7 @@ class SolicitudController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-*/
+
     /**
      * Displays a single Solicitud model.
      * @param integer $id
@@ -60,8 +62,13 @@ class SolicitudController extends Controller
      */
     public function actionView($id)
     {
+        $ruta=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="cpt_param"')->one();
+        $parametro=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="dft_user"')->one();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'ruta' => $ruta,
+            'parametro' => $parametro,
         ]);
     }
 

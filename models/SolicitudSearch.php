@@ -73,7 +73,7 @@ class SolicitudSearch extends Solicitud
     public function obtener($params)
     {
         $query = Solicitud::find()
-            ->where(['leida' => 1])->andWhere(['estado'=> 1])
+            ->where(['leida' => 0])->andWhere(['estado'=> 1])
             ->orderBy('id desc');
 
         $dataProvider = new ActiveDataProvider([

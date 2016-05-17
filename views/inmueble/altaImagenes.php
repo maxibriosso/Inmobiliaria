@@ -4,10 +4,10 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Imagen */
+/* @var $model app\models\Inmueble */
 
 $this->title = 'Alta Imagenes';
-$this->params['breadcrumbs'][] = ['label' => 'Imagens', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Inmuebles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="imagen-create">
