@@ -27,7 +27,9 @@ if(Yii::$app->user->isGuest){
                     <div class="description">
                       <p><?php echo $p->descripcion ?></p>
                     </div>
-                   <img src="<?= Yii::$app->request->baseUrl . '/img/casa.png'?>" class="img_sllider" alt="preview">
+                    <?php if(!is_null($p->ruta_img)): ?>
+                      <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$p->ruta_img?>" class="img_sllider" alt="preview">
+                    <?php endif; ?>
                   </div>
                 </div>
               </div>
@@ -92,8 +94,9 @@ if(Yii::$app->user->isGuest){
         <h3 class="text-center">PROPIEDADES DESTACADAS</h3>
       </div>
       <div class="container">
-          <div id="owl-demo" class="owl-carousel owl-theme">
+          <!-- <div id="owl-demo" class="owl-carousel owl-theme"> -->
           <?php foreach ($des as $d): ?>
+              <div class="col-md-4 contenedor-inm-des">
                 <div class="propertyItem">
                     <div class="propertyContent">
                         <a class="propertyType" href="<?= Url::to(['site/detalle','id' => $d->id]) ?>"><?php echo $d->operacion ?></a>
@@ -127,9 +130,9 @@ if(Yii::$app->user->isGuest){
                         </tbody>
                     </table> 
                 </div>
-         
+             </div>
           <?php endforeach; ?>        
-          </div>
+          <!-- </div> -->
       </div>
     </section>
 
@@ -143,7 +146,13 @@ if(Yii::$app->user->isGuest){
             <?php foreach ($ultima as $u): ?>       
               <div class="propertyItemTwo">
                 <div class="propertyPrice">
-                  <a class="propertyTypeTwo" href="<?= Url::to(['site/detalle','id' => $u->id]) ?>"><i class="fa fa-home"></i><?php echo $u->operacion ?><br><span>$ <?php echo $u->valor ?></span>
+                  <a class="propertyTypeTwo" href="<?= Url::to(['site/detalle','id' => $u->id]) ?>">
+                  <?php if($u->tipo<>'Apartamento'){ ?>
+                  <i class="fa fa-home"></i>
+                  <?php }else{ ?>
+                  <i class="fa fa-building"></i>
+                  <?php } ?>
+                  <?php echo $u->operacion ?><br><span>$ <?php echo $u->valor ?></span>
                   </a>
                   
                 </div>
@@ -182,10 +191,49 @@ if(Yii::$app->user->isGuest){
           </div>
       </div>
     </section> 
-    
+
+    <!-- REMATES -->
+    <section class="contenedor-rem">
+      <div class="titulo-index">           
+        <h3 class="text-center">REMATES</h3>
+      </div>
+      <div class="container">
+          <div id="owl-rem" class="owl-carousel owl-theme">
+          <?php foreach ($remate as $r): ?>
+                <div class="propertyItem">
+                    <div class="propertyContent">
+                        <a class="propertyType" href="<?= Url::to(['site/detalleremate','id' => $r->id]) ?>">
+                          <?php echo $r->titulo ?>
+                        </a>
+                        <a href="<?= Url::to(['site/detalleremate','id' => $r->id]) ?>" class="propertyImgLink">
+                          <?php 
+                              if (is_null($r->getImagenRemate())){
+                                  $session = Yii::$app->session;
+                                  $img_pred = $session->get('img_pred');
+                          ?>
+                          <img class="propertyImg" src="<?= Yii::$app->request->baseUrl . '/parametros/'.$img_pred ?>" alt="...">
+                          <?php 
+                              }else{
+                                  $img = $r->getImagenRemate();
+                          ?>
+                          <img class="propertyImg" src="<?= Yii::$app->request->baseUrl . '/uploads/'.$img->ruta?>" alt="...">
+                          <?php }  ?> 
+                        </a>
+                        <h4><a href="#"><?php echo $r->direccion ?></a></h4>
+                        <p><?php echo $r->getBarrio()->nombre ?></p>
+                        <div class="divider thin"></div>
+                    </div>
+                </div>
+         
+          <?php endforeach; ?>        
+          </div>
+      </div>
+    </section>
+
+    <?php if(!is_null($testimonio)): ?>
      <!-- TESTIMONIOS -->
     <section class="contenedor-testimonios">
-      <div class="titulo-index">           
+      <div class="titulo-index inverso">           
         <h3 class="text-center">TESTIMONIOS</h3>
         <h4>TESTIMONIOS DE ALGUNOS DE NUESTROS CLIENTES</h4>
       </div>
@@ -211,8 +259,9 @@ if(Yii::$app->user->isGuest){
         </div>
       </div>
     </section>  
-
-     <!-- FRASE 2 -->
+    <?php endif; ?>
+    
+    <!-- FRASE 2 -->
     <section class="contenedor-frase-contacto">
         <div class="container">
             <div class="col-lg-5 img-frase-b">

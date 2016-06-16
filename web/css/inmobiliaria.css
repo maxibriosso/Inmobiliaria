@@ -7,7 +7,7 @@ font-family: 'Pacifico', cursive;
 */
 
 body{
-  
+  background:#b2b2b2;
 }
 
 #frontend{
@@ -30,69 +30,69 @@ body{
 /*----------------- HEADER ---------------------*/
 /*----------------------------------------------*/
 #frontend .menu-social-header{
-    background: black !important;
-    display: block;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
+  background: black !important;
+  display: block;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
 }
 #frontend .contenedor-menu-social-header{
     
 }
 #frontend .mn-menu-social-header>li{
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
 }
 #frontend .mn-menu-social-header>li>.no-link{
   font-family: 'Open Sans Condensed', 'Helvetica Neue', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    padding-left: 5px;
-    padding-right: 5px;    
-    padding-top: 3px;
-    padding-bottom: 3px;
-    color:white;
-    background: transparent !important;
-    border: 1px solid transparent;
-    
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    cursor: pointer;
+  font-weight: 300;
+  font-size: 14px;
+  padding-left: 5px;
+  padding-right: 5px;    
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color:white;
+  background: transparent !important;
+  border: 1px solid transparent;
+  
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 #frontend .mn-menu-social-header>li>.no-link:hover{
-    color:white;
-    padding-left: 5px;
-    padding-right: 5px; 
+  color:white;
+  padding-left: 5px;
+  padding-right: 5px; 
 }
 #frontend .mn-menu-social-header>li>a{
-    font-family: 'Open Sans Condensed', 'Helvetica Neue', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    
-    padding-top: 3px;
-    padding-bottom: 3px;
-    color:white;
-    background: transparent !important;
-    border: 1px solid transparent;
-    
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    cursor: pointer;
+  font-family: 'Open Sans Condensed', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color:white;
+  background: transparent !important;
+  border: 1px solid transparent;
+  
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
 #frontend .mn-menu-social-header>li>a:hover{
-    color:#27da93;
-    background-color: transparent!important;
-    border: 1px solid transparent;
+  color:#27da93;
+  background-color: transparent!important;
+  border: 1px solid transparent;
 }
 
 #frontend .mn-menu-social-header>li.active a{
-    color:#27da93;
-    background-color: transparent !important;
-    border: 1px solid transparent;
+  color:#27da93;
+  background-color: transparent !important;
+  border: 1px solid transparent;
 }
 
 
@@ -111,22 +111,22 @@ body{
 }
 #frontend .mn-menu-social-header>li>a.activo{
 
-    font-weight: 300;
-    text-transform: uppercase;
-    font-size: 14px;
-   
-    padding-top: 5px;
-    padding-bottom: 5px;
-    color:white;
-    background: black !important;
-    border: 1px solid black;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 14px;
+ 
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color:white;
+  background: black !important;
+  border: 1px solid black;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 #frontend .navbar-header-index{
-    background-color: transparent !important;
+  background-color: transparent !important;
    
 }
 
@@ -155,12 +155,12 @@ body{
   padding: 0 !important;
 }
 #frontend .logo-index h1{
-    font-family: 'Pacifico', cursive !important;
-    color: white !important;
-    -webkit-transition: all 0.5s !important;
-    -moz-transition: all 0.5s !important;
-    transition: all 0.5s !important;
-    font-size: 50px !important;
+  font-family: 'Pacifico', cursive !important;
+  color: white !important;
+  -webkit-transition: all 0.5s !important;
+  -moz-transition: all 0.5s !important;
+  transition: all 0.5s !important;
+  font-size: 50px !important;
 }
 #frontend .logo-index img{
   width: 250px !important;
@@ -222,6 +222,7 @@ body{
   background: linear-gradient(to right, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)),url(../img/fondo-index.jpg); 
   background-repeat:no-repeat,no-repeat;
   background-size: cover;*/
+  height: 550px;
 }
 
 
@@ -238,7 +239,7 @@ body{
   font-size: 15px;
   margin: 0 auto;
   position: relative;
-  height: 650px;
+  height: 550px;
 }
 #frontend #content_top #sequence > .sequence-canvas {
   height: 100%;
@@ -395,7 +396,7 @@ body{
   -ms-transition-delay: 0.3s;
 }
 #frontend #content_top #sequence .animate-in .description {
-  bottom: 28%;
+  bottom: 25%;
   transition-delay: 0.5s;
   -webkit-transition-delay: 0.5s;
   -moz-transition-delay: 0.5s;
@@ -446,7 +447,8 @@ body{
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 600px;
+  /* height: 100%; */
   z-index: 9;
 }
 #frontend #content_top #sequence .box_area_slider .panel {
@@ -487,12 +489,35 @@ body{
     background: #000;
     margin: 0 1%;
 }
-#frontend .contenedor-inm-favoritos{
-  background:white;
+ .contenedor-inm-favoritos{
+  background:white; 
+  /* background:#27da93;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)),url(../img/back/back5.jpg); 
+  background-repeat:no-repeat,no-repeat;
+  background-size: cover;*/
+  padding-top:20px;
+  padding-bottom:80px;
+}
+#frontend .contenedor-inm-des{
+  padding-top: 20px;
+}
+#frontend .contenedor-rem{
+  background:white; 
+  /* background:#27da93;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)),url(../img/back/back5.jpg); 
+  background-repeat:no-repeat,no-repeat;
+  background-size: cover;*/
+  padding-top:20px;
+  padding-bottom:80px;
 }
 
 #frontend .contenedor-inm-ui{
-  background:#27da93;
+   background:#27da93;
+  /*background: linear-gradient(to right, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)),url(../img/estacion.jpg); 
+  background-repeat:no-repeat,no-repeat;
+  background-size: cover; */
+  padding-top:20px;
+  padding-bottom:80px;
 }
 #frontend .item .thumbnail .mask{
   overflow: hidden;
@@ -534,7 +559,6 @@ body{
 
 #frontend #owl-uingresos .propertyItemTwo {
     font-family: 'Open Sans', sans-serif;
-    background-color:white;
     box-shadow: 0px 1px 3px #d4d4d4;
     margin:5px 7px 10px 7px;
     
@@ -599,7 +623,7 @@ body{
 
 #frontend .propertyImgLink {
   -webkit-transition: opacity 0.3s linear;
-    -moz-transition: copacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
     -ms-transition: opacity 0.3s linear;
     -o-transition: opacity 0.3s linear;
     transition: opacity 0.3s linear;
@@ -662,7 +686,8 @@ body{
   float:left;
   font-family: 'Open Sans', sans-serif;
   font-size:15px;
-  background-color:#d5d5d5;
+  /* background-color:#d5d5d5; */
+  background-color:#27da93;
   color:white;
   padding:4px 9px 4px 9px;
   border-radius:4px;
@@ -729,7 +754,7 @@ body{
 /*----------------- BUSCADOR ---------------------*/
 /*----------------------------------------------------------*/
 #frontend .contenedor-buscador{ 
-    margin-top: -179px;
+    margin-top: -60px;
     position: relative;
     z-index: 10;
     /* background-color:#b2b2b2; */
@@ -878,12 +903,35 @@ body{
 /*----------------------------------------------------------*/
 
 #frontend .contenedor-testimonios{
-  background:white;
+  padding-top:20px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)),url(../img/back/back1.jpg) fixed; 
+  background-repeat:no-repeat,no-repeat;
+  background-size: cover;
+  /* background:white; */
 }
 
 #frontend .cont-contenido-test{
   padding-top:30px;
-  padding-bottom: 160px;
+  padding-bottom: 120px;
+}
+#frontend .cont-contenido-test .container{
+  width:80%;
+}
+#frontend .inverso h3{
+  color:white;
+}
+#frontend .inverso h4{
+  color:white;
+}
+
+#frontend .inverso h3:after,#frontend .inverso h3:before {
+    width: 200px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background: #fff;
+    margin: 0 1%;
 }
 #frontend .cont-contenido-test .media .media-body{
   padding-left: 20px;
@@ -891,6 +939,7 @@ body{
 }
 #frontend .cont-contenido-test .media .media-body h6{
   font-size: 20px;
+  color:white;
 }
 
 /*----------------- FIN - TESTIMONIOS ---------------------*/
@@ -971,7 +1020,7 @@ body{
 
 #frontend .amet-sed h4{
   font-size: 1.5em;
-    color: #fff;
+    color: #27da93;
   margin: 0 0 0.7em;
   font-family: 'Montserrat';
 }
@@ -1265,6 +1314,22 @@ body{
   font-size:50px;
   outline: 4px solid white;
   padding:15px;
+}
+#frontend .cont-map-detalle{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+#frontend #map_detalle{
+  width:100%;
+  height:400px;
+}
+#frontend .cont-map-detalleremate{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+#frontend #map_detalleremate{
+  width:100%;
+  height:400px;
 }
 /*----------------- FIN - DETALLE INMUEBLE ---------------------*/
 /*----------------------------------------------------------*/

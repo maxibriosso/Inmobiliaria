@@ -102,14 +102,19 @@ class PresentacionController extends Controller
             //var_dump($_POST);
             //exit();
             
+            //Imagen de fondo
             $file = UploadedFile::getInstance($model, 'ruta');
             $ext = end((explode(".", $file->name)));
-            // generate a unique file name
             $path = 'slide_index'.Yii::$app->security->generateRandomString().".{$ext}";
-   
             $file->saveAs('uploads/' . $path);
-
             $model->ruta = $path;
+
+            //Imagen left
+            $file2 = UploadedFile::getInstance($model, 'ruta_img');
+            $ext2 = end((explode(".", $file2->name)));
+            $path2 = 'slide_index'.Yii::$app->security->generateRandomString().".{$ext2}";
+            $file2->saveAs('uploads/' . $path2);
+            $model->ruta_img = $path2;
 
             if($model->save()){
                 return $this->redirect(['index']);
@@ -131,9 +136,37 @@ class PresentacionController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $img1=$model->ruta;
+        $img2=$model->ruta_img;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+        if ($model->load(Yii::$app->request->post())) {
+            echo "<script>alert('".$model->ruta."');</script>";
+            if(is_null($model->ruta)){
+                $model->ruta=$img1;
+            }else{
+                //Imagen de fondo
+                $file = UploadedFile::getInstance($model, 'ruta');
+                $ext = end((explode(".", $file->name)));
+                $path = 'slide_index'.Yii::$app->security->generateRandomString().".{$ext}";
+                $file->saveAs('uploads/' . $path);
+                $model->ruta = $path;
+            }
+            echo "<script>alert('".$model->ruta_img."');</script>";
+            if(is_null($model->ruta_img)){
+                $model->ruta=$img2;
+            }else{            
+                //Imagen left
+                $file2 = UploadedFile::getInstance($model, 'ruta_img');
+                $ext2 = end((explode(".", $file2->name)));
+                $path2 = 'slide_index'.Yii::$app->security->generateRandomString().".{$ext2}";
+                $file2->saveAs('uploads/' . $path2);
+                $model->ruta_img = $path2;
+            }
+
+            if($model->save()){
+                return $this->redirect(['index']);
+            }
+            
         } else {
             return $this->render('update', [
                 'model' => $model,

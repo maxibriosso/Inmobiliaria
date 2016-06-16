@@ -11,6 +11,7 @@ use Yii;
  * @property string $titulo
  * @property string $descripcion
  * @property string $ruta
+ * @property string $ruta_img
  * @property string $fecha_creacion
  */
 class Presentacion extends \yii\db\ActiveRecord
@@ -33,7 +34,7 @@ class Presentacion extends \yii\db\ActiveRecord
             [['ruta'], 'required'],
             [['fecha_creacion'], 'safe'],
             [['titulo'], 'string', 'max' => 200],
-            [['ruta'], 'string', 'max' => 255]
+            [['ruta', 'ruta_img'], 'string', 'max' => 255]
         ];
     }
 
@@ -45,8 +46,9 @@ class Presentacion extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'titulo' => 'Titulo',
-            'descripcion' => 'Descripcion',
-            'ruta' => 'Ruta',
+            'descripcion' => 'Descripción',
+            'ruta' => 'Fondo',
+            'ruta_img' => 'Img. left',
             'fecha_creacion' => 'Fecha Creacion',
         ];
     }

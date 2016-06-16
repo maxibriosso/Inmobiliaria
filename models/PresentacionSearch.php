@@ -19,7 +19,7 @@ class PresentacionSearch extends Presentacion
     {
         return [
             [['id'], 'integer'],
-            [['titulo', 'descripcion', 'ruta', 'fecha_creacion'], 'safe'],
+            [['titulo', 'descripcion', 'ruta', 'ruta_img', 'fecha_creacion'], 'safe'],
         ];
     }
 
@@ -62,7 +62,8 @@ class PresentacionSearch extends Presentacion
 
         $query->andFilterWhere(['like', 'titulo', $this->titulo])
             ->andFilterWhere(['like', 'descripcion', $this->descripcion])
-            ->andFilterWhere(['like', 'ruta', $this->ruta]);
+            ->andFilterWhere(['like', 'ruta', $this->ruta])
+            ->andFilterWhere(['like', 'ruta_img', $this->ruta_img]);
 
         return $dataProvider;
     }

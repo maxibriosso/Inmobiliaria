@@ -1,0 +1,26 @@
+BACKEND
+- Modificar imagen Testimonio
+- Modificar imagen Slider
+- Luego de dar de alta el Inmueble redireccionar a Alta de Imagen para ese inmueble
+- Ver el cortar imagenes y dimensionarlas
+- Inmueble - Agregar tipo de moneda y segun el tipo el simbolo que se muestra en la web
+- Ver los mensajes de los input que sean en español y que dice cada uno.
+- Ver los campos obligatorios
+- Controlar que no se creen inmubles sin imagenes.
+
+-- Test Completo para ver los bugs
+
+FRONTEND
+- Terminar vista de inmueble
+- Terminar Empresa
+- Verificar el slider cuando se coloca poca descripcion no la muestra.
+PRONTO - Agregar la imagen pequeña en el slider
+- Buscardor - Controlar que el precio maximo sea mayor o igual al precio minimo
+
+
+Preguntar:
+    Direccion, telefonos, email, etc.
+    Donde colocar remates?
+    Preguntar si las vendidas se muestran? 
+    iva incluido? dar la opcion o no?
+    Datos de los inmuebles, en caso de apartamento podria haber gastos comunes, etc. Consultar que datos manejan?

@@ -75,10 +75,27 @@ owl2.owlCarousel({
       ],
 });
 
+var owl4 = $("#owl-rem");
+ 
+owl4.owlCarousel({
+    items : 4, //10 items above 1000px browser width
+    itemsCustom : false,
+    autoPlay:  true,
+    pagination : false,
+    paginationSpeed: 1000,
+    responsive:  true,
+    stopOnHover: true,
+    navigation:true,
+    navigationText: [
+      "<i class='fa fa-chevron-circle-left'></i>",
+      "<i class='fa fa-chevron-circle-right'></i>"
+      ],
+});
+
 var owl3 = $("#owl-test");
  
 owl3.owlCarousel({
-    animate: 'scaleToFade',
+    animateOut: 'fadeOut',
     items : 1, //10 items above 1000px browser width
     itemsCustom : false,
     autoPlay:  true,

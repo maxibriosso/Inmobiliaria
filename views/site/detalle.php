@@ -14,9 +14,8 @@ use yii\widgets\Pjax;
 $this->title = 'Detalle Inmueble';
 $this->params['breadcrumbs'][] = $this->title;
 
-//$baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
-//$this->registerCssFile($baseUrl.'/css/slick.css');
-//$this->registerCssFile($baseUrl.'/css/slick-theme.css');
+$baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
+$this->registerJsFile($baseUrl.'/js/localizacionMapaDetalle.js');
 ?>
 
 <section class="contenedor-img-detalle">
@@ -74,36 +73,38 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h1>CARACTERISTICAS</h1>
             </div>
         </div>
-      <div class="col-md-4 buscador-ventas">
-          <div class="col-md-12">
-            <?php Pjax::begin(['id' => 'forminmuebles']) ?>
-                <?php $form = ActiveForm::begin([
-                  'method' => 'get',
-                  'options'=>['class'=>'ventas-form','data-pjax' => true]
-                ]); ?>
+        <div class="col-md-4 buscador-ventas">
+            <div class="col-md-12">
+              <?php Pjax::begin(['id' => 'forminmuebles']) ?>
+                  <?php $form = ActiveForm::begin([
+                    'method' => 'get',
+                    'options'=>['class'=>'ventas-form','data-pjax' => true]
+                  ]); ?>
 
-                   <div class="form-group form-select">
-                       <?= $form->field($searchModel, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD','class'=>'form-input'])->label('  '); ?>
-                   </div>
-                   <div class="form-group form-select">
-                       <?= $form->field($searchModel, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES','class'=>'form-input'])->label('  '); ?>
-                   </div>
-                   <div class="form-group form-select">
-                      <?= $form->field($searchModel, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS','class'=>'form-input'])->label('  '); ?>
-                  </div>
-                  <div class="form-group">
-                      <?= $form->field($searchModel, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN','class'=>'form-input'))->label('  '); ?>
-                  </div>
-                  <div class="form-group">
-                      <?= $form->field($searchModel, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX','class'=>'form-input'))->label('  '); ?>
-                  </div>
-                  <div class="form-group cont-btn-form">     
-                    <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default  btn-busc-lat']) ?>
-                  </div>
-                <?php ActiveForm::end(); ?>
-            <?php Pjax::end() ?>
-          </div> 
-
-      </div>
+                     <div class="form-group form-select">
+                         <?= $form->field($searchModel, 'tipo')->dropDownList([ 'Casa' => 'Casa', 'Apartamento' => 'Apartamento', 'Local' => 'Local', 'Terreno' => 'Terreno', 'Oficina' => 'Oficina', ], ['prompt' => 'TIPO PROPIEDAD','class'=>'form-input'])->label('  '); ?>
+                     </div>
+                     <div class="form-group form-select">
+                         <?= $form->field($searchModel, 'cantidad_habitaciones')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'HABITACIONES','class'=>'form-input'])->label('  '); ?>
+                     </div>
+                     <div class="form-group form-select">
+                        <?= $form->field($searchModel, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS','class'=>'form-input'])->label('  '); ?>
+                    </div>
+                    <div class="form-group">
+                        <?= $form->field($searchModel, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN','class'=>'form-input'))->label('  '); ?>
+                    </div>
+                    <div class="form-group">
+                        <?= $form->field($searchModel, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX','class'=>'form-input'))->label('  '); ?>
+                    </div>
+                    <div class="form-group cont-btn-form">     
+                      <?= Html::submitButton('BUSCAR', ['class' => 'btn btn-default  btn-busc-lat']) ?>
+                    </div>
+                  <?php ActiveForm::end(); ?>
+              <?php Pjax::end() ?>
+            </div> 
+        </div>
+    </div>
+    <div class="row cont-map-detalle">
+      <div id="map_detalle" data-coord="<?php echo $model->coord ?>" class="col-md-12"></div>
     </div>
 </div>

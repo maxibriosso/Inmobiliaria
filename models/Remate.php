@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Yii;
+use Yii; 
 
 /**
  * This is the model class for table "remate".
@@ -35,7 +35,7 @@ class Remate extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_barrio', 'titulo'], 'required'],
+            [['id_barrio', 'titulo','direccion','descripcion'], 'required'],
             [['id_barrio', 'estado'], 'integer'],
             [['descripcion', 'ubicacion'], 'string'],
             [['titulo'], 'string', 'max' => 200],
@@ -75,5 +75,30 @@ class Remate extends \yii\db\ActiveRecord
     public function getIdBarrio()
     {
         return $this->hasOne(Barrio::className(), ['id' => 'id_barrio']);
+    }
+
+    public function getBarrio()
+    {   
+        return Barrio::find()
+        ->where(['id' => $this->id_barrio])
+        ->one();
+    }
+
+    public function getImagenRemate()
+    {
+        $imagen = Imagen_remate::find()
+            ->where(['id_remate' => $this->id])
+            ->one();
+
+        return $imagen;
+    }
+
+    public function getImagenes()
+    {
+        $imagen = Imagen_remate::find()
+            ->where(['id_remate' => $this->id])
+            ->all();
+
+        return $imagen;
     }
 }

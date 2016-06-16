@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\InfoSite;
 use app\models\Solicitud;
+use app\models\SolicitudSearch;
 use app\models\Usuario;
 use app\models\Presentacion;
 use app\models\PresentacionSearch;
@@ -19,7 +20,8 @@ use app\models\Parametro;
 use app\models\ParametroSearch;
 use app\models\Inmueble;
 use app\models\InmuebleSearch;
-use app\models\SolicitudSearch;
+use app\models\Remate;
+use app\models\RemateSearch;
 use yii\data\ActiveDataProvider; 
 
 class SiteController extends Controller
@@ -74,22 +76,27 @@ class SiteController extends Controller
         //Inmuebles con menos de un mes
         //$sql = 'SELECT * FROM Inmueble WHERE fecha_creacion BETWEEN (NOW() - interval 30 day) AND NOW()';
         
+        //Remates
+        $rem = Remate::find()->andWhere(['estado'=> 1])->all();
+        
         //Ultimos 10 inmuebles ingresados
         $sql='SELECT * FROM Inmueble ORDER BY id DESC LIMIT 10';
         $ultima = Inmueble::findBySql($sql)->andWhere(['activo'=> 1])->all();
 
+        //Testimonios
         $testimonio = Testimonio::find()->andWhere(['estado'=> 1])->all();
 
-        //Todos los inmuebles
+        //Presentaciones
         $dataProvider = Presentacion::find()->all();
 
+        //Todos los inmuebles
         $searchModel = new SolicitudSearch();
         $solic = $searchModel->obtener(Yii::$app->request->queryParams);
 
         $parametro=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="img_pred"')->one();
         $session = Yii::$app->session;
         //if (!$session->has('img_pred'))
-            $session->set('img_pred', $parametro->valor);
+        $session->set('img_pred', $parametro->valor);
         
         $buscador = new InmuebleSearch();
 
@@ -118,6 +125,7 @@ class SiteController extends Controller
             'buscador' => $buscador,
             'site' => $site,
             'testimonio' => $testimonio,
+            'remate' => $rem,
             ]);
         }
     }
@@ -216,10 +224,12 @@ class SiteController extends Controller
             'listDataProvider' => $dataProvider
             ]);
     }
+    
     public function actionServicios()
     {
         return $this->render('servicios');
     }
+    
     public function actionBusqueda()
     {
         
@@ -229,6 +239,7 @@ class SiteController extends Controller
     {
         $searchModel = new InmuebleSearch();
         $data2 = Inmueble::find()->where(['id' => $id])->one();
+        
         $parametro=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="img_pred"')->one();
         $session = Yii::$app->session;
         $session->set('img_pred', $parametro->valor);
@@ -236,6 +247,21 @@ class SiteController extends Controller
         return $this->render('detalle', [
             'model' => $data2,
             'searchModel' => $searchModel,
+            'parametro' => $parametro,
+        ]);
+    }
+
+    public function actionDetalleremate($id)
+    {
+        //$searchModel = new RemateSearch();
+        $data2 = Remate::find()->where(['id' => $id])->one();
+        
+        $parametro=Parametro::findBySql('SELECT * FROM Parametro WHERE nombre="img_pred"')->one();
+        $session = Yii::$app->session;
+        $session->set('img_pred', $parametro->valor);
+
+        return $this->render('detalleremate', [
+            'model' => $data2,
         ]);
     }
 
