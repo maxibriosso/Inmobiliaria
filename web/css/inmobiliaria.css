@@ -1,6 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,900,700);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon.woff") format("woff"),
+       url("../fonts/Flaticon.ttf") format("truetype"),
+       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+  font-size: 20px;
+  font-style: normal;
+}
+
 /*
 font-family: 'Roboto', sans-serif;
 font-family: 'Pacifico', cursive;
@@ -1463,10 +1489,11 @@ body{
   font-style:italic;
   color:white;
   font-size:16px;
-    -webkit-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
+
 /*----------------- FIN - SERVICIOS ---------------------*/
 /*----------------------------------------------------------*/
 
@@ -1599,6 +1626,128 @@ body{
   background:#e3e2db;
 }
 
+#frontend .titulo-detalle{
+/*   width:100%; */
+  display:block;
+
+  background:#4a525d;
+  /* background:#27da93; */
+  padding: 10px 15px;
+  margin-left:-15px;
+  margin-top:10px;
+}
+
+#frontend .titulo-detalle:after {
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    border-top: 5px solid #00887c;
+    width: 8px;
+    content: " ";
+    display: block;
+    border-left: 8px solid #f6f6f6;
+}
+
+#frontend .titulo-detalle h1{
+  margin-top: 10px !important;
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  font-weight:300;
+  font-size:30px;
+}
+#frontend .titulo-detalle small {
+    display: block;
+    font-style: italic;
+    color: #27da93;
+    font-size: 12pt;
+    margin-top: 4px;
+}
+
+#frontend .titulo-detalle-bis h1{
+  display: block;
+  margin-top: 10px !important;
+  color:#4a525d;
+  font-family: 'Roboto', sans-serif;
+  font-weight:300;
+  font-size:34px;
+}
+
+#frontend .titulo-detalle-bis h1:after {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 3px;
+    margin: 3px 0 0 2px;
+    background-color: #27da93;
+}
+
+#frontend .propertyDetailsb { 
+  background-color:#f8f8f8;
+  margin-top:0px; 
+  border:1px solid #cacaca;
+  width:100%;
+  text-align:center;
+}
+
+#frontend .propertyDetailsb td {
+  font-family: 'Open Sans', sans-serif;
+  font-size:12px;
+  width:20%;
+  height:45px;
+  border-color:#cacaca;
+  color:#ababab;
+}
+#frontend .propertyDetailsb td i{
+  margin-right: 0px !important;
+  margin-top: 20px !important;
+  color:#27da93;
+  display:block;
+}
+#frontend .propertyDetailsb td hr{
+  margin-top: 0px !important; 
+  margin-bottom: 5px !important;
+}
+#frontend .propertyDetailsb td .t_icon{
+  padding-bottom:0px !important;
+  font-weight:300;
+  font-size: 14px;
+}
+#frontend .propertyDetailsb td span{
+  display:block;
+  padding-top:5px !important;
+  padding-bottom:5px !important;
+  font-weight:bold;
+  font-size: 18px;
+}
+/*
+'Casa','Apartamento','Local','Terreno','Oficina'
+*/
+
+#frontend .propertyDetailsb td .flaticon-stairs-1:before,
+#frontend .propertyDetailsb td .flaticon-technology:before,
+#frontend .propertyDetailsb td .flaticon-rest:before,
+#frontend .propertyDetailsb td .flaticon-bathroom:before,
+#frontend .propertyDetailsb td .flaticon-bedroom-black-closed-closet-for-clothes:before,
+#frontend .propertyDetailsb td .flaticon-plant-on-a-hand:before,
+#frontend .propertyDetailsb td .flaticon-grill:before,
+#frontend .propertyDetailsb td .flaticon-car-in-garage:before,
+#frontend .propertyDetailsb td .flaticon-give-money:before{
+  font-size: 30px !important;
+  color: #27da93;
+}
+
+
+#frontend .descrip-detalle{
+  line-height: 23px;
+  font-size: 16px;
+  letter-spacing:1px;
+  padding-top:30px;
+  padding-bottom:40px;
+}
+
+#frontend .gallery{
+  /* padding-top:180px; */
+}
 #frontend .gallery #bx-pager {
     text-align: center;
     background-color: transparent;
@@ -1615,11 +1764,185 @@ body{
     width:120px;
 }
 #frontend .bx-wrapper img{
-  width:690px !important;
+  width:710px !important;
 }
 
 #frontend .gallery .bx-wrapper .bx-viewport{
   height:auto !important;
 }
+
+#frontend .property-amenities-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#frontend .property-amenities-list>li {
+  margin: 10px 5px;
+}
+#frontend .property-amenities-list>li i{
+  margin-right: 8px;
+}
+
+#frontend .property-amenities-list>li.enabled {
+  color: #df4a43;
+}
+
+#frontend .property-amenities-list>li.disabled {
+  color: #adb2b6;
+}
+
+
+#frontend .cont-buscador-ventas-detalle{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+#frontend .cont-buscador-ventas-detalle .buscador-ventas-detalle{
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  background:#4a525d;
+}
+
+#frontend .buscador-ventas-detalle .form-input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  background: #4a525d;
+ /*  border: 3px solid #bfbfbf; */
+  border: 3px solid white;
+  border-radius: 0px;
+  padding: 12px 16px;
+  min-width: 100%;
+}
+
+#frontend .buscador-ventas-detalle .form-input::-webkit-input-placeholder {
+  color: white;
+}
+#frontend .buscador-ventas-detalle .form-input:focus::-webkit-input-placeholder {
+   color: #252525;
+}
+
+#frontend .buscador-ventas-detalle .form-input:-moz-placeholder{
+  color: white; 
+} /* Firefox 18- */
+#frontend .buscador-ventas-detalle .form-input:focus:-moz-placeholder { /* Firefox 18- */
+   color: #252525; 
+}
+#frontend .buscador-ventas-detalle .form-input::-moz-placeholder{
+  color: white;
+}  /* Firefox 19+ */
+#frontend .buscador-ventas-detalle .form-input:focus::-moz-placeholder {  /* Firefox 19+ */
+  color: #252525; 
+}
+#frontend .buscador-ventas-detalle .form-input:-ms-input-placeholder{
+  color: white;
+}
+#frontend .buscador-ventas-detalle .form-input:focus:-ms-input-placeholder {  
+  color: #252525;   
+}
+#frontend .buscador-ventas-detalle .form-select select{
+  color:white;
+}
+#frontend .buscador-ventas-detalle .form-select select:focus option{
+  border: 2px solid #27da93 !important;
+}
+#frontend .buscador-ventas-detalle .form-select select option{
+  color:black;
+  background:white;
+}
+#frontend .buscador-ventas-detalle .form-select select option:hover{
+  background:#27da93 !important;
+}
+#frontend .buscador-ventas-detalle .form-input:focus {
+  border-color: #27da93 !important;
+  box-shadow:none !important;
+}
+
+
+#frontend .cont-buscador-ventas-detalle .caracteristicas-detalle{
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top:20px;
+  background:#27da93;
+}
+
+
+#frontend .property-topinfo {
+  width: 100%;
+  text-align: left;
+  margin: 0px;
+  background:#27da93;
+  clear: both;
+}
+
+#frontend .property-topinfo .amenities {
+  list-style: none;
+  padding: 8px 0;
+  background-color: #fff;
+}
+#frontend .property-topinfo .amenities,#frontend .property-topinfo .amenities li {
+  display: inline-block;
+  margin: 0;
+  border-right: 1px solid #E4E4E4;
+}
+
+#frontend .property-topinfo .amenities li {
+    height: 38px;
+    padding: 10px 18px 0;
+    color: #4a525d;
+}
+
+#frontend .property-topinfo .amenities li i{
+    color: #4a525d;
+    float: left;
+    font-size: 18px;
+    margin-right: 3px;
+    margin-top: -3px;
+}
+
+#frontend .property-topinfo #property-id {
+    float: right;
+    line-height: 54px;
+    margin-right: 20px;
+    font-weight:700;
+    color:white;
+    font-size:22px;
+}
+
 /*----------------- FIN - DETALLE ---------------------*/
 /*----------------------------------------------------------*/
+
+
+/*----------------- FLATICON ---------------------*/
+/*----------------------------------------------------------*/
+.flaticon-bathroom:before { content: "\f100"; }
+.flaticon-bathtub:before { content: "\f101"; }
+.flaticon-bathtub-with-opened-shower:before { content: "\f102"; }
+.flaticon-bed:before { content: "\f103"; }
+.flaticon-bedroom-black-closed-closet-for-clothes:before { content: "\f104"; }
+.flaticon-buildings:before { content: "\f105"; }
+.flaticon-car-in-garage:before { content: "\f106"; }
+.flaticon-direction:before { content: "\f107"; }
+.flaticon-food:before { content: "\f108"; }
+.flaticon-garage:before { content: "\f109"; }
+.flaticon-give-money:before { content: "\f10a"; }
+.flaticon-grill:before { content: "\f10b"; }
+.flaticon-home:before { content: "\f10c"; }
+.flaticon-home-1:before { content: "\f10d"; }
+.flaticon-hotel:before { content: "\f10e"; }
+.flaticon-house-front-of-three-floors:before { content: "\f10f"; }
+.flaticon-house-with-a-signal-with-dollar-symbol:before { content: "\f110"; }
+.flaticon-leaves:before { content: "\f111"; }
+.flaticon-money:before { content: "\f112"; }
+.flaticon-plant-on-a-hand:before { content: "\f113"; }
+.flaticon-rest:before { content: "\f114"; }
+.flaticon-shovel-and-ground:before { content: "\f115"; }
+.flaticon-silhouette:before { content: "\f116"; }
+.flaticon-stairs:before { content: "\f117"; }
+.flaticon-stairs-1:before { content: "\f118"; }
+.flaticon-technology:before { content: "\f119"; }
+.flaticon-three-buildings:before { content: "\f11a"; }
+.flaticon-toilet:before { content: "\f11b"; }
+.flaticon-trade-center:before { content: "\f11c"; }

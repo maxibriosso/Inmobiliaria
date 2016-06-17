@@ -7,7 +7,7 @@ use yii\widgets\ListView;
 use app\models\Barrio;
 use app\models\Ciudad;
 
-$this->title = 'Detalle Remate';
+$this->title = $model->titulo;
 $this->params['breadcrumbs'][] = $this->title;
 
 $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
@@ -21,9 +21,11 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalleremate.js');
     <div class="container">
         <div class="col-md-8">
             <div class="col-md-12">
-                <h2><?php echo $model->titulo ?></h2>
-                <?php $cd=$model->getBarrio(); ?>
-                <h3><?php echo $cd->nombre ?> , <?php echo Ciudad::findOne($cd->id_ciudad)->nombre ?></h3>
+                <span class="titulo-detalle">
+                    <h1><?php echo $model->direccion ?>
+                    <?php $cd=$model->getBarrio(); ?>
+                    <small><?php echo $cd->nombre ?> , <?php echo Ciudad::findOne($cd->id_ciudad)->nombre ?></small></h1>
+                </span>
             </div>
              <div class="col-md-12">
             </div>
@@ -59,13 +61,14 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalleremate.js');
                     <?php $contador++; endforeach; } ?> 
                 </div>
             </div>
-            <div class="col-md-12">
-                <h1>DESCRIPCIÓN</h1>
-                <p><?php echo $model->descripcion ?></p>
-            </div>
         </div>
-      <div class="col-md-4 buscador-ventas">
-    
+      <div class="col-md-4">
+            <div class="col-md-12 descrip-detalle">
+              <span class="titulo-detalle-bis">
+                <h1>Descripción</h1>
+              </span>
+              <p><?php echo $model->descripcion ?></p>
+            </div>
 
       </div>
     </div>
