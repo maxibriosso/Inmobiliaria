@@ -115,7 +115,7 @@ class InmuebleController extends Controller
             $model->coord = Yii::$app->request->bodyParams['markets'];
             if($model->save() ){
                 
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['imagen', 'id' => $model->id]);
             }
             
         } else {
@@ -125,7 +125,7 @@ class InmuebleController extends Controller
         }
     }
 
-    public function actionImagen(){
+    public function actionImagen($id){
       
         
         $model = new Imagen();
@@ -138,8 +138,6 @@ class InmuebleController extends Controller
 
             $model->imagen = UploadedFile::getInstances($model, 'imagen');
 
-
-            $id = $_POST['id'];
             $check = $_POST['check'];
           
              $a = 0;
@@ -184,6 +182,8 @@ class InmuebleController extends Controller
         }else {
             return $this->render('altaImagenes', [
                 'model' => $model,
+                'id'=> $id,
+
             ]);
         }
 

@@ -1,12 +1,4 @@
 
-   
-  /*var mapcanvas =document.createElement('div');
-  mapcanvas.id = 'mapcanvas';
-  mapcanvas.style.height = '300px';
-  mapcanvas.style.width = '300px';
-  mapcanvas.style.border = '1px solid black';
-     
-  document.querySelector('article').appendChild(mapcanvas);*/  
 
   
   var marker;

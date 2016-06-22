@@ -83,7 +83,7 @@ $wizard_config = [
         ],
       
     ],
-    'complete_content' => "You are done!", // Optional final screen
+    //'complete_content' => "You are done!", // Optional final screen
     'start_step' => 1, // Optional, start with a specific step
 ];
 ?>

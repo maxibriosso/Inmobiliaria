@@ -16,8 +16,6 @@ use yii\helpers\Url;
 
     <?php $form = ActiveForm::begin([
     'options' => ['enctype' => 'multipart/form-data','id'=>'formImg']]) ?>
-   
-    <?= $form->field($model, 'id_inmueble')->dropDownList(ArrayHelper::map(Inmueble::find()->all(), 'id', 'nombre'))?>
 
     <?= $form->field($model, 'imagen[]')->fileInput(['multiple' => true, 'accept' => 'image/*','id'=>'img1']) ?>
 
@@ -29,3 +27,6 @@ use yii\helpers\Url;
 
 
 </div>
+<script type="text/javascript">
+var id = <?php echo json_encode($id); ?>;
+</script>
