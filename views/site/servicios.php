@@ -20,7 +20,7 @@ $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
     <div class="container">
          <div class="row margin-top-30">
             <div class="col-sm-4 margin-bottom-30">
-                <a href="/account/signup/" title="Sign Me Up" class="well-link">
+                <a href="#" title="Sign Me Up" class="well-link">
                     <div class="homepage-well center">
                         <div class="well-image-container">
                             <img src="../img/servicios/remate.jpg" />
@@ -33,7 +33,7 @@ $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
                 </a>
             </div>
             <div class="col-sm-4 margin-bottom-30">
-                <a href="/relocation_services/" title="Get Help" class="well-link">
+                <a href="#" title="Get Help" class="well-link">
                     <div class="homepage-well center">
                         <div class="well-image-container">
                             <img src="../img/servicios/inmo2.jpg" />
@@ -46,7 +46,7 @@ $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
                 </a>
             </div>
             <div class="col-sm-4 margin-bottom-30">
-                <a href="/account/signup/" title="Sign Me Up" class="well-link">
+                <a href="#" title="Sign Me Up" class="well-link">
                     <div class="homepage-well center">
                         <div class="well-image-container">
                             <img src="../img/servicios/escrb.jpg" />
@@ -64,7 +64,7 @@ $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
 
             </div>
             <div class="col-sm-4 margin-bottom-30">
-                <a href="/relocation_services/" title="Get Help" class="well-link">
+                <a href="#" title="Get Help" class="well-link">
                     <div class="homepage-well center">
                         <div class="well-image-container">
                             <img src="../img/servicios/abog2.jpg" />

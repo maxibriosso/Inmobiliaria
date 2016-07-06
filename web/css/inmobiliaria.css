@@ -36,12 +36,22 @@ body{
   background:#b2b2b2;
 }
 
+
+
 #frontend{
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   /*background: url(../img/fondo.jpg) no-repeat fixed;*/
 }
-
+.espacio:after {
+    width: 200px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background: transparent;
+    margin: 0 1%;
+}
 .borde{
   border: 1px solid red;
 }
@@ -1151,10 +1161,12 @@ body{
   outline: 4px solid white;
   padding:15px;
 }
-
+#frontend .contenido-contacto{
+  background:#e3e2db;
+}
 
 #frontend .cont-info-contrato .c-menu-item{
-  margin-top:40px;
+  padding-top:40px;
   padding-bottom: 20px;
 }
 #frontend .cont-info-contrato .c-menu-item .s-menu-item{
@@ -1162,10 +1174,12 @@ body{
 }
 #frontend .cont-info-contrato .c-menu-item .s-menu-item i {
   font-size:50px;
+  color:#27da93;
 }
 
 #frontend .cont-texto-contrato{
   padding:20px; 
+  
 }
 
 
@@ -1174,6 +1188,11 @@ body{
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   text-align:center;
+  color:#27da93;
+  padding-top:20px; 
+  padding-bottom: 20px; 
+  border: 4px solid #27da93;
+   text-shadow: 1px 0 1px #4a525d; 
 }
 #frontend .cont-map{
 /*   background-color:#b2b2b2; */
@@ -1262,19 +1281,15 @@ body{
 #frontend .btn-busc-cont:focus{
     outline: none !important;
 }
-
 #frontend .btn-busc-cont:hover{
     background: black !important;
     border: 2px solid black !important;
     color: white !important;
     transition: all 0.3s;
 }
-
 #frontend .cont-btn-form{
   padding-top:15px;
-
 }
-
 #frontend .texto-success-contacto{
   font-family: 'Montserrat', sans-serif;
   text-transform:uppercase;
@@ -1294,9 +1309,7 @@ body{
     text-align: center;
     width: 100%;
     height: 350px;
-
 }
-
 #frontend .contenedor-img-empresa h1{
   position:absolute;
   left:8%;
@@ -1310,9 +1323,93 @@ body{
 
 
 #frontend .contenido-empresa{
+  background:#e3e2db;
     
 }
+#frontend .cnt-quienessomos{}
+#frontend .cnt-quienessomos img{
+  width:500px;
+}
+#frontend .cnt-texto-sobrenos{
+  padding-top:40px;
+  padding-bottom: 40px;
+}
+#frontend .cnt-texto-sobrenos .titulo-index h3:after, #frontend .cnt-texto-sobrenos .titulo-index h3:before {
+    width: 100px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background: #000;
+    margin: 0 1%;
+}
+#frontend .cnt-texto-sobrenos p{
+  padding-top:10px;
+  letter-spacing:1px;
+  font-size:16px;
+}
 
+#frontend .agent-listing-post {
+  padding-top:30px;
+}
+#frontend .agent-common-styles {
+  padding: 35px 35px 30px;
+}
+#frontend .agent-common-styles .inner-wrapper {
+
+}
+#frontend .agent-common-styles p {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color:white;
+  font-size:18px;
+}
+#frontend .agent-image {
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+#frontend .agent-image-b {
+  float: right;
+  margin-left: 20px;
+  border-radius: 50%;
+}
+#frontend .agent-image:hover img,#frontend .agent-image-b:hover img {
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+#frontend .agent-image img,#frontend .agent-image-b img {
+  width: 110px;
+  height: 110px;
+  border: 3px solid #27da93;
+}
+#frontend .agent-name {
+  display: table;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 19px;
+}
+
+#frontend .agent-name a {
+  color:#27da93;
+}
+#frontend .agent-name span {
+  display: block;
+  font-size: 15px;
+  color:white;
+}
+#frontend .agent-social-profiles a {
+  margin-right: 10px;
+  font-size: 18px;
+  color:#27da93;
+}
+#frontend .contenido-empresa-equipo{
+  background:#4a525d;
+}
+#frontend .cnt-equipo{
+  padding-top:60px;
+  padding-bottom:60px;
+}
 /*----------------- FIN - EMPRESA ---------------------*/
 /*----------------------------------------------------------*/
 
@@ -1328,9 +1425,7 @@ body{
     text-align: center;
     width: 100%;
     height: 350px;
-
 }
-
 #frontend .contenedor-img-detalle h1{
   position:absolute;
   left:8%;
@@ -1703,6 +1798,10 @@ body{
   color:#27da93;
   display:block;
 }
+#frontend .propertyDetailsb td .fa{
+  margin-top: 25px !important;
+  font-size:30px;
+}
 #frontend .propertyDetailsb td hr{
   margin-top: 0px !important; 
   margin-bottom: 5px !important;
@@ -1910,10 +2009,57 @@ body{
     color:white;
     font-size:22px;
 }
+#frontend .btn-print{
+  position: absolute;
+  display: inline-block !important;
+  text-align: right;
+  float: right;
+  top: 40px;
+  right: 30px;
+
+  background:transparent !important;
+  border-color:#27da93 !important;
+  color:#27da93 !important;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#frontend .btn-print:hover{
+  background:#27da93 !important;
+  border-color:#27da93 !important;
+  color:white !important;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
 
 /*----------------- FIN - DETALLE ---------------------*/
 /*----------------------------------------------------------*/
 
+/*----------------- BREADCRUMBS ---------------------*/
+/*----------------------------------------------------------*/
+
+#frontend .cont-breadcrumbs .breadcrumb{
+  position:absolute;
+  right:0;
+  top:200px;
+  z-index:100;
+  width:20% !important;
+  background: rgba(74, 82, 93, 0.8) !important;
+  border-radius:0;
+}
+
+#frontend .cont-breadcrumbs .breadcrumb li a,#frontend .cont-breadcrumbs .breadcrumb li.active{
+  color:white;
+  font-size:18px !important;
+}
+
+#frontend .cont-breadcrumbs .breadcrumb > li + li:before {
+    color: white;
+}
+
+/*----------------- FIN - BREADCRUMBS ---------------------*/
+/*----------------------------------------------------------*/
 
 /*----------------- FLATICON ---------------------*/
 /*----------------------------------------------------------*/

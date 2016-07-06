@@ -71,6 +71,12 @@ AppAsset::register($this);
       </header>
 
       <section>
+          
+          <div class="cont-breadcrumbs">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+          </div>
           <?= $content ?>
       </section>
 
@@ -78,24 +84,38 @@ AppAsset::register($this);
           <div class="">
               <div class="container">
                 <div class="footer-top-at">
-                      <div class="col-md-4 amet-sed">
+                      <div class="col-md-3 amet-sed">
                         <h4>Nuestra compañía</h4>
                         <ul class="nav-bottom">
-                          <li><a href="#">Sobre nosotros</a></li>
+                          <li><a href="<?= Url::to(['site/empresa']) ?>">Sobre nosotros</a></li>
+                          <li><a href="<?= Url::to(['site/servicios']) ?>">Servicios</a></li>
                           <li><a href="#">Términos &amp; condiciones</a></li>
                           <li><a href="#">Política de privacidad</a></li>
-                          <li><a href="#">Login</a></li>                         
+                          <li><a href="<?= Url::to(['site/login']) ?>">Login</a></li>                         
                         </ul> 
                       </div>
-                      <div class="col-md-4 amet-sed">
+                      <div class="col-md-3 amet-sed">
                         <h4>Atención al cliente</h4>
+                        <h4><small>Estudio Central</small></h4>
+                        <p>San José de Mayo, San José, Uruguay</p>
+                        <p>Colon 712</p>
+                        <span class="espacio"> </span>
+                        <h4><small>Sucursal</small></h4>
+                        <p>Rodríguez, San José, Uruguay</p>
+                        <p>Rodríguez 965</p>
+
+                      </div>
+                      <div class="col-md-3 amet-sed ">
+                        <h4>Contacto</h4>
                         <p>Lunes a viernes, 9 a 18 hs</p>
                         <p>Sabados, 9 a 13 hs</p>
-                        <p>Direccion 1234</p>
+                        <span class="espacio"> </span>
                         <p>info@inmobiliaria.com</p>
-                        <p>099394334</p>
+                        <span class="espacio"> </span>
+                        <p>091 712 712</p>
+                        <p>4344 3168</p>
                       </div>
-                      <div class="col-md-4 amet-sed ">
+                      <div class="col-md-3 amet-sed ">
                         <h4>Servicios</h4>
                           <ul class="social">
                             <li><a href="#"><i class="fa fa-facebook"> </i></a></li>

@@ -30,6 +30,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalle.js');
                 <h1><?php echo $model->direccion ?>
                 <?php $cd=Barrio::findOne($model->id_barrio); ?>
                 <small><?php echo Barrio::findOne($model->id_barrio)->nombre ?> , <?php echo Ciudad::findOne($cd->id_ciudad)->nombre ?></small></h1>
+                <a href="#" class="btn btn-default text-right btn-print" onclick="imprimir();"><i class="fa fa-print"></i></a>
               </span>
             </div>
             <div class="col-md-12 tabla-info">
@@ -104,19 +105,19 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalle.js');
               <table border="1" class="propertyDetailsb">
                   <tbody>
                     <tr>
-                      <td><i class="flaticon-plant-on-a-hand" style="margin-right:7px;"></i><br><span class="t_icon">Jardin</span><br><hr><span><span><?php if($model->jardin){
+                      <td><i class="flaticon-plant-on-a-hand" style="margin-right:7px;"></i><br><span class="t_icon">Jardin</span><br><hr><span><?php if($model->jardin){
                             echo "Si";
                           }else{ echo "No";} ?></span></td>
-                      <td><i class="flaticon-grill" style="margin-right:7px;"></i><br><span class="t_icon">Parrillero</span><br><hr><span><span><?php if($model->parrillero){
+                      <td><i class="flaticon-grill" style="margin-right:7px;"></i><br><span class="t_icon">Parrillero</span><br><hr><span><?php if($model->parrillero){
                             echo "Si";
                           }else{ echo "No";} ?></span></td>
-                      <td><i class="flaticon-car-in-garage" style="margin-right:7px;"></i><br><span class="t_icon">Garage</span><br><hr><span><span><?php if($model->garage){
+                      <td><i class="flaticon-car-in-garage" style="margin-right:7px;"></i><br><span class="t_icon">Garage</span><br><hr><span><?php if($model->garage){
                             echo "Si";
                           }else{ echo "No";} ?></span></td>
-                      <td><i class="flaticon-give-money" style="margin-right:7px;"></i><br><span class="t_icon">Prestamos Bancario</span><br><hr><span><span><?php if($model->prestamo_bancario){
+                      <td><i class="flaticon-give-money" style="margin-right:7px;"></i><br><span class="t_icon">Prestamos Bancario</span><br><hr><span><?php if($model->prestamo_bancario){
                             echo "Si";
                           }else{ echo "No";} ?></span></td>
-                      <td><i class="" style="margin-right:7px;"></i><br><span class="t_icon"></span><br><hr><span></span></td>
+                      <td><i class="fa fa-calendar" style="margin-right:7px;"></i><br><span class="t_icon">Fecha</span><br><hr><span><?php echo Yii::$app->formatter->asDate($model->fecha_creacion,'dd-MM-yyyy') ?></span></td>
                     </tr>
                   </tbody>
               </table>
@@ -127,6 +128,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalle.js');
                 <h1>Descripción</h1>
               </span>
               <p><?php echo $model->descripcion ?></p>
+              
             </div>
         </div>
         <div class="col-md-4 cont-buscador-ventas-detalle">
@@ -191,3 +193,9 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalle.js');
       <div id="map_detalle" data-coord="<?php echo $model->coord ?>" class="col-md-12"></div>
     </div>
 </div>
+
+<script type="text/javascript">
+function imprimir(){
+    window.print();
+}
+</script>

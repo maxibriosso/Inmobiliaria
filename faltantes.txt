@@ -1,7 +1,7 @@
 BACKEND
 - Modificar imagen Testimonio
 - Modificar imagen Slider
-- Luego de dar de alta el Inmueble redireccionar a Alta de Imagen para ese inmueble
+PRONTO - Luego de dar de alta el Inmueble redireccionar a Alta de Imagen para ese inmueble
 - Ver el cortar imagenes y dimensionarlas
 - Inmueble - Agregar tipo de moneda y segun el tipo el simbolo que se muestra en la web
 - Ver los mensajes de los input que sean en español y que dice cada uno.
@@ -11,16 +11,24 @@ BACKEND
 -- Test Completo para ver los bugs
 
 FRONTEND
-- Terminar vista de inmueble
-- Terminar Empresa
-- Verificar el slider cuando se coloca poca descripcion no la muestra.
+PRONTO - Terminar vista de inmueble
+PRONTO - Terminar Empresa
+PRONTO - Verificar el slider cuando se coloca poca descripcion no la muestra. (Resolvimos colocarle un minimo de caracteres y maximo).
 PRONTO - Agregar la imagen pequeña en el slider
 - Buscardor - Controlar que el precio maximo sea mayor o igual al precio minimo
 
 
+--------------------------- NUEVOS ----------------------------
+- Formulario en el detalle de los inmuebles, este es otro tipo de "Solicitud" que tiene el id de inmueble.
+- Compartir Inmuebles en Facebook o en las redes sociales (VER ESTO SI LO DEJAMOS A FUTURO O NOS DA PARA HACERLOS AHORA)
+- Que los comentarios se coloquen en facebook (VER ESTO SI LO DEJAMOS A FUTURO O NOS DA PARA HACERLOS AHORA)
+- Comentarios del inmueble (A FUTURO)
+- Inmuebles similares? (VER ESTO SI LO DEJAMOS A FUTURO O NOS DA PARA HACERLOS AHORA)
+- Imprimir detalle de inmuebles (VER ESTO SI LO DEJAMOS A FUTURO O NOS DA PARA HACERLOS AHORA)
+
+
 Preguntar:
-    Direccion, telefonos, email, etc.
-    Donde colocar remates?
+    Email, redes sociales, dias y horarios de atención.
     Preguntar si las vendidas se muestran? 
     iva incluido? dar la opcion o no?
-    Datos de los inmuebles, en caso de apartamento podria haber gastos comunes, etc. Consultar que datos manejan?
+    

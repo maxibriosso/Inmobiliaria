@@ -17,8 +17,6 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaCont.js');
     <h1><?= Html::encode($this->title) ?></h1>  
 </section>
 <div class="contenido-contacto">
-    
-    
     <?php if (Yii::$app->session->hasFlash('contactoFormSubmitted')): ?>
 
         <div class="alert alert-success text-center texto-success-contacto">
@@ -32,8 +30,8 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaCont.js');
                         <i class="fa fa-phone"></i>
                         <div class="s-content">
                             <h2 class="s-main osLight">TELÉFONO</h2>
-                            <h4 class="s-sub osLight">(+598) 99 001 332</h3>
-                            <h4 class="s-sub osLight">(+598) 4364 1122</h3>
+                            <h4 class="s-sub osLight">(+598) 91 712 712</h3>
+                            <h4 class="s-sub osLight">(+598) 4344 3168</h3>
                         </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 s-menu-item text-center">
@@ -41,7 +39,10 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaCont.js');
                         <div class="s-content">
                             <h2 class="s-main osLight">DIRECCIÓN</h2>
                             <h4 class="s-sub osLight">San José de Mayo, San José</h3>
-                            <h4 class="s-sub osLight">La Direccion 2233</h3>
+                            <h4 class="s-sub osLight">Colón 712</h3>
+                            <span class="espacio"> </span>
+                            <h4 class="s-sub osLight">Rodríguez, San José</h3>
+                            <h4 class="s-sub osLight">Rodríguez 965</h3>
                         </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 s-menu-item text-center">
@@ -96,3 +97,4 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaCont.js');
             </div>
         </div>
 </div>
+

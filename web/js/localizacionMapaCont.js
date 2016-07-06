@@ -136,7 +136,7 @@ var styles = [
   }
 ];
 
-    latlng4 = new google.maps.LatLng(-34.333230470355154, -56.69975280761719);
+    latlng4 = new google.maps.LatLng(-34.336005, -56.711476);
     
     
     var myOptions = {
