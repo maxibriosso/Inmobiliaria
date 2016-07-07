@@ -27,6 +27,7 @@ class BackendAsset extends AssetBundle
        
     ];
     public $js = [
+    
         'js/bootstrap.js',
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',

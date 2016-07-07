@@ -96,3 +96,52 @@ var Script = function () {
     wow.init();
 
 }();
+
+
+$(document).ready(function() {
+    
+var $rem2 = $("#rutaRemate");
+
+//Configuracion para file input
+$rem2.fileinput({
+    uploadAsync: false,
+    showUpload: false,
+    browseIcon: '<i class="glyphicon glyphicon-camera"></i> ',
+    browseLabel: 'Imagen',
+    maxFileCount: 1,
+    overwriteInitial: false,
+
+});
+
+var $rem = $("#rutaCRemate");
+
+//Configuracion para file input
+$rem.fileinput({
+    uploadAsync: false,
+    showUpload: false,
+    browseIcon: '<i class="glyphicon glyphicon-camera"></i> ',
+    browseLabel: 'Imagen',
+    maxFileCount: 1,
+    overwriteInitial: false,
+});
+
+var $test = $("#rutaTest");
+
+//Configuracion para file input
+$test.fileinput({
+    resizeImages: true,
+    uploadAsync: false,
+    showUpload: false,
+    browseIcon: '<i class="glyphicon glyphicon-camera"></i> ',
+    browseLabel: 'Imagen',
+    maxFileCount: 1,
+    overwriteInitial: false,
+});
+
+$('.filters').toggle().hide();
+
+$('.search-button').click(function(){
+    $('.filters').toggle();
+    return false;
+});
+});

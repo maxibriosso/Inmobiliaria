@@ -20,15 +20,8 @@ use kartik\file\FileInput;
     <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'descripcion')->textarea(['rows' => 6]) ?>
-    
-    <?= $form->field($model, 'ruta')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*'],
-        'pluginOptions' => [
-            'showUpload' => false,
-            'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
-            'browseLabel' =>  'Imagen'
-        ]
-    ]) ?>
+    <?= $form->field($model, 'ruta')->fileInput(['accept' => 'image/*','id'=>'rutaTest']) ?>
+
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Modificar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

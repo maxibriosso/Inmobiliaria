@@ -13,6 +13,7 @@ use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use pheme\grid\actions\ToggleAction;
 use pheme\grid\actions\TogglecAction;
+use yii\imagine\Image;
 /**
  * InmuebleController implements the CRUD actions for Inmueble model.
  */

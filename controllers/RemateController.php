@@ -12,6 +12,7 @@ use app\models\Imagen_remate;
 // Para guardar imagenes
 use yii\web\UploadedFile;
 use pheme\grid\actions\TogglebAction;
+use yii\imagine\Image;
 /**
  * RemateController implements the CRUD actions for Remate model.
  */
@@ -118,8 +119,12 @@ class RemateController extends Controller
 
                         // generate a unique file name
                         $path = 'remate'.Yii::$app->security->generateRandomString().".{$ext}";
+    
                         //Se guarda la imagen en uploads.
                         $file->saveAs('uploads/' . $path);
+
+                        Image::thumbnail( 'uploads/'.$path , 400, 300)->save('uploads/'.$path, ['quality' => 100]);
+
                         //Se cargan datos en el modelo.
                         $model2[$a]->id_remate   =  (int)$model->id;
                         $model2[$a]->ruta        =  $path;
