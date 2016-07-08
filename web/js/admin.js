@@ -97,7 +97,7 @@ var Script = function () {
 
 }();
 
-
+/*
 $(document).ready(function() {
     
 var $rem2 = $("#rutaRemate");
@@ -145,3 +145,4 @@ $('.search-button').click(function(){
     return false;
 });
 });
+*/

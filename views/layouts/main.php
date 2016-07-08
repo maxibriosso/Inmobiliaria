@@ -6,9 +6,13 @@
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\assets\FrontAsset;
 use yii\helpers\Url;
 $this->title = 'Inmobiliaria';
-AppAsset::register($this);
+//AppAsset::register($this);
+?>
+<?php if(Yii::$app->user->isGuest){ 
+      FrontAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -22,9 +26,6 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
-    <?php if(Yii::$app->user->isGuest){ ?>
-
     <div id="frontend">
       <!-- HEADER -->
       <header>
@@ -76,7 +77,7 @@ AppAsset::register($this);
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
-          </div>
+          </div>-->
           <?= $content ?>
       </section>
 
@@ -136,9 +137,27 @@ AppAsset::register($this);
       </footer>
     </div>
 
+<?php $this->endBody() ?>
+</body>
+</html>
+<?php $this->endPage() ?>
 
+<?php }else{ 
+  AppAsset::register($this);
+?>
 
-    <?php }else{ ?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+    <title>App</title>
+    <?php $this->head() ?>
+</head>
+<body>
+<?php $this->beginBody() ?>
     <div id="backend">
       <!-- HEADER -->
       <header> 
@@ -284,9 +303,9 @@ AppAsset::register($this);
       </footer>
       <!-- / FOOTER -->
     </div>
-    <?php } ?>
 
 <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
+<?php } ?>

@@ -21,20 +21,31 @@ class FrontAsset extends AssetBundle
         'css/bootstrap.css',
         'css/animate.css',
         'css/font-awesome.css',
+        'css/nifty.min.css',
+        'lineicons/style.css',
+        'css/flexslider.css',
+        'css/jquery.bxslider.css',
+        'css/owl.carousel.css',
         'css/inmobiliaria.css',
         'css/responsive.css',
-        'css/jquery.steps.css',
+        'css/list_gridview.css',
     ];
     public $js = [
-/*        'js/jquery-2.1.4.min.js',*/
         'js/bootstrap.js',
+        'js/jquery.nicescroll.js',
+        'js/jquery.dcjqaccordion.js',
         'js/wow.min.js',
-        'js/bootstrap-select.js',
+        'js/jquery.flexslider.js',
+        'js/owl.carousel.min.js',
+        'js/jquery.sequence.min.js',
+        'js/jquery.bxslider.js',
         'js/inmobiliaria.js',
-        'js/jquery.steps.min.js',
+        'js/list_gridview.js',
+        
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapAsset',
+        //'yii\bootstrap\BootstrapPluginAsset',
     ];
 }

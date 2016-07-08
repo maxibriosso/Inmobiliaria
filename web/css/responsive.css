@@ -1,13 +1,10 @@
 /* ---- RESPONSIVE ----*/
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     #frontend  .contenedor-navbar .navbar-header{
       height: 59px !important;
       width: 250px !important;
     }
-    
-/*    .footer {
-        margin-left: 250px;    
-    }*/
+ 
 }
 
 /* md */
@@ -22,14 +19,11 @@
       height: 59px !important;
       width: 250px !important; 
     }
-
-/*    .footer {
-        margin-left: 250px;    
-    }*/
+ 
 }
 
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
 
     #frontend  .logo-index img{
       width: 250px !important;
@@ -53,16 +47,16 @@
 
 
 @media screen and (max-width: 767px) {
-#frontend  .logo-index img{
-  width: 190px !important;
 
-}
-#frontend  .navbar-header-index,.menu-index {
-    background-color:rgba(0,0,0,0.5) !important;
-}
-#frontend  .menu-index {
-    padding-top:0px !important;
-}
+    #frontend  .logo-index img{
+      width: 190px !important;
+    }
+    #frontend  .navbar-header-index,.menu-index {
+        background-color:rgba(0,0,0,0.5) !important;
+    }
+    #frontend  .menu-index {
+        padding-top:0px !important;
+    }
 
 
 }
@@ -75,5 +69,10 @@
     #frontend  .navbar-header-index,.menu-index {
         background-color:rgba(0,0,0,0.5) !important;
     }
+
+}
+
+
+@media screen and (max-width:340px) {
 
 }

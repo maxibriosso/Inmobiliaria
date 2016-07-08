@@ -5,10 +5,10 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Barrio;
 
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Remate */
 /* @var $form yii\widgets\ActiveForm */
+
 $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
 $this->registerJsFile($baseUrl.'/js/localizacionMapaRem.js');
 
@@ -35,7 +35,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaRem.js');
         </div>
         <div class="col-md-12">
 
-            <?= $form->field($imagen, 'ruta[]')->fileInput(['multiple' => true, 'accept' => 'image/*','id'=>'imgRemate']) ?>
+        <?= $form->field($imagen, 'ruta[]')->fileInput(['multiple' => true, 'accept' => 'image/*','id'=>'imgRemate']) ?>
 
         </div>
         <div class="col-md-12 form-group">

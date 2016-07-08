@@ -25,43 +25,26 @@ class AppAsset extends AssetBundle
         'css/bootstrap-fileinput/css/fileinput.min.css',
         'lineicons/style.css',
         'css/jquery.steps.css',
-        'css/flexslider.css',
-        'css/jquery.bxslider.css',
-        'css/owl.carousel.css',
         'css/estilo.css',
-        'css/inmobiliaria.css',
         'css/responsive.css',
-        'css/list_gridview.css',
     ];
     public $js = [
-/*        'js/jquery-2.1.4.min.js',*/
-        //'js/bootstrap.js',
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',
         'js/jquery.steps.min.js',
         'js/wow.min.js',
-        //'js/modalview.js',
         'js/bootstrap-select.js',
-        'js/jquery.flexslider.js',
         'js/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js',
         'js/bootstrap-fileinput/js/fileinput.min.js',
         'js/bootstrap-fileinput/js/fileinput_locale_es.js',
-        'js/owl.carousel.min.js',
-        'js/jquery.sequence.min.js',
-        'js/jquery.bxslider.js',
-        'js/inmobiliaria.js',
         'js/admin.js',
-        'js/altaImagenes.js',
-        'js/modificarImagenes.js',
-        'js/modificarRemateImagenes.js',
-        'js/list_gridview.js',
-        
-        
-        
+        /*'js/altaImagenes.js',
+        'js/modificarImagenes.js',*/
+        'js/modificarRemateImagenes.js',       
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+        //'yii\bootstrap\BootstrapPluginAsset',
     ];
 }

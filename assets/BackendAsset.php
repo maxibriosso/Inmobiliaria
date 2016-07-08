@@ -26,8 +26,7 @@ class BackendAsset extends AssetBundle
         'css/login.css',
        
     ];
-    public $js = [
-    
+    public $js = [ 
         'js/bootstrap.js',
         'js/jquery.nicescroll.js',
         'js/jquery.dcjqaccordion.js',
