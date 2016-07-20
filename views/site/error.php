@@ -9,19 +9,27 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<div class="site-error">
+<div class="contenedor-site-error">
+    <div class="container">
+        <div class="row site-error text-center">
+            <div class="col-md-4 error-img">
+                <h1>OOPS!</h1>
+                <img src="<?= Yii::$app->request->baseUrl . '/img/carita2.png' ?>" class="img-responsive" alt="">
+            </div>
+            <div class="col-md-8 error-text">
+                <h2><?= Html::encode($this->title) ?></h2>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
+                <div class="">
+                    <h4><?= nl2br(Html::encode($message)) ?></h4>
+                </div>
+                <hr>
+                <p>
+                    The above error occurred while the Web server was processing your request.
+                </p>
+                <p>
+                    Please contact us if you think this is a server error. Thank you.
+                </p>
+            </div>
+        </div>
     </div>
-
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
-
 </div>

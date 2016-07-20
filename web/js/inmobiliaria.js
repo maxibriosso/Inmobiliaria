@@ -119,7 +119,7 @@ $(".botones-buscador > .btn").click(function(){
     prevText: '<img src="web/images/slider-prev2.png" alt="Previous" />'
   });
   
-
+  $("html").niceScroll({styler:"fb",cursorcolor:"#27da93", cursorwidth: '6', cursorborderradius: '10px', background: '#404040', spacebarenabled:false,  cursorborder: '', zindex: '1000'});
 
 });
 

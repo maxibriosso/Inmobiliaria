@@ -26,7 +26,7 @@ class AppAsset extends AssetBundle
         'lineicons/style.css',
         'css/jquery.steps.css',
         'css/estilo.css',
-        'css/responsive.css',
+        'css/responsive-back.css',
     ];
     public $js = [
         //'js/jquery.js',
