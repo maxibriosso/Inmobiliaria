@@ -131,25 +131,17 @@ class InmuebleController extends Controller
         
         $model = new Imagen();
         
-        if (Yii::$app->request->isAjax) {
+        if (Yii::$app->request->post()) {
             $model->estado = 1;
 
             $data = Yii::$app->request->post();
          
 
             $model->imagen = UploadedFile::getInstances($model, 'imagen');
-
-            $check = $_POST['check'];
+            $check = $_POST['cont'];
           
-             $a = 0;
-             $c = 1;
+             $contCheck = 1;
              foreach ($model->imagen as $file) {
-
-                    $nombre= explode(":", $data['new_'.$a]);
-
-                    $descripcion= explode(":", $data['init_'.($a+1)]);
-                    
-
                     $model2 = new Imagen();
 
                     $ext = end((explode(".", $file->name)));
@@ -161,22 +153,19 @@ class InmuebleController extends Controller
                     
                     $model2->id_inmueble   =  (int)$id;
                     $model2->estado        =  (int)$model->estado;
-                    if($c == (int)$check){
+                    if($contCheck == (int)$check){
                         $model2->destacada     =  (int)1;
                     }else{
                          $model2->destacada     =  (int)0;
                     }
-                    
-                    $model2->descripcion   =  $descripcion[0];
-                    $model2->titulo        =  $nombre[0];
                     $model2->ruta = $path;
 
                     $model2->fecha_creacion = date("Y/m/d");
 
                     $model2->save(false);
                    
-                    $a = $a + 2;
-                    $c++; 
+
+                    $contCheck++; 
             }
             $output = ['success'=>'Imagen guardada.'];
             return json_encode($output) ;      
@@ -228,9 +217,9 @@ class InmuebleController extends Controller
     
         foreach ($imagenes as $imagen) {
 
-            $img = "<img style='height:160px' src='".Yii::$app->request->baseUrl .'/uploads/'.$imagen->ruta."'>";
-            $initialPreviewConfig = ['caption' => "$imagen->titulo", 'width' => '120px', 'url' => "http://localhost/Inmobiliaria/web/inmueble/deleteimage", 'key' => $imagen->id];
-            $descripcion = ['{TAG_VALUE}' => "$imagen->descripcion",'{TAG_CSS_NEW}' => "$imagen->id"];
+            $img = Yii::$app->request->baseUrl .'/uploads/'.$imagen->ruta;
+            $initialPreviewConfig = ['url' => "http://localhost/Inmobiliaria/web/inmueble/deleteimage", 'key' => $imagen->id];
+            $descripcion = ['{TAG_VALUE}' => "$imagen->id"];
             
             array_push($array,$img);
             array_push($arrayPreviewConf,$initialPreviewConfig);
@@ -243,54 +232,44 @@ class InmuebleController extends Controller
 
         }  
    
-        if (Yii::$app->request->isAjax) {
+        if (Yii::$app->request->post()) {
+
+
 
             $model->estado = 1;
 
             $data = Yii::$app->request->post();
 
+
             $model->imagen = UploadedFile::getInstances($model, 'imagen');
 
             $check = $_POST['check'];
-
-            $a = 0;
-            $c = 1;
+            $checkNew = $_POST['cont'];
+            
+            $contCheck = 1;
+           
 
             foreach ($imagenes as $img) {
-                    $nombre= explode(":", $data['new_'.$a]);
-
-                    $descripcion= explode(":", $data['init_'.($a+1)]);
-                    
-                    $img->descripcion   =  $descripcion[0];
-                    $img->titulo        =  $nombre[0];
-
-                    if($c == (int)$check){
-                        if($img->destacada!= (int)1){
-                            $img->destacada =  (int)1;
+                    if($check !== '{TAG_VALUE}'){
+                        if($img->id == (int)$check){
+                            if($img->destacada!= (int)1){
+                                $img->destacada =  (int)1;
+                            }
+                        }else{
+                            $img->destacada = (int)0;
                         }
-
                     }else{
                          $img->destacada = (int)0;
                     }
-
                     $img->fecha_creacion = date("Y/m/d");
 
                     $img->save(false);
-                   
-                    $a = $a + 2;
-                    $c++; 
-
-
-
+        
+                    $contCheck++; 
             }
-          
+
             foreach ($model->imagen as $file) {
-
-                    $nombre= explode(":", $data['new_'.$a]);
-
-                    $descripcion= explode(":", $data['init_'.($a+1)]);
                     
-
                     $model2 = new Imagen();
 
                     $ext = end((explode(".", $file->name)));
@@ -303,25 +282,24 @@ class InmuebleController extends Controller
                     $model2->id_inmueble   =  (int)$id;
                     $model2->estado        =  (int)$model->estado;
 
-                    if($c == (int)$check){
-                        if($model2->destacada!= (int)1){
-                            $model2->destacada =  (int)1;
+                    if($check === '{TAG_VALUE}'){
+                        if($contCheck === (int)$checkNew){
+                            if($model2->destacada!== (int)1){
+                                $model2->destacada =  (int)1;
+                            }
+                        }else{
+                            $model2->destacada = (int)0;
                         }
-
                     }else{
                          $model2->destacada = (int)0;
                     }
-                    
-                    $model2->descripcion   =  $descripcion[0];
-                    $model2->titulo        =  $nombre[0];
+                   
                     $model2->ruta = $path;
 
                     $model2->fecha_creacion = date("Y/m/d");
 
                     $model2->save(false);
-                   
-                    $a = $a + 2;
-                    $c++; 
+                    $contCheck++;    
             }
 
             $output = ['respuesta'=>'Imagen guardada.'];
