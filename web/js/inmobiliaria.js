@@ -79,6 +79,7 @@ var owl4 = $("#owl-rem");
  
 owl4.owlCarousel({
     items : 4, //10 items above 1000px browser width
+    itemsDesktop : [1000,4], //1 items between 1000px and 901px 
     itemsCustom : false,
     autoPlay:  true,
     pagination : false,
@@ -96,7 +97,11 @@ var owl3 = $("#owl-test");
  
 owl3.owlCarousel({
     animateOut: 'fadeOut',
-    items : 1, //10 items above 1000px browser width
+    items : 1, //1 items above 1000px browser width
+    itemsDesktop : [1000,1], //1 items between 1000px and 901px
+    itemsDesktopSmall : [900,1], // betweem 900px and 601px
+    itemsTablet: [600,1], //2 items between 600 and 0
+    itemsMobile : [479,1], // itemsMobile disabled - inherit from itemsTablet option
     itemsCustom : false,
     autoPlay:  true,
     pagination : true,
@@ -104,7 +109,6 @@ owl3.owlCarousel({
     responsive:  true,
     stopOnHover: true,
     navigation: false,
-    
 });
 
 $(".botones-buscador > .btn").click(function(){

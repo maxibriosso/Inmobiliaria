@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
       <!-- BUSCADOR -->
       <div class="col-md-4 buscador-ventas">
-          <div class="col-md-12">
+          <div class="hidden-xs col-sm-12 col-md-12">
                 <div class="btn-group botones-buscador">
                     <a href="#" id="list" class="btn btn-default btn-sm">
                       <i class="glyphicon glyphicon-th-list"><span>Lista</span></i>

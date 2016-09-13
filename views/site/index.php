@@ -44,7 +44,7 @@ if(Yii::$app->user->isGuest){
     </section>
     
     <!-- BUSCADOR -->
-    <section class="contenedor-buscador">
+    <section class="hidden-xs contenedor-buscador">
        <div class="container buscador">
           <?php $form = ActiveForm::begin([
                 'action' => ['index'],
@@ -66,10 +66,10 @@ if(Yii::$app->user->isGuest){
                 <?= $form->field($buscador, 'cantidad_banios')->dropDownList([ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'], ['prompt' => 'BAÑOS','class'=>'form-input'])->label('  '); ?>
             </div>
             <div class="form-group">
-                <?= $form->field($buscador, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN','class'=>'form-input'))->label('  '); ?>
+                <?= $form->field($buscador, 'precio_min')->textInput(array('placeholder' => 'PRECIO MIN','class'=>'form-input imp-pre'))->label('  '); ?>
             </div>
             <div class="form-group">
-                <?= $form->field($buscador, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX','class'=>'form-input'))->label('  '); ?>
+                <?= $form->field($buscador, 'precio_max')->textInput(array('placeholder' => 'PRECIO MAX','class'=>'form-input imp-pre'))->label('  '); ?>
             </div>     
             <div class="form-group cont-btn-busc-index">
               <?= Html::submitButton('<i class="fa fa-search fa-lg"></i>', ['class' => 'btn btn-default btn-form-buscar']) ?>
@@ -96,7 +96,7 @@ if(Yii::$app->user->isGuest){
       <div class="container">
           <!-- <div id="owl-demo" class="owl-carousel owl-theme"> -->
           <?php foreach ($des as $d): ?>
-              <div class="col-md-4 contenedor-inm-des">
+              <div class="col-sm-6 col-md-4 contenedor-inm-des">
                 <div class="propertyItem">
                     <div class="propertyContent">
                         <a class="propertyType" href="<?= Url::to(['site/detalle','id' => $d->id]) ?>"><?php echo $d->operacion ?></a>
@@ -247,7 +247,7 @@ if(Yii::$app->user->isGuest){
                   </div>
                   <div class="media-body">
                     <div class="white-text">
-                      <h6 class="subheading" style="text-align:left">
+                      <h6 class="hidden-xs subheading" style="text-align:left">
                         <em><?php echo $test->descripcion ?></em>
                       </h6>
                     </div>
@@ -264,14 +264,14 @@ if(Yii::$app->user->isGuest){
     <!-- FRASE 2 -->
     <section class="contenedor-frase-contacto">
         <div class="container">
-            <div class="col-lg-5 img-frase-b">
+            <div class="hidden-xs col-md-5 col-lg-5 img-frase-b">
               <img src="<?= Yii::$app->request->baseUrl . '/img/casa.png'?>" alt="">
             </div>
-            <div class="col-lg-4 texto-frase-b">
+            <div class="col-md-4 col-lg-4 texto-frase-b">
               <h3>VENDE O ALQUILA</h3>
               <h3>SU PROPIEDAD?</h3>
             </div>
-            <div class="col-lg-3 btn-frase-b">
+            <div class="col-md-3 col-lg-3 btn-frase-b">
               <a class="btn btn-default" href="<?= Url::to(['site/contacto']) ?>" data-method="post">CONTACTENOS</a>
             </div>
         </div>

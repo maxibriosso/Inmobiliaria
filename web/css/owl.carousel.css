@@ -2,12 +2,12 @@
 *   Owl Carousel Owl Demo Theme 
 *   v1.24
 */
-    #owl-demo .item{
-    }
-    #owl-demo .item img{
-        display: block;
-        height: auto;
-    }
+#owl-demo .item{
+}
+#owl-demo .item img{
+    display: block;
+    height: auto;
+}
 
 .owl-theme .owl-controls{
     margin-top: 10px;

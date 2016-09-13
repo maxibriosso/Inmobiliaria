@@ -52,7 +52,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaCont.js');
                             <h4 class="s-sub osLight">info@inmobiliaria.com</h3>
                         </div>
                 </div>
-                <div class="col-md-12 cont-texto-contrato">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cont-texto-contrato">
                     <h3>
                         Por consultas comerciales u otras preguntas <br> por favor complete el siguiente formulario <br>para contactar con nosotros. Gracias.
                     </h3>

@@ -22,11 +22,7 @@
         "2amigos/yii2-google-maps-library" : "*",
         "drsdre/yii2-wizardwidget": "*",
         "kartik-v/yii2-widget-switchinput": "*",
-        "toxor88/yii2-widget-switchery": "*",
-        "pheme/yii2-toggle-column": "*",
-        "trntv/yii2-file-kit": "^1.0.0",
-        "yiisoft/yii2-imagine": "*",
-        "intervention/image": "^2.1"
+        "pheme/yii2-toggle-column": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

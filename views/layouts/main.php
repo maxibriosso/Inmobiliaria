@@ -31,7 +31,7 @@ $this->title = 'Inmobiliaria';
       <header>
           <div id="inicio">
           </div>
-          <div class="menu-social-header navbar-fixed-top navbar-collapse2 collapse">
+          <div class="menu-social-header navbar-fixed-top collapse">
             <div class="container contenedor-menu-social-header">
                 <ul class="nav navbar-nav mn-menu-social-header navbar-left text-center">                    
                     <li><a href="#" class="no-link"><i class="fa fa-mobile"></i> 099392222</a></li>
@@ -85,7 +85,7 @@ $this->title = 'Inmobiliaria';
           <div class="">
               <div class="container">
                 <div class="footer-top-at">
-                      <div class="col-md-3 amet-sed">
+                      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 amet-sed">
                         <h4>Nuestra compañía</h4>
                         <ul class="nav-bottom">
                           <li><a href="<?= Url::to(['site/empresa']) ?>">Sobre nosotros</a></li>
@@ -95,7 +95,7 @@ $this->title = 'Inmobiliaria';
                           <li><a href="<?= Url::to(['site/login']) ?>">Login</a></li>                         
                         </ul> 
                       </div>
-                      <div class="col-md-3 amet-sed">
+                      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 amet-sed">
                         <h4>Atención al cliente</h4>
                         <h4><small>Estudio Central</small></h4>
                         <p>San José de Mayo, San José, Uruguay</p>
@@ -106,7 +106,7 @@ $this->title = 'Inmobiliaria';
                         <p>Rodríguez 965</p>
 
                       </div>
-                      <div class="col-md-3 amet-sed ">
+                      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 amet-sed ">
                         <h4>Contacto</h4>
                         <p>Lunes a viernes, 9 a 18 hs</p>
                         <p>Sabados, 9 a 13 hs</p>
@@ -116,7 +116,7 @@ $this->title = 'Inmobiliaria';
                         <p>091 712 712</p>
                         <p>4344 3168</p>
                       </div>
-                      <div class="col-md-3 amet-sed ">
+                      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 amet-sed ">
                         <h4>Servicios</h4>
                           <ul class="social">
                             <li><a href="#"><i class="fa fa-facebook"> </i></a></li>

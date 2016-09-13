@@ -3,7 +3,7 @@ use app\models\Barrio;
 use yii\helpers\Url;
 use yii\helpers\Html;
 ?>
-<div class="item col-xs-4 col-lg-4">
+<div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4">
     <div class="propertyItem">
         <div class="propertyContent">
             <a class="propertyType" href="<?= Url::to(['site/detalle','id' => $model->id]) ?>"><?php echo $model->operacion ?></a>

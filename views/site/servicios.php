@@ -19,7 +19,7 @@ $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
 <div class="container-fluid contenido-servicios">
     <div class="container">
          <div class="row margin-top-30">
-            <div class="col-sm-4 margin-bottom-30">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 margin-bottom-30 item-service">
                 <a href="#" title="Sign Me Up" class="well-link">
                     <div class="homepage-well center">
                         <div class="well-image-container">
@@ -32,7 +32,7 @@ $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
                     </div>
                 </a>
             </div>
-            <div class="col-sm-4 margin-bottom-30">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 margin-bottom-30 item-service">
                 <a href="#" title="Get Help" class="well-link">
                     <div class="homepage-well center">
                         <div class="well-image-container">
@@ -45,7 +45,8 @@ $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
                     </div>
                 </a>
             </div>
-            <div class="col-sm-4 margin-bottom-30">
+            <div class="hidden-md hidden-lg clearfix"></div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 margin-bottom-30 item-service">
                 <a href="#" title="Sign Me Up" class="well-link">
                     <div class="homepage-well center">
                         <div class="well-image-container">
@@ -58,12 +59,7 @@ $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
                     </div>
                 </a>
             </div>
-        </div>
-        <div class="row margin-top-30">
-            <div class="col-sm-4 margin-bottom-30">
-
-            </div>
-            <div class="col-sm-4 margin-bottom-30">
+            <div class="col-xs-12 col-sm-6 col-md-offset-0 col-md-4 col-lg-offset-0 col-lg-4 margin-bottom-30 item-service">
                 <a href="#" title="Get Help" class="well-link">
                     <div class="homepage-well center">
                         <div class="well-image-container">
@@ -76,11 +72,6 @@ $baseUrl = Yii::$app->getUrlManager()->getBaseUrl();
                     </div>
                 </a>
             </div>
-            <div class="col-sm-4 margin-bottom-30">
-  
-            </div>
         </div>
     </div>
-    
-
 </div>
