@@ -62,3 +62,109 @@
 {
     margin: 0 0 11px;
 }
+
+.item.grid-group-item.list-group-item .propertyItem .propertyContent .grid-items{
+    padding: 10px;
+}
+
+.item .propertyItem .propertyContent .grid-items-caracteristicas,
+.item.grid-group-item .propertyItem .propertyContent .grid-items-caracteristicas{
+    display: none !important;
+}
+
+.item.grid-group-item .propertyItem .propertyContent .grid-items .list-descripcion{
+    display: none !important;
+}
+.item.list-group-item .propertyItem .propertyContent .grid-items .list-descripcion{
+    display: block !important;
+}
+
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas{
+    display: block !important;
+}
+
+.item .propertyItem .propertyContent .propertyImgLink .propertyImg{
+    margin-right: 10px !important;
+}
+
+
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar { 
+  /*background-color:#f8f8f8 !important;*/
+  margin-top:0px !important; 
+  border:1px solid transparent !important;
+  width:50% !important;
+  text-align:center !important;
+}
+
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size:10px !important;
+  width:20% !important;
+  height:10px !important;
+  border-color: transparent !important;
+  color:#ababab !important;
+}
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td i{
+  margin-right: 0px !important;
+  margin-top: 10px !important;
+  color:#27da93 !important;
+  display:block !important;
+}
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td i.color-disable{
+  color: #ababab !important;
+}
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .fa{
+  margin-top: 10px !important;
+  font-size:20px !important;
+}
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td hr{
+  margin-top: 0px !important; 
+  margin-bottom: 5px !important;
+}
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .t_icon{
+  padding-bottom:0px !important;
+  font-weight:300 !important;
+  font-size: 12px !important;
+}
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td span{
+  display:block !important;
+  /*padding-top:5px !important;
+  padding-bottom:5px !important;
+  font-weight:bold !important;*/
+  font-size: 20px !important;
+}
+/*
+'Casa','Apartamento','Local','Terreno','Oficina'
+*/
+
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .flaticon-stairs-1:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .flaticon-technology:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .flaticon-rest:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .flaticon-bathroom:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .flaticon-bedroom-black-closed-closet-for-clothes:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .flaticon-plant-on-a-hand:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .flaticon-grill:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .flaticon-car-in-garage:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .flaticon-give-money:before{
+  font-size: 25px !important;
+  color: #27da93;
+}
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .color-disable.flaticon-stairs-1:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .color-disable.flaticon-technology:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .color-disable.flaticon-rest:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .color-disable.flaticon-bathroom:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .color-disable.flaticon-bedroom-black-closed-closet-for-clothes:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .color-disable.flaticon-plant-on-a-hand:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .color-disable.flaticon-grill:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .color-disable.flaticon-car-in-garage:before,
+.item.list-group-item .propertyItem .propertyContent .grid-items-caracteristicas .propertyDetailsCar td .color-disable.flaticon-give-money:before {
+  color: #ababab !important;
+}
+
+.item.list-group-item .propertyItem .propertyContent .propertyImgLink{
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}

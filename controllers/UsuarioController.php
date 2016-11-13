@@ -25,7 +25,7 @@ class UsuarioController extends Controller
             ],
             'access' => [
                         'class' => \yii\filters\AccessControl::className(),
-                        'only' => ['index','create','update','view','delete','toggle'],
+                        'only' => ['index','create','update','delete','toggle'],
                         'rules' => [
                             // allow authenticated users
                             [
@@ -69,12 +69,12 @@ class UsuarioController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
+    /*public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
+    }*/
 
     /**
      * Creates a new Usuario model.
@@ -92,7 +92,7 @@ class UsuarioController extends Controller
              $model->password = password_hash($model->password, PASSWORD_DEFAULT);
             
             if($model->save())
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -111,7 +111,7 @@ class UsuarioController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

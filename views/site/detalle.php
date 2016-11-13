@@ -46,7 +46,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalle.js');
                   <li><i class="fa fa-tag" style="margin-right:7px;"></i> <?php echo $model->operacion ?></li>
                 </ul>
                 
-                <div id="property-id">$ <?php echo $model->valor ?></div>
+                <div id="property-id">$ <?php echo Yii::$app->formatter->asDecimal($model->valor,2) ?></div>
               </div>
             </div>
 
@@ -54,7 +54,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalle.js');
                 <ul class="bxslider">
                     <?php 
                         $imagenes=$model->getImagenes();
-                        if (is_null($imagenes)){
+                        if (is_null($imagenes) || count($imagenes)==0){
                               $session = Yii::$app->session;
                               $img_pred = $session->get('img_pred');
                         ?>
@@ -117,7 +117,7 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalle.js');
                       <td><i class="flaticon-give-money" style="margin-right:7px;"></i><br><span class="t_icon">Prestamos Bancario</span><br><hr><span><?php if($model->prestamo_bancario){
                             echo "Si";
                           }else{ echo "No";} ?></span></td>
-                      <td><i class="fa fa-calendar" style="margin-right:7px;"></i><br><span class="t_icon">Fecha</span><br><hr><span><?php echo Yii::$app->formatter->asDate($model->fecha_creacion,'dd-MM-yyyy') ?></span></td>
+                      <td><i class="fa fa-calendar" style="margin-right:7px;"></i><br><span class="t_icon">Fecha</span><br><hr><span><?php echo Yii::$app->formatter->asDate($model->fecha_creacion,'dd/MM/yyyy') ?></span></td>
                     </tr>
                   </tbody>
               </table>
@@ -161,6 +161,68 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaDetalle.js');
                   <?php ActiveForm::end(); ?>
               <?php Pjax::end() ?>
             </div>
+            <!--<div class="col-md-12">
+              <span class="titulo-detalle-bis">
+                <h1>Caracteristicas</h1>
+              </span>
+              <table border="1" class="propertyDetailsb">
+                  <tbody>
+                    <tr>
+                      <td><i class="flaticon-stairs-1" style="margin-right:7px;"></i><br><span class="t_icon">Pisos</span><br><hr><span><?php echo $model->piso ?></span></td>
+                      <td><i class="flaticon-technology" style="margin-right:7px;"></i><br><span class="t_icon">Área</span><br><hr><span><?php echo $model->superficie ?> m2</span></td>
+                      
+                    </tr>
+                  </tbody>
+              </table>
+              <table border="1" class="propertyDetailsb">
+                  <tbody>
+                    <tr>
+                      <td><i class="flaticon-rest" style="margin-right:7px;"></i><br><span class="t_icon">Habitaciones</span><br><hr><span><?php echo $model->cantidad_habitaciones ?></span></td>
+                      <td><i class="flaticon-bathroom" style="margin-right:7px;"></i><br><span class="t_icon">Baños</span><br><hr><span><?php echo $model->cantidad_banios ?></span></td>
+                      
+                    </tr>
+                  </tbody>
+              </table>
+              <table border="1" class="propertyDetailsb">
+                  <tbody>
+                    <tr>
+                      <td><i class="flaticon-bedroom-black-closed-closet-for-clothes" style="margin-right:7px;"></i><br><span class="t_icon">Amueblado</span><br><hr>
+                        <span><?php #if($model->amueblado){
+                            #echo "Si";
+                          #}else{ echo "No";} ?></span>
+                      </td>
+                      <td><i class="flaticon-plant-on-a-hand" style="margin-right:7px;"></i><br><span class="t_icon">Jardin</span><br><hr><span><?php #if($model->jardin){
+                            #echo "Si";
+                          #}else{ echo "No";} ?></span></td>
+                      
+                    </tr>
+                  </tbody>
+              </table>
+              <table border="1" class="propertyDetailsb">
+                  <tbody>
+                    <tr>
+                      
+                      <td><i class="flaticon-grill" style="margin-right:7px;"></i><br><span class="t_icon">Parrillero</span><br><hr><span><?php #if($model->parrillero){
+                            #echo "Si";
+                          #}else{ echo "No";} ?></span></td>
+                      <td><i class="flaticon-car-in-garage" style="margin-right:7px;"></i><br><span class="t_icon">Garage</span><br><hr><span><?php #if($model->garage){
+                            #echo "Si";
+                          #}else{ echo "No";} ?></span></td>
+                    </tr>
+                  </tbody>
+              </table>
+              <table border="1" class="propertyDetailsb">
+                  <tbody>
+                    <tr>
+
+                      <td><i class="flaticon-give-money" style="margin-right:7px;"></i><br><span class="t_icon">Prestamos Bancario</span><br><hr><span><?php #if($model->prestamo_bancario){
+                            #echo "Si";
+                          #}else{ echo "No";} ?></span></td>
+                      <td><i class="fa fa-calendar" style="margin-right:7px;"></i><br><span class="t_icon">Fecha</span><br><hr><span><?php #echo Yii::$app->formatter->asDate($model->fecha_creacion,'dd-MM-yyyy') ?></span></td>
+                    </tr>
+                  </tbody>
+              </table>
+            </div>-->
            <!-- <div class="col-md-12 caracteristicas-detalle">
               <ul class="property-amenities-list col-md-6">
                 <li class="enabled"><i class=""></i> Security System </li>

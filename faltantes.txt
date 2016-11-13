@@ -7,6 +7,9 @@ PRONTO - Luego de dar de alta el Inmueble redireccionar a Alta de Imagen para es
 - Ver los mensajes de los input que sean en español y que dice cada uno.
 - Ver los campos obligatorios
 - Controlar que no se creen inmubles sin imagenes.
+- Colocar en usuario el password en hash
+- Colocar en el menu del adminitrador un scroll cuando se elige la ultima opcion no se ve porq la pagina no hace el scoll
+- En la view de propietarios colocar la lista de inmuebles del propietario.
 
 -- Test Completo para ver los bugs
 
@@ -15,7 +18,7 @@ PRONTO - Terminar vista de inmueble
 PRONTO - Terminar Empresa
 PRONTO - Verificar el slider cuando se coloca poca descripcion no la muestra. (Resolvimos colocarle un minimo de caracteres y maximo).
 PRONTO - Agregar la imagen pequeña en el slider
-- Buscardor - Controlar que el precio maximo sea mayor o igual al precio minimo
+PRONTO - Buscardor - Controlar que el precio maximo sea mayor o igual al precio minimo
 
 
 --------------------------- NUEVOS ----------------------------

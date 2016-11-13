@@ -118,7 +118,7 @@ if(Yii::$app->user->isGuest){
                         <p><?php echo Barrio::findOne($d->id_barrio)->nombre ?></p>
                         <div class="divider thin"></div>
                         <p class="forSale"><?php echo $d->tipo ?></p>
-                        <p class="price">$<?php echo $d->valor ?></p>
+                        <p class="price">$<?php echo Yii::$app->formatter->asDecimal($d->valor,2) ?></p>
                     </div>
                     <table border="1" class="propertyDetails">
                         <tbody>
@@ -152,7 +152,7 @@ if(Yii::$app->user->isGuest){
                   <?php }else{ ?>
                   <i class="fa fa-building"></i>
                   <?php } ?>
-                  <?php echo $u->operacion ?><br><span>$ <?php echo $u->valor ?></span>
+                  <?php echo $u->operacion ?><br><span>$ <?php echo Yii::$app->formatter->asDecimal($u->valor,2) ?></span>
                   </a>
                   
                 </div>

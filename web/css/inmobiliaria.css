@@ -874,6 +874,10 @@ body{
 #frontend .form-buscador .form-input:-ms-input-placeholder{
   color: white;
 }
+#frontend .form-buscador .form-input:focus{
+  outline: none !important;
+}
+
 #frontend .form-buscador .form-input:focus:-ms-input-placeholder {  
   color: #252525;   
 }
@@ -895,13 +899,18 @@ body{
   box-shadow:none !important;
   color:white;
 }
+#frontend .form-buscador .has-error .form-input{
+  border-color: #27da93 !important;
+}
 #frontend .form-buscador .help-block{
-  position:absolute;
+  position:absolute !important;
   top:0px;
   color:white;
-/*   background:#27da93; */
+  word-wrap: break-word;
+/*  background:#27da93;*/
   padding:5px;
 }
+
 /*----------------- FIN - BUSCADOR ---------------------*/
 /*----------------------------------------------------------*/
 
@@ -1268,6 +1277,17 @@ body{
 #frontend .solicitud-form .form-input:focus {
   border-color: #27da93 !important;
   box-shadow:none !important;
+  outline: none !important;
+}
+
+#frontend .solicitud-form .has-error .form-input{
+  border-color: #27da93 !important;
+}
+#frontend .solicitud-form .has-error .help-block{
+  color:white; 
+  background:#27da93;
+  padding-top:0px;
+  padding:5px;
 }
 
 #frontend .btn-busc-cont{
@@ -1443,6 +1463,8 @@ body{
 #frontend #map_detalle{
   width:100%;
   height:400px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 #frontend .cont-map-detalleremate{
   margin-left: 0px !important;
@@ -1686,6 +1708,17 @@ body{
 #frontend .buscador-ventas .form-input:focus {
   border-color: #27da93 !important;
   box-shadow:none !important;
+  outline: none !important;
+}
+
+#frontend .buscador-ventas .has-error .form-input{
+  border-color: #27da93 !important;
+}
+#frontend .buscador-ventas .has-error .help-block{
+  color:white; 
+  background:#27da93;
+  padding-top:0px;
+  padding:5px;
 }
 
 #frontend .btn-busc-lat{
@@ -1955,8 +1988,17 @@ body{
 #frontend .buscador-ventas-detalle .form-input:focus {
   border-color: #27da93 !important;
   box-shadow:none !important;
+  outline: none !important;
 }
-
+#frontend .buscador-ventas-detalle .has-error .form-input{
+  border-color: #27da93 !important;
+}
+#frontend .buscador-ventas-detalle .has-error .help-block{
+  color:white; 
+  background:#27da93;
+  padding-top:0px;
+  padding:5px;
+}
 
 #frontend .cont-buscador-ventas-detalle .caracteristicas-detalle{
   padding-left: 15px !important;
@@ -2134,3 +2176,4 @@ body{
 .flaticon-three-buildings:before { content: "\f11a"; }
 .flaticon-toilet:before { content: "\f11b"; }
 .flaticon-trade-center:before { content: "\f11c"; }
+

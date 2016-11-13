@@ -50,12 +50,12 @@ class ParametroController extends Controller
      * @param string $nombre
      * @return mixed
      */
-    public function actionView($id, $nombre)
+    /*public function actionView($id, $nombre)
     {
         return $this->render('view', [
             'model' => $this->findModel($id, $nombre),
         ]);
-    }
+    }*/
 
     /**
      * Creates a new Parametro model.
@@ -90,7 +90,7 @@ class ParametroController extends Controller
         $model = $this->findModel($id, $nombre);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id, 'nombre' => $model->nombre]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

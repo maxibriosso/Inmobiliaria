@@ -25,6 +25,7 @@ class InmuebleSearch extends Inmueble
             [['id', 'id_barrio', 'id_usuario', 'id_propietario', 'amueblado', 'garage', 'jardin', 'parrillero', 'piso', 'prestamo_bancario', 'cantidad_banios', 'cantidad_habitaciones', 'superficie', 'destacado', 'favorito', 'activo'], 'integer'],
             [['nombre', 'estado', 'direccion', 'titulo', 'descripcion', 'tipo', 'coord', 'operacion', 'fecha_creacion','precio_max','precio_min'], 'safe'],
             [['valor','precio_max','precio_min'], 'number'],
+            ['precio_max', 'compare', 'compareAttribute' => 'precio_min', 'operator' => '>=', 'type' => 'number'],
         ];
     }
 

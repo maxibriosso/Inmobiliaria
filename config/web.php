@@ -37,6 +37,10 @@ $config = [
                 ],
             ],
         ],
+        'formatter' => [
+            'decimalSeparator' => ',',
+            'thousandSeparator' => '.',
+        ],
         'db' => require(__DIR__ . '/db.php'),
         'urlManager' => 
         [

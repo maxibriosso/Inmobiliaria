@@ -47,6 +47,8 @@ $('.search-button').click(function(){
                     [
                         'class' => '\pheme\grid\ToggleColumn',
                         'attribute' => 'estado',
+                        // Uncomment if  you don't want AJAX
+                        // 'enableAjax' => false,
                     ], 
                     [   'attribute'=>'fecha_creacion',
                         'format' =>  ['date', 'php:d-m-Y'],

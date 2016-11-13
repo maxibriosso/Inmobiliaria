@@ -49,8 +49,11 @@ $('.search-button').click(function(){
                     // 'enableAjax' => false,
                 ], 
                 // 'fecha_creacion',
-
-                ['class' => 'yii\grid\ActionColumn'],
+                [
+                    'class' => 'yii\grid\ActionColumn',
+                    'template' => '{update}{delete} ',
+                    'header'=>'Acciones',
+                ],
             ],
             'tableOptions' =>['class' => 'table'],
         ]); ?>

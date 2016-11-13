@@ -113,7 +113,7 @@ var styles = [
   }
 ];
 
-    separador = ";";
+    separador = ",";
     limite    = 2;
     cadena = coord_inm.split(separador, limite);
     var lat = cadena[0];

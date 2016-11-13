@@ -58,7 +58,7 @@ class Inmueble extends \yii\db\ActiveRecord
     {
         return [
             [['id_barrio', 'id_usuario', 'id_propietario', 'amueblado', 'garage', 'jardin', 'parrillero', 'piso', 'prestamo_bancario', 'cantidad_banios', 'cantidad_habitaciones', 'superficie', 'destacado', 'favorito', 'activo'], 'integer'],
-            [['id_usuario', 'activo'], 'required'],
+            [['id_usuario', 'activo','valor','tipo','operacion','descripcion','nombre','titulo','direccion'], 'required'],
             [['valor'], 'number'],
             [['estado', 'descripcion', 'tipo', 'coord', 'operacion'], 'string'],
             [['fecha_creacion'], 'safe'],
@@ -156,5 +156,18 @@ class Inmueble extends \yii\db\ActiveRecord
             ->one();
 
         return $imagen;
+    }
+
+    public function getSubString()
+    {
+        $length = 160;
+        
+        //Primero eliminamos las etiquetas html y luego cortamos el string
+        $stringDisplay = substr(strip_tags($this->descripcion), 0, $length);
+        
+        //Si el texto es mayor que la longitud se agrega puntos suspensivos
+        if (strlen(strip_tags($this->descripcion)) > $length)
+            $stringDisplay .= ' ...';
+        return $stringDisplay;
     }
 }

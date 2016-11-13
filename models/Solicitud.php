@@ -34,7 +34,7 @@ class Solicitud extends \yii\db\ActiveRecord
     {
         return [
             [['descripcion', 'tipo'], 'string'],
-            [['estado'], 'required'],
+            [['nombre', 'telefono','descripcion', 'email', 'tipo','estado'], 'required'],
             [['estado','leida'], 'integer'],
             [['fecha_creacion'], 'safe'],
             [['nombre', 'telefono'], 'string', 'max' => 15],

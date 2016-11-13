@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
+use yii\web\View;
 use yii\bootstrap\ActiveForm;
 use yii\widgets\ListView;
 use app\models\Barrio;
@@ -9,6 +10,7 @@ use yii\widgets\Pjax;
 
 $this->title = 'Alquileres';
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 
 <?php
