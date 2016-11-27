@@ -122,8 +122,9 @@ class RemateController extends Controller
     
                         //Se guarda la imagen en uploads.
                         $file->saveAs('uploads/' . $path);
+                        $this->resize_crop_image(710, 530, 'uploads/'.$path, 'uploads/'.$path);
 
-                        Image::thumbnail( 'uploads/'.$path , 400, 300)->save('uploads/'.$path, ['quality' => 100]);
+                        //Image::thumbnail( 'uploads/'.$path , 400, 300)->save('uploads/'.$path, ['quality' => 100]);
 
                         //Se cargan datos en el modelo.
                         $model2[$a]->id_remate   =  (int)$model->id;
@@ -170,10 +171,9 @@ class RemateController extends Controller
         $arrayPreviewConf = array();
     
         foreach ($imagenes as $image) {
+            $img = Yii::$app->request->baseUrl .'/uploads/'.$image->ruta;
+            $initialPreviewConfig = ['url' => "http://localhost/Inmobiliaria/web/remate/deleteimage", 'key' => $image->id];
 
-            $img = "<img style='height:160px' src='".Yii::$app->request->baseUrl .'/uploads/'.$image->ruta."'>";
-            $initialPreviewConfig = ['caption' => "$image->nombre", 'width' => '120px', 'url' => "http://localhost/Inmobiliaria/web/remate/deleteimage", 'key' => $image->id];
-            
             array_push($array,$img);
             array_push($arrayPreviewConf,$initialPreviewConfig);
            
@@ -185,6 +185,41 @@ class RemateController extends Controller
             $model->ubicacion = Yii::$app->request->bodyParams['markets2'];
             
             if($model->save()) {
+                
+                $img = UploadedFile::getInstances($imagen, 'ruta');
+                if(!empty($img)){
+                    $a = 0;
+                    foreach ($img as $file) {
+                        $a++;
+                        $model2[$a] = new Imagen_remate();
+                        if($a == 1){
+                            $model2[$a]->destacada     = 1;
+                        }
+                        else{
+                            $model2[$a]->destacada     = 0;
+                        }
+                        $ext = end((explode(".", $file->name)));
+
+                        // generate a unique file name
+                        $path = 'remate'.Yii::$app->security->generateRandomString().".{$ext}";
+    
+                        //Se guarda la imagen en uploads.
+                        $file->saveAs('uploads/' . $path);
+                        $this->resize_crop_image(710, 530, 'uploads/'.$path, 'uploads/'.$path);
+                        //Image::thumbnail( 'uploads/'.$path , 400, 300)->save('uploads/'.$path, ['quality' => 100]);
+
+                        //Se cargan datos en el modelo.
+                        $model2[$a]->id_remate   =  (int)$model->id;
+                        $model2[$a]->ruta        =  $path;
+                        $model2[$a]->nombre      =  $file->name;
+                        $model2[$a]->estado      =  1;
+            
+                        $model2[$a]->save(false);
+                    }
+
+                }
+
+
                 return $this->redirect(['index']);
             }
         } else {
@@ -250,4 +285,60 @@ class RemateController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    //resize and crop image by center
+    protected function resize_crop_image($max_width, $max_height, $source_file, $dst_dir, $quality = 80)
+    {
+        $imgsize = getimagesize($source_file);
+        $width = $imgsize[0];
+        $height = $imgsize[1];
+        $mime = $imgsize['mime'];
+     
+        switch($mime){
+            case 'image/gif':
+                $image_create = "imagecreatefromgif";
+                $image = "imagegif";
+                break;
+     
+            case 'image/png':
+                $image_create = "imagecreatefrompng";
+                $image = "imagepng";
+                $quality = 7;
+                break;
+     
+            case 'image/jpeg':
+                $image_create = "imagecreatefromjpeg";
+                $image = "imagejpeg";
+                $quality = 80;
+                break;
+     
+            default:
+                return false;
+                break;
+        }
+         
+        $dst_img = imagecreatetruecolor($max_width, $max_height);
+        $src_img = $image_create($source_file);
+         
+        $width_new = $height * $max_width / $max_height;
+        $height_new = $width * $max_height / $max_width;
+        //if the new width is greater than the actual width of the image, then the height is too large and the rest cut off, or vice versa
+        if($width_new > $width){
+            //cut point by height
+            $h_point = (($height - $height_new) / 2);
+            //copy image
+            imagecopyresampled($dst_img, $src_img, 0, 0, 0, $h_point, $max_width, $max_height, $width, $height_new);
+        }else{
+            //cut point by width
+            $w_point = (($width - $width_new) / 2);
+            imagecopyresampled($dst_img, $src_img, 0, 0, $w_point, 0, $max_width, $max_height, $width_new, $height);
+        }
+         
+        $image($dst_img, $dst_dir, $quality);
+     
+        if($dst_img)imagedestroy($dst_img);
+        if($src_img)imagedestroy($src_img);
+    }
+
+
 }

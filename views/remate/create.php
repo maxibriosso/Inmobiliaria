@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $title2;
             'model' => $model,
             'imagen'=> $imagen,
             'imagenes' => $imagenes,
-        	'previewconf' => $previewconf,
+        	  'previewconf' => $previewconf,
         ]) ?>
       </div>
 </div>

@@ -22,6 +22,7 @@ use kartik\file\FileInput;
     'attribute' => 'imagen[]',
     'name' => 'imagen[]',
     'options' => ['accept' => 'image/*' , 'multiple'=>true, 'id'=>'img2'],
+    'resizeImages' => true,
     'pluginOptions' => [
         'uploadUrl' => Url::to(['inmueble/updateimage','id'=>$id]),
         'showUpload'=> true,
@@ -37,6 +38,9 @@ use kartik\file\FileInput;
         'browseLabel' =>  'Imagen',
         'layoutTemplates' => [
             'footer' => '<div class="checkbox "><label class="control-label" for="img2"><input class="kv-check{TAG_VALUE}" type="checkbox" value="{TAG_VALUE}">Favorito</label></div>{actions}',
+            ],
+        'fileActionSettings' => [
+            'showUpload' => false,
             ],
         'uploadExtraData' => new \yii\web\JsExpression("function (previewId, index) {
                         var j = 1;

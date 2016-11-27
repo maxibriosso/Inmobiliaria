@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Barrio;
+use yii\helpers\Url;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Remate */
@@ -35,7 +37,21 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaRem.js');
         </div>
         <div class="col-md-12">
 
-        <?= $form->field($imagen, 'ruta[]')->fileInput(['multiple' => true, 'accept' => 'image/*','id'=>'imgRemate']) ?>
+        <?= $form->field($imagen, 'ruta[]')->widget(FileInput::classname(), [
+            'options' => ['accept' => 'image/*' , 'multiple'=>true, 'id'=>'imgRemate'],
+            'pluginOptions' => [
+            'showUpload'=> false,
+            'uploadAsync'=> false,
+            'maxFileCount'=> 5,
+            'initialPreview'=>$imagenes,
+            'initialPreviewConfig'=>$previewconf,
+            'initialPreviewAsData'=>true,
+            'overwriteInitial'=> false,
+            'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
+            'browseLabel' =>  'Imagen'
+            ]
+        ]);?>
+
 
         </div>
         <div class="col-md-12 form-group">
@@ -48,7 +64,4 @@ $this->registerJsFile($baseUrl.'/js/localizacionMapaRem.js');
 
 <script type="text/javascript">
 var coord = <?php echo json_encode($model->ubicacion); ?>; 
-var imagenes = <?php echo json_encode($imagenes); ?>;
-var conf = <?php echo json_encode($previewconf); ?>;
-
 </script>

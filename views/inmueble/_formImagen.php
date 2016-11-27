@@ -26,6 +26,7 @@ use kartik\file\FileInput;
         'uploadUrl' => Url::to(['inmueble/imagen','id'=>$id]),
         'showUpload'=> true,
         'uploadAsync'=> false,
+        'dropZoneEnabled'=> false,
         'maxFileCount'=> 5,
         'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
         'browseLabel' =>  'Imagen',
@@ -58,4 +59,4 @@ $this->registerJs("
         $('#formImg input:checkbox').not(this).prop('checked', false);  
     });
 
-");
+");?>
