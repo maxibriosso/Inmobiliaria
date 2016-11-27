@@ -190,6 +190,60 @@
 
 @media screen and (max-width: 767px) {
 
+  #frontend .slider-xs {
+    position: relative;
+    background-color: transparent;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: url(../img/estacion.jpg);
+    position: relative;
+    height: 400px;
+    width: 100%;
+  }
+
+  #frontend .slider-xs .inmo-intro {
+    display: table;
+    width: 100%;
+    z-index: 3;
+    margin-top: 20px;
+    position: relative;
+    height: 400px;
+  }
+
+  #frontend .slider-xs .inmo-intro > div {
+    vertical-align: middle;
+    display: table-cell;
+  }
+
+  #frontend .slider-xs .inmo-intro > div .inmo-center-position {
+    width: 65%;
+    margin: 0 auto;
+    text-align: center; 
+  }
+
+  #frontend .slider-xs .inmo-intro > div h2 {
+    font-family: 'Montserrat';
+    font-size: 40px;
+    line-height: 47px;
+    font-weight: 100;
+    color: white;
+  }
+  #frontend .slider-xs .inmo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #27da93;
+    opacity: .74;
+    z-index: 3;
+  }
+  #frontend .slider-xs .inmo-intro > div p {
+    font-family: 'Montserrat';
+    color: white;
+  }
+
   #frontend  .logo-index img{
     width: 190px !important;
   }

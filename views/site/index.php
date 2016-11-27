@@ -10,7 +10,7 @@ use yii\bootstrap\Modal;
 $this->title = 'My Yii Application';
 if(Yii::$app->user->isGuest){ 
 ?>
-    <section class="contenido-principal-index">
+    <section class="contenido-principal-index hidden-xs">
       <section id="content_top">
         <!-- STart sequence Slider  -->
         <div id="sequence">
@@ -28,7 +28,7 @@ if(Yii::$app->user->isGuest){
                       <p><?php echo $p->descripcion ?></p>
                     </div>
                     <?php if(!is_null($p->ruta_img)): ?>
-                      <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$p->ruta_img?>" class="img_sllider" alt="preview">
+                      <img src="<?= Yii::$app->request->baseUrl . '/uploads/'.$p->ruta_img?>" class="img_sllider hidden-xs" alt="preview">
                     <?php endif; ?>
                   </div>
                 </div>
@@ -38,9 +38,25 @@ if(Yii::$app->user->isGuest){
 
           </ul>
         </div><!-- End sequence Slider  -->
-      </section><!-- End section content page -->
         
-
+      </section><!-- End section content page -->
+    </section>
+    
+    <section class="slider-xs hidden-sm hidden-md hidden-lg">
+        <div class="inmo-overlay"></div>
+        <div class="container">
+            <div class="inmo-intro">
+                <div class="inmo-intro-text">
+                    <div class="inmo-center-position">
+                        <h2>Titulo</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     
     <!-- BUSCADOR -->
